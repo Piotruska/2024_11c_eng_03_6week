@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 184641803514750777}
   - component: {fileID: 5878855136389765384}
   m_Layer: 0
-  m_Name: Island Palette
+  m_Name: Island Ground Palette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

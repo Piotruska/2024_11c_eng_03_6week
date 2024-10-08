@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4772434706172569539}
   - component: {fileID: 6168929498133590313}
   - component: {fileID: 3372954297246173557}
-  - component: {fileID: 4383033109242949865}
+  - component: {fileID: 6363124610327016026}
   m_Layer: 0
   m_Name: Tilemap - Ground
   m_TagString: Untagged
@@ -285,7 +285,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!19719996 &4383033109242949865
+--- !u!19719996 &6363124610327016026
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

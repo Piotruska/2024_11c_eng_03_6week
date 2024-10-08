@@ -15,11 +15,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         _xInput = Input.GetAxis("Horizontal");
+        
     }
     
     void FixedUpdate()
     {
         // Fix config
-        _rb.velocity = new Vector2(_xInput * 5, _rb.velocity.y);
+        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private Vector2 _startPosition;
+    private Vector2 _checkPointposition;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
     [SerializeField]private float _respawnDuration = 0.5f;
@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        _startPosition = transform.position;
+        _checkPointposition = transform.position;
         
     }
 
@@ -31,6 +31,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void UpdateCheckpointPosition(Vector2 position)
+    {
+        _checkPointposition = position;
+    }
+
     private void Die()
     {
         StartCoroutine(Respawn(0.5f));
@@ -40,7 +45,7 @@ public class GameController : MonoBehaviour
     {
         _spriteRenderer.enabled = false;
         yield return new WaitForSeconds(duration);
-        transform.position = _startPosition;
+        transform.position = _checkPointposition;
         _rigidbody2D.velocity = new Vector2(0, 0);
         _spriteRenderer.enabled = true;
     }

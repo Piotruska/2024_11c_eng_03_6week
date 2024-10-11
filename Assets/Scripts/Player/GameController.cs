@@ -38,14 +38,16 @@ public class GameController : MonoBehaviour
 
     private void Die()
     {
-        StartCoroutine(Respawn(0.5f));
+        StartCoroutine(Respawn(_respawnDuration));
     }
 
     private IEnumerator Respawn(float duration)
     {
         _spriteRenderer.enabled = false;
+        _rigidbody2D.bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(duration);
         transform.position = _checkPointposition;
+        _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         _rigidbody2D.velocity = new Vector2(0, 0);
         _spriteRenderer.enabled = true;
     }

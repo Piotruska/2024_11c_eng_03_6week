@@ -8,8 +8,8 @@ public class PllayerJump : MonoBehaviour
    private bool perform_jump ;
    private bool isGrounded;
    private int jumpCount=0;
-   [SerializeField]private float _jump_force;
-   [SerializeField] private int maxJumpCount = 2;
+   [SerializeField] private PlayerConfig _config;
+   
 
    private void Awake()
    {
@@ -17,7 +17,7 @@ public class PllayerJump : MonoBehaviour
    }
 
    private void Update() {
-       if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < maxJumpCount))
+       if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < _config.maxJumpCount))
         {
             perform_jump = true;
         }
@@ -29,7 +29,7 @@ public class PllayerJump : MonoBehaviour
         {
               jumpCount ++;
                 perform_jump = false;
-                rb.AddForce(new Vector2(0, _jump_force), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(0, _config.jumpForce), ForceMode2D.Impulse);
             if (jumpCount >=1) { isGrounded = false; }
         }
     }

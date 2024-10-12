@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 442433713109090170}
   - component: {fileID: 8467089164338120676}
   - component: {fileID: 2439235151480884121}
+  - component: {fileID: 1748959182031266832}
+  - component: {fileID: 6575799206037046804}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +163,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db31fa7b5325b948ab7c0e187e95c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
+--- !u!114 &1748959182031266832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243117496495063907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a0f721b7df8234687e9c3d105367b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawnDuration: 0.5
+--- !u!114 &6575799206037046804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243117496495063907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e30bb1e9ad832d41aef66d80dd7ea9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jump_force: 5
+  maxJumpCount: 2

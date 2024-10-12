@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     private Vector2 _checkPointposition;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
-    [SerializeField]private float _respawnDuration = 0.5f;
+    [SerializeField] private CheckPointConfig _checkPointConfig;
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
 
     private void Die()
     {
-        StartCoroutine(Respawn(_respawnDuration));
+        StartCoroutine(Respawn(_checkPointConfig._respawnDuration));
     }
 
     private IEnumerator Respawn(float duration)

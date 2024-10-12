@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a0f721b7df8234687e9c3d105367b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _respawnDuration: 0.5
+  _checkPointConfig: {fileID: 11400000, guid: d806eda7c838deb43922ae36d42a2ab3, type: 2}
 --- !u!114 &6575799206037046804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,5 +189,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e30bb1e9ad832d41aef66d80dd7ea9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump_force: 5
-  maxJumpCount: 2
+  _config: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}

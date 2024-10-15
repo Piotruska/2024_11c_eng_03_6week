@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player config
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  jumpForce: 10
+  jumpForce: 6
   extraJumpCount: 1

@@ -51,6 +51,11 @@ public class PlayerController : MonoBehaviour
             _jumpbool = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _animator.Attack();
+        }
+
     }
 
     void FixedUpdate()

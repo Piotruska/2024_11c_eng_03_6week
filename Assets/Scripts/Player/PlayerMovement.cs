@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private PlayerAnimator _animator;
+    private IPlayerAnimator _animator;
     private float _xInput;
     private bool _perform_jump;
     private bool _isGrounded;

@@ -1,6 +1,6 @@
 namespace Player
 {
-    public interface PlayerAnimator
+    public interface IPlayerAnimator
     {
         public void Jump();
         public void Hit();

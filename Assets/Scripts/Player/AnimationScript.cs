@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
-public class AnimationScript : MonoBehaviour , PlayerAnimator
+public class AnimationScript : MonoBehaviour , IPlayerAnimator
 {
     private Rigidbody2D _rb;
     private PlayerMovement _playerMovement;

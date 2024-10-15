@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 243117496495063907, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2400821519939776985, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0121
@@ -190,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 2041472982896684725, guid: 2f508b1adbdfdb648a23c2bd90f23077, type: 3}
       propertyPath: m_Name
       value: Level Build Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459815881200390243, guid: 2f508b1adbdfdb648a23c2bd90f23077, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4993160426746961861, guid: 2f508b1adbdfdb648a23c2bd90f23077, type: 3}
       propertyPath: m_LocalPosition.x

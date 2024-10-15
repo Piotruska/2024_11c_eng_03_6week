@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Collectibles
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Collider2D))]
     public abstract class Collectible : MonoBehaviour
     {
         protected abstract void Collect();

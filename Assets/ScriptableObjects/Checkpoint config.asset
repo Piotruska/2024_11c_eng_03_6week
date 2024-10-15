@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db4072b3a59fb0458628e7a167307b1, type: 3}
   m_Name: Checkpoint config
   m_EditorClassIdentifier: 
-  _respawnDuration: 0.5
+  _respawnDuration: 1

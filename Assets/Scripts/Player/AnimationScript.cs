@@ -19,6 +19,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _respawnTrigger = "Respawn";
     private string _runningBool = "isRunning";
     private string _isGroundedBool = "IsGrounded";
+    
     private string _withSwordLayerName = "With Sword";
     
     private int _withSwordLayerIndex;

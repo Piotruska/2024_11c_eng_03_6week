@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _checkPointposition = transform.position;
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -51,5 +50,4 @@ public class GameController : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(0, 0);
         _spriteRenderer.enabled = true;
     }
-    
 }

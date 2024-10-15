@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private IPlayerAnimator _animator;
@@ -18,10 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _checkRadious;
     [SerializeField] private LayerMask _whatIsGround;
 
-    public bool Jumpbool
-    { 
-        get => _jumpbool;
-    }
+
 
     public bool IsGrounded
     {

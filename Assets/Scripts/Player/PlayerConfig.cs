@@ -7,5 +7,5 @@ public class PlayerConfig : ScriptableObject
 {
     public float movementSpeed = 10f;
     public float jumpForce = 2.0f;
-    public int maxJumpCount = 2;
+    public int extraJumpCount = 1;
 }

@@ -2,47 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PllayerJump : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
-    private Rigidbody2D rb;
-   private bool perform_jump ;
-   private bool isGrounded;
-   private int jumpCount=0;
+    private Rigidbody2D _rb;
+   private bool _perform_jump ;
+   private bool _isGrounded;
+   private int _jumpCount=0;
    [SerializeField] private PlayerConfig _config;
+   [SerializeField] private Transform _groundCheck;
+   [SerializeField] private float _checkRadious;
+   [SerializeField] private LayerMask _whatIsGround; 
    
 
    private void Awake()
    {
-       rb = GetComponent<Rigidbody2D>();
+       _rb = GetComponent<Rigidbody2D>();
    }
 
    private void Update() {
-       if (Input.GetButtonDown("Jump") && (isGrounded || jumpCount < _config.maxJumpCount))
+       if (Input.GetButtonDown("Jump") && (_isGrounded || _jumpCount < _config.extraJumpCount))
         {
-            perform_jump = true;
+            _perform_jump = true;
         }
+       
+       if (_isGrounded)
+       {
+           _jumpCount = 0;
+       }
     }
 
    private void FixedUpdate()
     {
-        if (perform_jump)
+        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _checkRadious, _whatIsGround);
+        if (_perform_jump)
         {
-              jumpCount ++;
-                perform_jump = false;
-                rb.AddForce(new Vector2(0, _config.jumpForce), ForceMode2D.Impulse);
-            if (jumpCount >=1) { isGrounded = false; }
+            _jumpCount ++;
+            _perform_jump = false;
+            _rb.AddForce(new Vector2(0, _config.jumpForce), ForceMode2D.Impulse);
         }
     }
-
-     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        isGrounded = true;
-        jumpCount = 0;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        
-    }
-
 }

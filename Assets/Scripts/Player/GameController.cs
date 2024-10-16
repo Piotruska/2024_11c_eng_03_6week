@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
     private IPlayerAnimator _animator;
+    [Header("Configurations")]
     [SerializeField] private CheckPointConfig _checkPointConfig;
 
     private void Awake()

@@ -2,6 +2,9 @@ namespace Player
 {
     public interface IPlayerAnimator
     {
+        public void FacingCheck();
+        public void Idle();
+        public void Walk();
         public void Jump();
         public void Hit();
         public void Death();

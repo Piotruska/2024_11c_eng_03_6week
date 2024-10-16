@@ -40,30 +40,14 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     void Update()
     {
         _xInput = Input.GetAxis("Horizontal");
-
-        if (_xInput > 0.1f || _xInput < -0.1f)
-        {
-            _animator.SetBool(_runningBool, true);
-        }
-        else
-        {
-            _animator.SetBool(_runningBool, false);
-        }
-        
         _animator.SetBool(_isGroundedBool, _playerController.IsGrounded);
     }
 
     private void FixedUpdate()
     {
-        if (_facingRight == false && _xInput > 0)
-        {
-            Flip();
-        }
-        else if (_facingRight == true && _xInput < 0)
-        {
-            Flip();
-        }
+        
     }
+    
     
     public void HasSword(bool hasSword)
     {
@@ -77,6 +61,18 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         }
         _sword = hasSword;
     }
+
+    public void FacingCheck()
+    {
+        if (_facingRight == false && _xInput > 0)
+        {
+            Flip();
+        }
+        else if (_facingRight == true && _xInput < 0)
+        {
+            Flip();
+        }
+    }
     
     private void Flip()
     {
@@ -84,6 +80,16 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+    
+    public void Idle()
+    {
+        _animator.SetBool(_runningBool, false);
+    }
+
+    public void Walk()
+    {
+        _animator.SetBool(_runningBool, true);
     }
 
     public void Jump()

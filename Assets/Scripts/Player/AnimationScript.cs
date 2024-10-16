@@ -18,6 +18,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _throwTrigger = "Throw";
     private string _respawnTrigger = "Respawn";
     private string _runningBool = "isRunning";
+    private string _dashBool = "Dash";
     private string _isGroundedBool = "IsGrounded";
     
     private string _withSwordLayerName = "With Sword";
@@ -34,18 +35,12 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
         _withSwordLayerIndex = _animator.GetLayerIndex(_withSwordLayerName);
-        HasSword(true);
     }
 
     void Update()
     {
         _xInput = Input.GetAxis("Horizontal");
         _animator.SetBool(_isGroundedBool, _playerController.IsGrounded);
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
     
     
@@ -85,6 +80,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     public void Idle()
     {
         _animator.SetBool(_runningBool, false);
+        _animator.SetBool(_dashBool, false);
     }
 
     public void Walk()
@@ -96,7 +92,12 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     {
         _animator.SetTrigger(_jumpTrigger);
     }
-    
+
+    public void DashOn()
+    {
+        _animator.SetBool(_dashBool, true);
+    }
+
     public void Hit()
     {
         _animator.SetTrigger(_hitTrigger);

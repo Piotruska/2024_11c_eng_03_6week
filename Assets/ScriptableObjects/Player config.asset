@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player config
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  jumpForce: 5
+  jumpForce: 5.5
   extraJumpCount: 1
   dashSpeed: 5
   dashDuration: 0.2

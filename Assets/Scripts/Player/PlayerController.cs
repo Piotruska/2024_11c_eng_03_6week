@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        _animator.Idle();
+        _animator.DashOn();
         _isDashing = true;
         _canDash = false;
         float originalGravity = _rb.gravityScale;
@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2((transform.localScale.x * _config.dashSpeed)+originalVelocity.x, 0f);
         yield return new WaitForSeconds(_config.dashDuration);
+        _animator.Idle();
         _rb.gravityScale = originalGravity;
         _rb.velocity = originalVelocity;
         _isDashing = false;

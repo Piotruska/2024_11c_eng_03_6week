@@ -6,6 +6,7 @@ namespace Player
         public void Idle();
         public void Walk();
         public void Jump();
+        public void DashOn();
         public void Hit();
         public void Death();
         public void HasSword(bool hasSword);

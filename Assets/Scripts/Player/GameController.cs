@@ -5,7 +5,7 @@ using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour , IAttackable
 {
     private Vector2 _checkPointposition;
     private SpriteRenderer _spriteRenderer;
@@ -37,6 +37,11 @@ public class GameController : MonoBehaviour
     public void UpdateCheckpointPosition(Vector2 position)
     {
         _checkPointposition = position;
+    }
+
+    public void Hit()
+    {
+        throw new NotImplementedException();
     }
 
     private void Die()

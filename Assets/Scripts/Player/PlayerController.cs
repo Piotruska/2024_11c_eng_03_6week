@@ -15,18 +15,18 @@ public class PlayerController : MonoBehaviour
     
     private bool _perform_jump;
     private bool _isGrounded;
-    private int extraJumpsValue;
+    private int _extraJumpsValue;
     private bool _jumpbool = false;
     private bool _isDashing = false;
     private bool _canDash = true;
     private bool _facingRight = false;
     
 
-    [Header("Configurations")] [SerializeField]
-    private PlayerConfig _config;
+    [Header("Configurations")] 
+    [SerializeField] private PlayerConfig _config;
 
-    [Header("Ground Check")] [SerializeField]
-    private Transform _groundCheck;
+    [Header("Ground Check")] 
+    [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _checkRadious;
     [SerializeField] private LayerMask _whatIsGround;
 
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<AnimationScript>();
-        extraJumpsValue = _config.extraJumpCount;
+        _extraJumpsValue = _config.extraJumpCount;
     }
 
     void Update()
@@ -53,15 +53,15 @@ public class PlayerController : MonoBehaviour
         _dashInput = Input.GetButton("Dash");
         _meleeAttackInput = Input.GetButtonDown("Melee Attack");
 
-        if (_isGrounded) extraJumpsValue = _config.extraJumpCount;
+        if (_isGrounded) _extraJumpsValue = _config.extraJumpCount;
         
 
-        if (_jumpInput && extraJumpsValue > 0)
+        if (_jumpInput && _extraJumpsValue > 0)
         {
             _jumpbool = true;
-            extraJumpsValue--;
+            _extraJumpsValue--;
         }
-        else if (_jumpInput && extraJumpsValue == 0 && _isGrounded)
+        else if (_jumpInput && _extraJumpsValue == 0 && _isGrounded)
         {
             _jumpbool = true;
         }

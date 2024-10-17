@@ -19,10 +19,7 @@ public class WoodSpikeController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            Destroy(other.gameObject);
-        }
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()

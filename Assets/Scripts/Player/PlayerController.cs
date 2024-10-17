@@ -65,17 +65,24 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _checkRadious, _whatIsGround);
+        CheckIfGrounded();
         if(_isDashing) return;
-        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
         _animator.FacingCheck();
         if (_xInput != 0) Walk(); else Idle();
         if (_jumpbool) Jump();
     }
 
+    private void CheckIfGrounded()
+    {
+        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _checkRadious, _whatIsGround);
+ 
+    }
+
     private void Walk()
     {
         _animator.Walk();
+        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
+
     }
 
     private void Idle()

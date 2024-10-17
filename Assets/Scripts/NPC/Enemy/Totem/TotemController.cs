@@ -25,6 +25,7 @@ namespace NPC.Enemy.Totem
             while (true)
             {
                 _totemAnimationController.Shoot();
+                yield return new WaitForSeconds((float)0.12);
                 Instantiate(_WoodSpike_Projectile, transform.position, transform.rotation);
                 yield return new WaitForSeconds(_cooldown);
             }

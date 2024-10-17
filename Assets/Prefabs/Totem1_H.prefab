@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 265337833770377759}
   - component: {fileID: 1865569690001144785}
   - component: {fileID: 4810515621848558117}
+  - component: {fileID: 171971815365600553}
   - component: {fileID: 4946948097513940408}
   m_Layer: 9
   m_Name: Totem1_H
@@ -107,6 +108,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &171971815365600553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091047487165016945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7de09796e4c574a873bce2afc19f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4946948097513940408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7d692b82c3dcb43b4e12011a264e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   _WoodSpike_Projectile: {fileID: 8044784573881409057, guid: e40759a13c91e88489cab98324520cde, type: 3}
   _cooldown: 2

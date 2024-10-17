@@ -39,7 +39,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
 
     void Update()
     {
-        _xInput = Input.GetAxis("Horizontal");
+        _xInput = Input.GetAxis("Horizontal Movement");
         _animator.SetBool(_isGroundedBool, _playerController.IsGrounded);
     }
     

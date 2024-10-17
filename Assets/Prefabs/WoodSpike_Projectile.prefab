@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 170336999032515651}
   - component: {fileID: 7502190035972208242}
   - component: {fileID: -2280716781248255069}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WoodSpike_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

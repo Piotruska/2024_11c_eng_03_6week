@@ -1,24 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
+using NPC.Enemy.Interfaces;
 using UnityEngine;
 
-public class TotemController : MonoBehaviour
+namespace NPC.Enemy.Totem
 {
-    public Animator animator;
-    [SerializeField] private GameObject _WoodSpike_Projectile;
-    [SerializeField] private float _cooldown = 2;
-    
-    private void Start()
+    public class TotemController : MonoBehaviour
     {
-        StartCoroutine(SpawnCoroutine());
-    }
-
-    private IEnumerator SpawnCoroutine()
-    {
-        while (true)
+        private ITotemAnimation _totemAnimationController;
+        [SerializeField] private GameObject _WoodSpike_Projectile;
+        [SerializeField] private float _cooldown = 2;
+        
+        void Awake()
         {
-            Instantiate(_WoodSpike_Projectile, transform.position, transform.rotation);
-            yield return new WaitForSeconds(_cooldown);
+            _totemAnimationController = GetComponent<TotemAnimationController>();
+        }
+
+        private void Start()
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+
+        private IEnumerator SpawnCoroutine()
+        {
+            while (true)
+            {
+                _totemAnimationController.Shoot();
+                Instantiate(_WoodSpike_Projectile, transform.position, transform.rotation);
+                yield return new WaitForSeconds(_cooldown);
+            }
         }
     }
 }

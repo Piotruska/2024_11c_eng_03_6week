@@ -7,16 +7,23 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private IPlayerAnimator _animator;
+    
     private float _xInput;
+    private bool _jumpInput;
+    private bool _dashInput;
+    private bool _meleeAttackInput;
+    
+    private bool _perform_jump;
     private bool _isGrounded;
-    private int _extraJumpsValue;
-    private KeyCode _jumpKeyCode = KeyCode.UpArrow;
+    private int extraJumpsValue;
     private bool _jumpbool = false;
     private bool _isDashing = false;
     private bool _canDash = true;
+    private bool _facingRight = false;
+    
 
-    [Header("Configurations")] 
-    [SerializeField] private PlayerConfig _config;
+    [Header("Configurations")] [SerializeField]
+    private PlayerConfig _config;
 
     [Header("Ground Check")] [SerializeField]
     private Transform _groundCheck;
@@ -34,31 +41,33 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<AnimationScript>();
-        _extraJumpsValue = _config.extraJumpCount;
+        extraJumpsValue = _config.extraJumpCount;
     }
 
     void Update()
     {
         if(_isDashing) return;
         
-        _xInput = Input.GetAxis("Horizontal");
+        _xInput = Input.GetAxis("Horizontal Movement");
+        _jumpInput = Input.GetButtonDown("Jump");
+        _dashInput = Input.GetButton("Dash");
+        _meleeAttackInput = Input.GetButtonDown("Melee Attack");
 
-
-        if (_isGrounded) _extraJumpsValue = _config.extraJumpCount;
+        if (_isGrounded) extraJumpsValue = _config.extraJumpCount;
         
 
-        if (Input.GetKeyDown(_jumpKeyCode) && _extraJumpsValue > 0)
+        if (_jumpInput && extraJumpsValue > 0)
         {
             _jumpbool = true;
-            _extraJumpsValue--;
+            extraJumpsValue--;
         }
-        else if (Input.GetKeyDown(_jumpKeyCode) && _extraJumpsValue == 0 && _isGrounded)
+        else if (_jumpInput && extraJumpsValue == 0 && _isGrounded)
         {
             _jumpbool = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) _animator.Attack();
-        if (Input.GetKeyDown(KeyCode.M) && _canDash) StartCoroutine(Dash());
+        if (_meleeAttackInput) _animator.Attack();
+        if (_dashInput && _canDash) StartCoroutine(Dash());
 
     }
 
@@ -67,7 +76,6 @@ public class PlayerController : MonoBehaviour
         CheckIfGrounded();
         if(_isDashing) return;
         _animator.FacingCheck();
-        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();
         if (_jumpbool) Jump();
     }
@@ -81,6 +89,7 @@ public class PlayerController : MonoBehaviour
     private void Walk()
     {
         _animator.Walk();
+        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
 
     }
 

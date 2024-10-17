@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private IPlayerAnimator _animator;
+    private ICanAttack _canAttack;
     
     private float _xInput;
     private bool _jumpInput;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _checkRadious;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private LayerMask _whatIsEnemy;
 
 
 
@@ -41,7 +43,9 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<AnimationScript>();
+        _canAttack = GetComponent<AttackMechanic>();
         _extraJumpsValue = _config.extraJumpCount;
+        
     }
 
     void Update()
@@ -66,7 +70,7 @@ public class PlayerController : MonoBehaviour
             _jumpbool = true;
         }
 
-        if (_meleeAttackInput) _animator.Attack();
+        if (_meleeAttackInput) Attack();
         if (_dashInput && _canDash) StartCoroutine(Dash());
 
     }
@@ -83,24 +87,27 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfGrounded()
     {
-        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _checkRadious, _whatIsGround);
+        Vector2 groundCheck = _groundCheck.position;
+        _isGrounded = (Physics2D.OverlapCircle(groundCheck, _checkRadious, _whatIsGround)||
+                       Physics2D.OverlapCircle(groundCheck, _checkRadious, _whatIsEnemy));
+        
  
     }
 
     private void Walk()
     {
-        _animator.Walk();
+        _animator.WalkAnimation();
 
     }
 
     private void Idle()
     {
-        _animator.Idle();
+        _animator.IdleAnimation();
     }
 
     private void Jump()
     {
-        _animator.Jump();
+        _animator.JumpAnimation();
         _rb.velocity = Vector2.up * _config.jumpForce;
         _jumpbool = false;
     }
@@ -115,13 +122,19 @@ public class PlayerController : MonoBehaviour
         _rb.gravityScale = 0f;
         _rb.velocity = new Vector2((transform.localScale.x * _config.dashSpeed)+originalVelocity.x, 0f);
         yield return new WaitForSeconds(_config.dashDuration);
-        _animator.Idle();
+        _animator.IdleAnimation();
         _rb.gravityScale = originalGravity;
         _rb.velocity = originalVelocity;
         _isDashing = false;
         yield return new WaitForSeconds(_config.dashCooldown);
         _canDash = true;
         
+    }
+
+    private void Attack()
+    {
+        _animator.AttackAnimation();
+        _canAttack.AttackEnemies();
     }
 
 }

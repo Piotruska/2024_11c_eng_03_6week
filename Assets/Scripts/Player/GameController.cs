@@ -5,7 +5,7 @@ using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameController : MonoBehaviour , IAttackable
+public class GameController : MonoBehaviour , IDamageable
 {
     private Vector2 _checkPointposition;
     private SpriteRenderer _spriteRenderer;
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour , IAttackable
         _checkPointposition = position;
     }
 
-    public void Hit()
+    public void Hit(float damageAmount)
     {
         throw new NotImplementedException();
     }
@@ -52,11 +52,11 @@ public class GameController : MonoBehaviour , IAttackable
     private IEnumerator Respawn(float duration)
     {
         
-        _animator.Death();
+        _animator.DeathAnimation();
         _rigidbody2D.bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(duration);
         _spriteRenderer.enabled = false;
-        _animator.Respawn();
+        _animator.RespawnAnimation();
         _spriteRenderer.enabled = true;
         transform.position = _checkPointposition;
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;

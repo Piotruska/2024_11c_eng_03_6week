@@ -77,18 +77,18 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         transform.localScale = scaler;
     }
     
-    public void Idle()
+    public void IdleAnimation()
     {
         _animator.SetBool(_runningBool, false);
         _animator.SetBool(_dashBool, false);
     }
 
-    public void Walk()
+    public void WalkAnimation()
     {
         _animator.SetBool(_runningBool, true);
     }
 
-    public void Jump()
+    public void JumpAnimation()
     {
         _animator.SetTrigger(_jumpTrigger);
     }
@@ -98,28 +98,28 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         _animator.SetBool(_dashBool, true);
     }
 
-    public void Hit()
+    public void HitAnimation()
     {
         _animator.SetTrigger(_hitTrigger);
     }
     
-    public void Death()
+    public void DeathAnimation()
     {
         _animator.SetLayerWeight(_withSwordLayerIndex,0);
         _animator.SetTrigger(_deathTrigger);
     }
 
-    public void Attack()
+    public void AttackAnimation()
     {
         _animator.SetTrigger(_attackTrigger);
     }
 
-    public void ThrowSword()
+    public void ThrowSwordAnimation()
     {
         _animator.SetTrigger(_throwTrigger);
     }
 
-    public void Respawn()
+    public void RespawnAnimation()
     {
         if (_sword)
         {

@@ -1,7 +1,10 @@
+using System.Collections;
+
 namespace Player
 {
     public interface ICanAttack
     {
-        public void Attack();
+        public void AttackEnemies();
+
     }
 }

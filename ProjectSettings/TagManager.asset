@@ -12,11 +12,11 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Ground
+  - 
   - Player
   - Collectible
   - Enemy
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -39,18 +39,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BackGround
-    uniqueID: 3460569859
-    locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: Ground
-    uniqueID: 3480771253
+  - name: ForeGround
+    uniqueID: 3808322537
     locked: 0
   - name: Player
     uniqueID: 1603692327
     locked: 0
-  - name: ForeGround
-    uniqueID: 3808322537
+  - name: Enemy
+    uniqueID: 4279487809
+    locked: 0
+  - name: Projectile
+    uniqueID: 188800405
+    locked: 0
+  - name: Ground
+    uniqueID: 3480771253
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 3460569859
     locked: 0

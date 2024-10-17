@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool _isDashing = false;
     private bool _canDash = true;
     private bool _facingRight = false;
+    [SerializeField] private bool _hasSword = false;
     
 
     [Header("Configurations")] 
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
             _jumpbool = true;
         }
 
-        if (_meleeAttackInput) Attack();
+        if (_meleeAttackInput && _hasSword) Attack();
         if (_dashInput && _canDash) StartCoroutine(Dash());
 
     }

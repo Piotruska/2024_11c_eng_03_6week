@@ -8,21 +8,36 @@ using UnityEngine;
 
 public class AttackMechanic : MonoBehaviour, ICanAttack
 {
-    [SerializeField] private GameObject _attackPoint;
-    [SerializeField] private float _radiusOfAttack;
+    [Header("Ground Attack Config")] 
+    [SerializeField] private GameObject _groundAttackPoint;
+    [SerializeField] private float _radiusOfGroundAttack;
+    [Header("Air Attack Config")] 
+    [SerializeField] private GameObject _airAttackPoint;
+    [SerializeField] private float _radiusOfAirAttack;
+    [Header("Enemy Identification")] 
     [SerializeField] public LayerMask _enemies;
+    [Header("Values")] 
     [SerializeField] public float _dammageAmount = 1 ;
-    [SerializeField] public float _knockbackForce = 2 ;
+    [SerializeField] public float _knockbackStrength = 2 ;
+    [SerializeField] public float _upwardKnockbackStrength = 2 ;
 
-    public bool shouldBeDamaging { get; private set; } = false;
-
-
-    public void AttackEnemies()
+    public void GroundAttackEnemies()
     {
-        shouldBeDamaging = true; 
-        
-        RaycastHit2D[] enemies = Physics2D.CircleCastAll(_attackPoint.transform.position, _radiusOfAttack,
+        RaycastHit2D[] enemies = Physics2D.CircleCastAll(_groundAttackPoint.transform.position, _radiusOfGroundAttack,
                 transform.right, 0f, _enemies); 
+        ApplyEffects(enemies);
+
+    }
+    
+    public void AirAttackEnemies()
+    {
+        RaycastHit2D[] enemies = Physics2D.CircleCastAll(_airAttackPoint.transform.position, _radiusOfAirAttack,
+            transform.right, 0f, _enemies); 
+        ApplyEffects(enemies);
+    }
+
+    private void ApplyEffects(RaycastHit2D[] enemies)
+    {
         foreach (RaycastHit2D obj in enemies)
         {
             IDamageable iDamageable = obj.collider.gameObject.GetComponent<IDamageable>();
@@ -31,17 +46,20 @@ public class AttackMechanic : MonoBehaviour, ICanAttack
             { 
                 iDamageable.Hit(_dammageAmount);
                 Rigidbody2D enemyRb = obj.rigidbody;
-                Vector2 knockbackDireciton = obj.transform.position - transform.position;
-                knockbackDireciton.Normalize();
-                enemyRb.AddForce(knockbackDireciton * _knockbackForce, ForceMode2D.Impulse );
+                Vector2 knockbackDirection = (obj.transform.position - transform.position).normalized;
+                knockbackDirection.y += _upwardKnockbackStrength; 
+                knockbackDirection.Normalize();
+                enemyRb.AddForce(knockbackDirection * _knockbackStrength, ForceMode2D.Impulse);
                 
             }
         }
-        
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(_attackPoint.transform.position, _radiusOfAttack);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(_groundAttackPoint.transform.position, _radiusOfGroundAttack);
+        Gizmos.DrawWireSphere(_airAttackPoint.transform.position, _radiusOfAirAttack);
     }
+    
 }

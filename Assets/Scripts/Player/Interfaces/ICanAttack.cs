@@ -4,7 +4,8 @@ namespace Player
 {
     public interface ICanAttack
     {
-        public void AttackEnemies();
+        public void GroundAttackEnemies();
+        public void AirAttackEnemies();
 
     }
 }

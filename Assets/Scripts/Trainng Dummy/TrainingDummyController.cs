@@ -6,6 +6,7 @@ namespace Trainng_Dummy
 {
     public class TrainingDummyController  : MonoBehaviour, IDamageable
     {
+        [Header("Health")] 
         [SerializeField] private float _maxHealth = 2f;
         private float _currentHealth;
         private Animator _animator;

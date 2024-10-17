@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         _animator.AttackAnimation();
-        _canAttack.AttackEnemies();
+        if(_isGrounded) _canAttack.GroundAttackEnemies(); else _canAttack.AirAttackEnemies();
     }
 
 }

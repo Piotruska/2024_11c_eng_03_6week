@@ -1,65 +1,62 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
 using Trainng_Dummy;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackMechanic : MonoBehaviour, ICanAttack
 {
     [Header("Ground Attack Config")] 
-    [SerializeField] private GameObject _groundAttackPoint;
-    [SerializeField] private float _radiusOfGroundAttack;
+    [SerializeField] private CapsuleCollider2D _groundAttackCollider; // Reference to the Ground CapsuleCollider2D
     [Header("Air Attack Config")] 
-    [SerializeField] private GameObject _airAttackPoint;
-    [SerializeField] private float _radiusOfAirAttack;
+    [SerializeField] private CapsuleCollider2D _airAttackCollider; // Reference to the Air CapsuleCollider2D
     [Header("Enemy Identification")] 
     [SerializeField] public LayerMask _enemies;
     [Header("Values")] 
-    [SerializeField] public float _dammageAmount = 1 ;
-    [SerializeField] public float _knockbackStrength = 2 ;
-    [SerializeField] public float _upwardKnockbackStrength = 2 ;
+    [SerializeField] public float _dammageAmount = 1;
+    [SerializeField] public float _knockbackStrength = 2;
+    [SerializeField] public float _upwardKnockbackStrength = 2;
 
     public void GroundAttackEnemies()
     {
-        RaycastHit2D[] enemies = Physics2D.CircleCastAll(_groundAttackPoint.transform.position, _radiusOfGroundAttack,
-                transform.right, 0f, _enemies); 
-        ApplyEffects(enemies);
+        List<Collider2D> colliders = new List<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(_enemies); 
+        filter.useTriggers = true; 
 
+        _groundAttackCollider.OverlapCollider(filter, colliders);
+        
+        ApplyEffects(colliders.ToArray());
     }
-    
+
     public void AirAttackEnemies()
     {
-        RaycastHit2D[] enemies = Physics2D.CircleCastAll(_airAttackPoint.transform.position, _radiusOfAirAttack,
-            transform.right, 0f, _enemies); 
-        ApplyEffects(enemies);
+
+        List<Collider2D> colliders = new List<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(_enemies); 
+        filter.useTriggers = true; 
+
+        _airAttackCollider.OverlapCollider(filter, colliders);
+        
+        ApplyEffects(colliders.ToArray());
     }
 
-    private void ApplyEffects(RaycastHit2D[] enemies)
+    private void ApplyEffects(Collider2D[] enemies)
     {
-        foreach (RaycastHit2D obj in enemies)
+        foreach (Collider2D collider in enemies)
         {
-            IDamageable iDamageable = obj.collider.gameObject.GetComponent<IDamageable>();
+            IDamageable iDamageable = collider.gameObject.GetComponent<IDamageable>();
             
             if (iDamageable != null) 
             { 
                 iDamageable.Hit(_dammageAmount);
-                Rigidbody2D enemyRb = obj.rigidbody;
-                Vector2 knockbackDirection = (obj.transform.position - transform.position).normalized;
+                Rigidbody2D enemyRb = collider.GetComponent<Rigidbody2D>();
+                Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
                 knockbackDirection.y += _upwardKnockbackStrength; 
                 knockbackDirection.Normalize();
                 enemyRb.AddForce(knockbackDirection * _knockbackStrength, ForceMode2D.Impulse);
-                
             }
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(_groundAttackPoint.transform.position, _radiusOfGroundAttack);
-        Gizmos.DrawWireSphere(_airAttackPoint.transform.position, _radiusOfAirAttack);
-    }
-    
 }

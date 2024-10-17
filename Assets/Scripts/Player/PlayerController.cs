@@ -8,17 +8,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private IPlayerAnimator _animator;
     private float _xInput;
-    private bool _perform_jump;
     private bool _isGrounded;
-    private int extraJumpsValue;
+    private int _extraJumpsValue;
     private KeyCode _jumpKeyCode = KeyCode.UpArrow;
     private bool _jumpbool = false;
     private bool _isDashing = false;
     private bool _canDash = true;
-    private bool _facingRight = false;
 
-    [Header("Configurations")] [SerializeField]
-    private PlayerConfig _config;
+    [Header("Configurations")] 
+    [SerializeField] private PlayerConfig _config;
 
     [Header("Ground Check")] [SerializeField]
     private Transform _groundCheck;
@@ -36,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<AnimationScript>();
-        extraJumpsValue = _config.extraJumpCount;
+        _extraJumpsValue = _config.extraJumpCount;
     }
 
     void Update()
@@ -45,15 +43,16 @@ public class PlayerController : MonoBehaviour
         
         _xInput = Input.GetAxis("Horizontal");
 
-        if (_isGrounded) extraJumpsValue = _config.extraJumpCount;
+
+        if (_isGrounded) _extraJumpsValue = _config.extraJumpCount;
         
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumpsValue > 0)
+        if (Input.GetKeyDown(_jumpKeyCode) && _extraJumpsValue > 0)
         {
             _jumpbool = true;
-            extraJumpsValue--;
+            _extraJumpsValue--;
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJumpsValue == 0 && _isGrounded)
+        else if (Input.GetKeyDown(_jumpKeyCode) && _extraJumpsValue == 0 && _isGrounded)
         {
             _jumpbool = true;
         }
@@ -68,6 +67,7 @@ public class PlayerController : MonoBehaviour
         CheckIfGrounded();
         if(_isDashing) return;
         _animator.FacingCheck();
+        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();
         if (_jumpbool) Jump();
     }
@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour
     private void Walk()
     {
         _animator.Walk();
-        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
 
     }
 

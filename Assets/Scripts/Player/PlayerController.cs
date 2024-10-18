@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private bool _jumpbool = false;
     private bool _isDashing = false;
     private bool _canDash = true;
-    private bool _facingRight = false;
     [SerializeField] private bool _hasSword = false;
     
 

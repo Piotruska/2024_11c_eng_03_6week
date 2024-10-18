@@ -22,7 +22,6 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _isGroundedBool = "IsGrounded";
     
     private string _withSwordLayerName = "With Sword";
-    
     private int _withSwordLayerIndex;
     
     private bool _facingRight = true;

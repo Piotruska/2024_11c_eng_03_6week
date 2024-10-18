@@ -8,6 +8,7 @@ namespace NPC.Enemy.Totem
     {
         private ITotemAnimation _totemAnimationController;
         [SerializeField] private GameObject _WoodSpike_Projectile;
+        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _cooldown = 2;
         
         void Awake()
@@ -26,7 +27,7 @@ namespace NPC.Enemy.Totem
             {
                 _totemAnimationController.Shoot();
                 yield return new WaitForSeconds((float)0.12);
-                Instantiate(_WoodSpike_Projectile, transform.position, transform.rotation);
+                Instantiate(_WoodSpike_Projectile, _spawnPoint.position, transform.rotation);
                 yield return new WaitForSeconds(_cooldown);
             }
         }

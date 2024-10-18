@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8162100327866993759}
   - component: {fileID: 170336999032515651}
   - component: {fileID: 7502190035972208242}
-  - component: {fileID: -2280716781248255069}
+  - component: {fileID: 7287734972382415781}
   m_Layer: 10
   m_Name: WoodSpike_Projectile
   m_TagString: InstantDeath
@@ -127,8 +127,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-2280716781248255069
-BoxCollider2D:
+--- !u!70 &7287734972382415781
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,19 +156,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0014215112}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4260819, y: 0.28108895}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.0021627843, y: -0.002163284}
+  m_Size: {x: 0.33128253, y: 0.21880333}
+  m_Direction: 1

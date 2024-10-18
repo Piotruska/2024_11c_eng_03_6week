@@ -26,10 +26,16 @@ namespace NPC.Enemy.Totem
             while (true)
             {
                 _totemAnimationController.Shoot();
-                yield return new WaitForSeconds((float)0.12);
-                Instantiate(_WoodSpike_Projectile, _spawnPoint.position, transform.rotation);
+                //yield return new WaitForSeconds((float)0.12);
                 yield return new WaitForSeconds(_cooldown);
             }
+        }
+
+        public void SpawnProjectile()
+        {
+            //used ing animation event for the totem shooting frame
+            Instantiate(_WoodSpike_Projectile, _spawnPoint.position, transform.rotation);
+
         }
     }
 }

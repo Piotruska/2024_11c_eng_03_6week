@@ -10,10 +10,9 @@ namespace NPC.Enemy.Totem
         private TotemController _totemController;
         private Animator _animator;
         
-        private string _shootTrigger1 = "Shoot1";
-        private string _shootTrigger2 = "Shoot2";
-        private string _hitTrigger1 = "Hit1";
-        private string _hitTrigger2 = "Hit2";
+        private string _shootTrigger1 = "Shoot";
+        private string _hitTrigger1 = "Hit";
+
 
 
         void Awake()
@@ -24,22 +23,14 @@ namespace NPC.Enemy.Totem
 
         public void Shoot()
         {
-            int rand = Random.Range(0, 2);
-            switch (rand)
-            {
-                case 1:
-                    _animator.SetTrigger(_shootTrigger1);
-                    return;
-                    
-                default:
-                    _animator.SetTrigger(_shootTrigger2);
-                    return;
-            }
+            
+            _animator.SetTrigger(_shootTrigger1);
+             
+            
         }
         
         public void Hit()
         {
-            int rand = Random.Range(0, 2);
             _animator.SetTrigger(_hitTrigger1);
         }
     }

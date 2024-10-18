@@ -195,8 +195,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3757278642653864443, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+      propertyPath: m_Name
+      value: AirAttackHitBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757278642653864443, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5783734004650182270, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+      propertyPath: m_Name
+      value: GroundAttackHitBox
       objectReference: {fileID: 0}
     - target: {fileID: 5783734004650182270, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
       propertyPath: m_Layer

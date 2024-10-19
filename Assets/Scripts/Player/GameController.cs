@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour , IDamageable
     private Rigidbody2D _rigidbody2D;
     private IPlayerAnimator _animator;
     private PlayerController _controller;
+    private Collider2D _collider;
     [Header("Configurations")]
     [SerializeField] private CheckPointConfig _checkPointConfig;
     [SerializeField] private float _maxHealth;
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour , IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<AnimationScript>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _currentHealth = _maxHealth;
     }
 
@@ -45,6 +47,7 @@ public class GameController : MonoBehaviour , IDamageable
     {
         if (other.CompareTag("InstantDeath"))
         {
+            _rigidbody2D.bodyType = RigidbodyType2D.Static;
             Die();
         }
     }
@@ -78,13 +81,12 @@ public class GameController : MonoBehaviour , IDamageable
         
         _animator.DeathAnimation();
         _currentHealth = _maxHealth;
-        //_rigidbody2D.bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(duration);
         _spriteRenderer.enabled = false;
         _animator.RespawnAnimation();
         _spriteRenderer.enabled = true;
         transform.position = _checkPointposition;
-        //_rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+        _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         _rigidbody2D.velocity = new Vector2(0, 0);
         
         

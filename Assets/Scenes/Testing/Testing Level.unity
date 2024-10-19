@@ -217,11 +217,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 265337833770377759, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6
+      value: 6.52
       objectReference: {fileID: 0}
     - target: {fileID: 265337833770377759, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.78
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 265337833770377759, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -255,22 +255,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1448287649634673381, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 1448287649634673381, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 3091047487165016945, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
       propertyPath: m_Name
       value: Totem1_H
       objectReference: {fileID: 0}
-    - target: {fileID: 4946948097513940408, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
-      propertyPath: _spawnPoint
-      value: 
-      objectReference: {fileID: 1434635362}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12627,11 +12615,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2733709bb87dfaf418961e0465e353a3, type: 3}
---- !u!4 &1434635362 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1448287649634673381, guid: fe1a707ba9bf7834bbfc114e114a620e, type: 3}
-  m_PrefabInstance: {fileID: 257303576}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1442382779
 PrefabInstance:
   m_ObjectHideFlags: 0

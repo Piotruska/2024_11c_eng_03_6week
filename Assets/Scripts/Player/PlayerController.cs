@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
+using Player.Interfaces;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private IPlayerAnimator _animator;
     private ICanAttack _canAttack;
+    private ICanInteract _canInteract;
     
     private float _xInput;
     private bool _jumpInput;

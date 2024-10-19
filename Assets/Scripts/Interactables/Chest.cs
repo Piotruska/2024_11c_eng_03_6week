@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+namespace Interactables
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Chest : MonoBehaviour, IInteractable
     {
+        private bool _isUnlocked = false;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void InteractAction()
+        {
+            _isUnlocked = true;
+            // Play animation and get some items
+        }
     }
 }

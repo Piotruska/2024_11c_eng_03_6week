@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool _jumpInput;
     private bool _dashInput;
     private bool _meleeAttackInput;
+    private bool _interactInput;
     
     private bool _perform_jump;
     private bool _isGrounded;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
         _jumpInput = Input.GetButtonDown("Jump");
         _dashInput = Input.GetButton("Dash");
         _meleeAttackInput = Input.GetButtonDown("Melee Attack");
+        _interactInput = Input.GetButtonDown("Interact");
 
         if (_isGrounded) _extraJumpsValue = _config.extraJumpCount;
         
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (_meleeAttackInput && _hasSword) Attack();
-        if (_meleeAttackInput && _hasSword) Interact();
+        if (_interactInput) Interact();
         if (_dashInput && _canDash) StartCoroutine(Dash());
 
     }

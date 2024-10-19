@@ -18,6 +18,8 @@ public class WoodSpikeAttack : MonoBehaviour
     [SerializeField] private float _dammageAmount = 1;
     [SerializeField] private float _knockbackStrength = 2;
     [SerializeField] private float _upwardKnockbackStrength = 2;
+
+    public bool _isAlive = true;
     
     private void Awake()
     {
@@ -28,6 +30,8 @@ public class WoodSpikeAttack : MonoBehaviour
     
     void Update()
     {
+        if(!_isAlive) return;
+        
         List<Collider2D> colliders = new List<Collider2D>();
         ContactFilter2D filter = new ContactFilter2D();
         if (_attacksEnemie && _attacksPlayer) filter.SetLayerMask(_enemies | _player); 
@@ -54,6 +58,7 @@ public class WoodSpikeAttack : MonoBehaviour
             { 
                 iDamageable.Hit(_dammageAmount);
                 Rigidbody2D enemyRb = collider.GetComponent<Rigidbody2D>();
+                enemyRb.bodyType = RigidbodyType2D.Dynamic;
                 enemyRb.velocity = new Vector2(0, 0);
                 Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
                 knockbackDirection.y += _upwardKnockbackStrength; 

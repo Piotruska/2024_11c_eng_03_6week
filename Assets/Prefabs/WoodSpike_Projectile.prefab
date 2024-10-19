@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 41585293150504400}
   - component: {fileID: 7502190035972208242}
   - component: {fileID: 7287734972382415781}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: WoodSpike_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _despawnDuration: 5
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &41585293150504400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aff8159f434d746bce2a37ac87b18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attacksPlayer: 0
+  _attacksPlayer: 1
   _player:
     serializedVersion: 2
     m_Bits: 128
@@ -124,6 +128,7 @@ MonoBehaviour:
   _dammageAmount: 1
   _knockbackStrength: 2
   _upwardKnockbackStrength: 2
+  _isAlive: 1
 --- !u!50 &7502190035972208242
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &7287734972382415781
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

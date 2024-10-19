@@ -52,6 +52,8 @@ public class AttackMechanic : MonoBehaviour, ICanAttack
             { 
                 iDamageable.Hit(_dammageAmount);
                 Rigidbody2D enemyRb = collider.GetComponent<Rigidbody2D>();
+                enemyRb.bodyType = RigidbodyType2D.Dynamic;
+                enemyRb.velocity = new Vector2(0, 0);
                 Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
                 knockbackDirection.y += _upwardKnockbackStrength; 
                 knockbackDirection.Normalize();

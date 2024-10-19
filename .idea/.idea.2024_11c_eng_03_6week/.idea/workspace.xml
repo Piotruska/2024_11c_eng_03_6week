@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WoodSpike_Projectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WoodSpike_Projectile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/Testing Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/Testing Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AttackMechanic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AttackMechanic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,7 @@
       <workItem from="1729243503151" duration="4896000" />
       <workItem from="1729334295260" duration="13000" />
       <workItem from="1729334316936" duration="7223000" />
-      <workItem from="1729352628729" duration="4395000" />
+      <workItem from="1729352628729" duration="6952000" />
     </task>
     <servers />
   </component>
@@ -163,42 +160,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs</url>
-          <line>48</line>
-          <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\NPC\Enemy\Totem\WoodSpikeAttack.cs" initialLine="47" containingFunctionPresentation="Method 'ApplyEffects'">
-            <startOffsets>
-              <option value="1481" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1521" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs</url>
-          <line>42</line>
+          <line>46</line>
           <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\NPC\Enemy\Totem\WoodSpikeAttack.cs" initialLine="44" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1359" />
+              <option value="1432" />
             </startOffsets>
             <endOffsets>
-              <option value="1393" />
+              <option value="1466" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs</url>
-          <line>54</line>
-          <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\NPC\Enemy\Totem\WoodSpikeAttack.cs" initialLine="56" containingFunctionPresentation="Method 'ApplyEffects'">
-            <startOffsets>
-              <option value="1701" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1733" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkPointConfig: {fileID: 11400000, guid: d806eda7c838deb43922ae36d42a2ab3, type: 2}
+  _maxHealth: 10
 --- !u!114 &2647143907879388512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130355705453322025}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool _jumpbool = false;
     private bool _isDashing = false;
     private bool _canDash = true;
+    public bool _isStunned { get; set; } = false;
     [SerializeField] private bool _hasSword = false;
     
 
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(_isDashing) return;
+        if(_isDashing || _isStunned) return;
         
         _xInput = Input.GetAxis("Horizontal Movement");
         _jumpInput = Input.GetButtonDown("Jump");
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         CheckIfGrounded();
-        if(_isDashing) return;
+        if(_isDashing || _isStunned) return;
         _animator.FacingCheck();
         _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();

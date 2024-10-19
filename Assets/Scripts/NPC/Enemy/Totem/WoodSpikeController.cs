@@ -16,12 +16,7 @@ public class WoodSpikeController : MonoBehaviour
     {
         _rb.velocity = (transform.right * -1 * _speed);
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Destroy(gameObject);
-    }
-
+    
     private void OnBecameInvisible()
     {
         Destroy(gameObject);

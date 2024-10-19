@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 2537563408533811111}
   - component: {fileID: 8162100327866993759}
   - component: {fileID: 170336999032515651}
+  - component: {fileID: 41585293150504400}
   - component: {fileID: 7502190035972208242}
   - component: {fileID: 7287734972382415781}
   m_Layer: 10
   m_Name: WoodSpike_Projectile
-  m_TagString: InstantDeath
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +101,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+--- !u!114 &41585293150504400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044784573881409057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12aff8159f434d746bce2a37ac87b18b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attacksPlayer: 0
+  _player:
+    serializedVersion: 2
+    m_Bits: 128
+  _attacksEnemie: 0
+  _enemies:
+    serializedVersion: 2
+    m_Bits: 512
+  _dammageAmount: 1
+  _knockbackStrength: 2
+  _upwardKnockbackStrength: 2
 --- !u!50 &7502190035972208242
 Rigidbody2D:
   serializedVersion: 4

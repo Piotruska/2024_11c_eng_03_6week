@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1748959182031266832, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+      propertyPath: _stunTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2097139280021279262, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
       propertyPath: m_Layer
       value: 12

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Collectibles
 {
-    public class GoldCoin : Collectible
+    public class GoldCoin : ICollectible
     {
         [SerializeField] private CoinConfig _coinConfig;
         protected override void Collect()

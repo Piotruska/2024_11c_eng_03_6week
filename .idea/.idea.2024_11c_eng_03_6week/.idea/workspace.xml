@@ -21,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/GoldCoin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Interfaces/ITotemAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/TotemAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/InteractionMechanic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -101,7 +102,7 @@
       <workItem from="1729164105427" duration="1769000" />
       <workItem from="1729243503151" duration="4896000" />
       <workItem from="1729334295260" duration="13000" />
-      <workItem from="1729334316936" duration="469000" />
+      <workItem from="1729334316936" duration="790000" />
     </task>
     <servers />
   </component>

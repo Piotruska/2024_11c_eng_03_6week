@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2294452819115858780, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+      propertyPath: _enemies.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 2400821519939776985, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -224,7 +228,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2400821519939776985, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
       insertIndex: -1
       addedObject: {fileID: 278727666}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 243117496495063907, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 872028543}
   m_SourcePrefab: {fileID: 100100000, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
 --- !u!1001 &257303576
 PrefabInstance:
@@ -306,7 +313,7 @@ GameObject:
   - component: {fileID: 278727666}
   - component: {fileID: 278727667}
   m_Layer: 7
-  m_Name: InteractionCheck
+  m_Name: InteractionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,6 +379,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0395632, y: 1.0807115}
   m_EdgeRadius: 0
+--- !u!1 &315999655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 243117496495063907, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
+  m_PrefabInstance: {fileID: 225503993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &325716659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12439,6 +12451,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2400821519939776985, guid: 2dcc3864ff41cb349ad9056e7b5fc220, type: 3}
   m_PrefabInstance: {fileID: 225503993}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &872028543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315999655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec779c246165a834f8087480826e6b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionCollider: {fileID: 278727667}
+  _interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1001 &887606160
 PrefabInstance:
   m_ObjectHideFlags: 0

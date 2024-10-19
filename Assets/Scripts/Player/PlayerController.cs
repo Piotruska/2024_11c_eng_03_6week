@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<AnimationScript>();
         _canAttack = GetComponent<AttackMechanic>();
+        _canInteract = GetComponent<InteractionMechanic>();
         _extraJumpsValue = _config.extraJumpCount;
         
     }

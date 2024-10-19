@@ -12,7 +12,7 @@ namespace Player
         [Header("Interactable Identification")] 
         [SerializeField] public LayerMask _interactableLayer;
 
-        public void Interact()
+        public void InteractAction()
         {
             List<Collider2D> colliders = new List<Collider2D>();
             ContactFilter2D filter = new ContactFilter2D();
@@ -32,7 +32,7 @@ namespace Player
                 
                 if (interactable != null) 
                 { 
-                    interactable.InteractAction();
+                    interactable.OnInteractAction();
                 }
             }
         }

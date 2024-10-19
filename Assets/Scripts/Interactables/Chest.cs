@@ -6,7 +6,7 @@ namespace Interactables
     {
         private bool _isUnlocked = false;
         
-        public void InteractAction()
+        public void OnInteractAction()
         {
             _isUnlocked = true;
             // Play animation and get some items

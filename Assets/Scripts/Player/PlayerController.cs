@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (_meleeAttackInput && _hasSword) Attack();
+        if (_meleeAttackInput && _hasSword) Interact();
         if (_dashInput && _canDash) StartCoroutine(Dash());
 
     }
@@ -138,6 +139,11 @@ public class PlayerController : MonoBehaviour
     {
         _animator.AttackAnimation();
         if(_isGrounded) _canAttack.GroundAttackEnemies(); else _canAttack.AirAttackEnemies();
+    }
+
+    private void Interact()
+    {
+        _canInteract.InteractAction();
     }
 
 

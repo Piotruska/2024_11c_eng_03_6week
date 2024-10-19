@@ -7,7 +7,7 @@ namespace NPC.Enemy.Totem
     public class TotemController : MonoBehaviour
     {
         private ITotemAnimation _totemAnimationController;
-        [SerializeField] private GameObject _WoodSpike_Projectile;
+        [SerializeField] private GameObject _woodSpike_Projectile;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _cooldown = 2;
         
@@ -34,8 +34,7 @@ namespace NPC.Enemy.Totem
         public void SpawnProjectile()
         {
             //used ing animation event for the totem shooting frame
-            Instantiate(_WoodSpike_Projectile, _spawnPoint.position, transform.rotation);
-
+            Instantiate(_woodSpike_Projectile, _spawnPoint.position, transform.rotation);
         }
     }
 }

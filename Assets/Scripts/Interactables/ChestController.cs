@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Interactables
 {
-    public class Chest : MonoBehaviour, IInteractable
+    public class ChestController : MonoBehaviour, IInteractable
     {
         private Animator _animator;
         private bool _isUnlocked = false;

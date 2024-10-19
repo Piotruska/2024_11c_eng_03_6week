@@ -17,7 +17,7 @@ namespace Player
             List<Collider2D> colliders = new List<Collider2D>();
             ContactFilter2D filter = new ContactFilter2D();
             filter.SetLayerMask(_interactableLayer); 
-            filter.useTriggers = true; 
+            filter.useTriggers = true;
 
             _interactionCollider.OverlapCollider(filter, colliders);
         

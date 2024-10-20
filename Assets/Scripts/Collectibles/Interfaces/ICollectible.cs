@@ -9,7 +9,10 @@ namespace Collectibles
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Collect();
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Collect();
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
     private Rigidbody2D _rb;
     private Collider2D _collider;
     private WoodSpikeAttack _woodSpikeAttack;
+    private Animator _animator;
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _despawnDuration = 5;
     [SerializeField] private LayerMask _groundLayer;
@@ -19,6 +20,7 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _woodSpikeAttack = GetComponent<WoodSpikeAttack>();
+        _animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -35,7 +37,8 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
     {
         if (other.CompareTag("Ground"))
         {
-            Destroy(gameObject);
+            _rb.velocity = Vector2.zero;
+            _animator.SetTrigger("Destroyed");
         }
     }
 
@@ -51,6 +54,11 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
     private IEnumerator Despawn(float duration)
     {
         yield return new WaitForSeconds(duration);
+        Destroy(gameObject);
+    }
+
+    private void Despawn()
+    {
         Destroy(gameObject);
     }
 }

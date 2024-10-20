@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool _perform_jump;
     private bool _isGrounded;
     private int _extraJumpsValue;
+    private int _currentAirDashCount; 
     private bool _jumpbool = false;
     private bool _isDashing = false;
     private bool _canDash = true;
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Configurations")] 
     [SerializeField] private PlayerConfig _config;
+    [SerializeField] private int _amountOfAirDash = 1;
+    
 
     [Header("Ground Check")] 
     [SerializeField] private Transform _groundCheck;
@@ -63,7 +66,11 @@ public class PlayerController : MonoBehaviour
         _meleeAttackInput = Input.GetButtonDown("Melee Attack");
         _interactInput = Input.GetButtonDown("Interact");
 
-        if (_isGrounded) _extraJumpsValue = _config.extraJumpCount;
+        if (_isGrounded)
+        {
+            _extraJumpsValue = _config.extraJumpCount;
+            _currentAirDashCount = _amountOfAirDash;
+        }
         
 
         if (_jumpInput && _extraJumpsValue > 0)
@@ -78,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (_meleeAttackInput && _hasSword) Attack();
         if (_interactInput) Interact();
-        if (_dashInput && _canDash) StartCoroutine(Dash());
+        if (_dashInput && _canDash && (_currentAirDashCount > 0)) StartCoroutine(Dash());
 
     }
 
@@ -134,6 +141,7 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = originalVelocity;
         _isDashing = false;
         yield return new WaitForSeconds(_config.dashCooldown);
+        if (!_isGrounded) _currentAirDashCount--;
         _canDash = true;
         
     }

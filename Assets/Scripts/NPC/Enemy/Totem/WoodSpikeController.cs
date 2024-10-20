@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
@@ -30,11 +31,20 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
         Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Hit(float damageAmount)
     {
         _woodSpikeAttack._isAlive = false;
         StartCoroutine(Despawn(_despawnDuration));
-        int allLayers = ~0; 
+        int allLayers = ~0;
+        _collider.isTrigger = false;
         _collider.excludeLayers = allLayers & ~_groundLayer; // excludes all layers accept ground
     }
 

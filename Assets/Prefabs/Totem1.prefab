@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7d692b82c3dcb43b4e12011a264e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _WoodSpike_Projectile: {fileID: 8044784573881409057, guid: e40759a13c91e88489cab98324520cde, type: 3}
+  _woodSpike_Projectile: {fileID: 8044784573881409057, guid: e40759a13c91e88489cab98324520cde, type: 3}
   _spawnPoint: {fileID: 1462289943770389392}
   _cooldown: 2
 --- !u!60 &3359020597458806829

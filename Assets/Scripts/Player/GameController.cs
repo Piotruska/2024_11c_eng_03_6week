@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour , IDamageable
         {
             Die();
         }
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -18,11 +18,11 @@ MonoBehaviour:
   extraJumpCount: 1
   dashSpeed: 15
   dashDuration: 0.1
-  dashCooldown: 1.5
+  dashCooldown: 0.5
   amountOfAirDash: 1
   attackInterval: 0.2
   resetTime: 3
   dammageAmount: 1
   generalKnockbackStrength: 2
   yAxisKnockbackStrength: 2
-  stunTime: 2
+  stunTime: 0.5

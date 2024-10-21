@@ -5,117 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Materials/Player Material.physicsMaterial2D" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Materials/Player Material.physicsMaterial2D.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/SpriteAtlas.spriteatlasv2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/SpriteAtlas.spriteatlasv2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Island Ground Palette.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Island Ground Palette.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/IslandRuleTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/IslandRuleTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_10.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_10.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_11.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_11.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_12.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_12.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_13.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_13.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_14.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_14.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_15.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_15.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_16.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_16.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_17.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_17.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_18.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_18.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_19.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_19.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_20.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_20.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_21.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_21.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_22.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_22.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_23.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_23.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_24.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_24.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_25.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_25.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_26.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_26.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_27.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_27.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_28.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_28.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_29.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_29.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_30.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_30.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_31.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_31.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_32.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_32.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_33.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_33.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_34.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_34.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_35.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_35.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_36.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_36.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_37.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_37.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_38.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_38.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_39.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_39.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_40.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_40.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_41.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_41.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_42.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_42.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_43.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_43.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_44.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_44.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_45.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_45.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_46.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_46.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_9.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Ground/Terrain (32x32)_9.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/TilePallettes/Island/Square.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,13 +44,20 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.35827664",
-    "git-widget-placeholder": "Mark",
+    "git-widget-placeholder": "Piotr",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\piotr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\piotr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\piotr\\AppData\\Local\\Symbols\\src"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -224,6 +125,7 @@
       <workItem from="1729486328013" duration="11011000" />
       <workItem from="1729522838372" duration="4494000" />
       <workItem from="1729531969790" duration="820000" />
+      <workItem from="1729539898682" duration="39000" />
     </task>
     <servers />
   </component>
@@ -261,7 +163,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">

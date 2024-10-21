@@ -43,7 +43,6 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
         _withSwordLayerIndex = _animator.GetLayerIndex(_withSwordLayerName);
-        HasSword(true);
     }
 
     void Update()

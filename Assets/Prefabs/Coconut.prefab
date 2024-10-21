@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5261936950017357806}
   - component: {fileID: 8838841760955521292}
   - component: {fileID: 2550301454206867500}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Coconut
   m_TagString: Untagged
   m_Icon: {fileID: 0}

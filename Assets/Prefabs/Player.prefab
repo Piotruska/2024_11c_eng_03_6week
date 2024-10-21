@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2847979608595746182}
   - component: {fileID: 2917376686466732688}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: InteractionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6463991302424949231}
   - component: {fileID: 5404326867460443069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AirAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5497774179228893506}
   - component: {fileID: 2223813881722108121}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GroundAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

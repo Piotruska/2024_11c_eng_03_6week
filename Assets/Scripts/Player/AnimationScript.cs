@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AnimationScript : MonoBehaviour , IPlayerAnimator
 {
+    [SerializeField] private GameObject _particleEffects;
+    
     private Rigidbody2D _rb;
     private PlayerController _playerController;
     private float _xInput;
@@ -23,6 +25,10 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     
     private string _withSwordLayerName = "With Sword";
     private int _withSwordLayerIndex;
+
+    private string _runDustEffectTrigger = "RunDustEffect";
+    private string _jumpDustEffectTrigger = "JumpDustEffect";
+    private string _fallDustEffectTrigger = "FallDustEffect";
     
     private bool _facingRight = true;
     private bool _sword;
@@ -127,5 +133,24 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
             _animator.SetLayerWeight(_withSwordLayerIndex,0);
         }
         _animator.SetTrigger(_respawnTrigger);
+    }
+
+    public void SpawnDustParticleEffect(int trigger)
+    {
+        var obj = Instantiate(_particleEffects, _rb.transform.position, _rb.transform.rotation);
+        obj.transform.localScale = _rb.transform.localScale;
+        var particleAnimator = obj.GetComponent<Animator>();
+        switch (trigger)
+        {
+            case 1: //run
+                particleAnimator.SetTrigger(_runDustEffectTrigger);
+                break;
+            case 2: //jump
+                particleAnimator.SetTrigger(_jumpDustEffectTrigger);
+                break;
+            case 3 : //fall
+                particleAnimator.SetTrigger(_fallDustEffectTrigger);
+                break;
+        }
     }
 }

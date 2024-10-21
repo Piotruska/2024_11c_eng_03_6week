@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash()
     {
         _animator.DashOn();
+        _animator.SpawnDustParticleEffect(4);
         _isDashing = true;
         _canDash = false;
         float originalGravity = _rb.gravityScale;

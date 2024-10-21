@@ -13,5 +13,6 @@ namespace Player
         public void AttackAnimation();
         public void ThrowSwordAnimation();
         public void RespawnAnimation();
+        public void SpawnDustParticleEffect(int trigger);
     }
 }

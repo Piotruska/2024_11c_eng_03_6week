@@ -29,6 +29,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _runDustEffectTrigger = "RunDustEffect";
     private string _jumpDustEffectTrigger = "JumpDustEffect";
     private string _fallDustEffectTrigger = "FallDustEffect";
+    private string _dashDustEffectTrigger = "DashDustEffect";
     
     private bool _facingRight = true;
     private bool _sword;
@@ -150,6 +151,9 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
                 break;
             case 3 : //fall
                 particleAnimator.SetTrigger(_fallDustEffectTrigger);
+                break;
+            case 4 : //dash
+                particleAnimator.SetTrigger(_dashDustEffectTrigger);
                 break;
         }
     }

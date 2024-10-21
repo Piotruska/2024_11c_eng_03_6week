@@ -9,29 +9,39 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private IPlayerAnimator _animator;
-    private ICanAttack _canAttack;
+    private ICanAttack _IcanAttack;
     private ICanInteract _canInteract;
     
+    //Inputs
     private float _xInput;
     private bool _jumpInput;
     private bool _dashInput;
     private bool _meleeAttackInput;
     private bool _interactInput;
     
-    private bool _perform_jump;
+    //Surroundings Checks
     private bool _isGrounded;
+    
+    //Jump Mechanic Variables
+    private bool _perform_jump;
     private int _extraJumpsValue;
     private int _currentAirDashCount; 
     private bool _jumpbool = false;
+    
+    //Dashing Mechanic Variables
     private bool _isDashing = false;
     private bool _canDash = true;
+    
+    //Attacking & Taking Damage
     public bool _isStunned { get; set; } = false;
     private bool _hasSword = false;
+    private int _currentAttackIndex = 1; 
+    private Coroutine _attackCoroutine;
+    private bool _canAttack = true;
     
 
     [Header("Configurations")] 
     [SerializeField] private PlayerConfig _config;
-    [SerializeField] private int _amountOfAirDash = 1;
     
 
     [Header("Ground Check")] 
@@ -51,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<AnimationScript>();
-        _canAttack = GetComponent<AttackMechanic>();
+        _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
         _extraJumpsValue = _config.extraJumpCount;
     }
@@ -69,7 +79,7 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded)
         {
             _extraJumpsValue = _config.extraJumpCount;
-            _currentAirDashCount = _amountOfAirDash;
+            _currentAirDashCount = _config.amountOfAirDash;
         }
         
 
@@ -130,6 +140,7 @@ public class PlayerController : MonoBehaviour
         _animator.JumpAnimation();
         _rb.velocity = Vector2.up * _config.jumpForce;
         _jumpbool = false;
+        _canAttack = true;
     }
 
     private IEnumerator Dash()
@@ -153,11 +164,52 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void Attack()
+    public void Attack()
     {
-        _animator.AttackAnimation();
-        if(_isGrounded) _canAttack.GroundAttackEnemies(); else _canAttack.AirAttackEnemies();
+        if (_currentAttackIndex <= 3 && _canAttack)
+        {
+            if (_attackCoroutine != null)
+            {
+                StopCoroutine(_attackCoroutine);
+            }
+            
+            if (_isGrounded)
+            {
+                _animator.GroundAttackAnimation(_currentAttackIndex);
+                _IcanAttack.GroundAttackEnemies();
+            }
+            else
+            {
+                _animator.AirAttackAnimation();
+                _IcanAttack.AirAttackEnemies();
+            }
+            _currentAttackIndex++;
+            
+            _attackCoroutine = StartCoroutine(AttackCooldownAndReset());
+            
+            if (_currentAttackIndex > 3) 
+            {
+                _currentAttackIndex = 1;
+            }
+        }
     }
+
+    private IEnumerator AttackCooldownAndReset()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(_config.attackInterval);
+        _canAttack = true;
+        yield return new WaitForSeconds(_config.resetTime - _config.attackInterval);
+
+        ResetAttack();
+    }
+
+    private void ResetAttack()
+    {
+        _currentAttackIndex = 1;
+    }
+    
+    
 
     private void Interact()
     {

@@ -10,7 +10,8 @@ namespace Player
         public void HitAnimation();
         public void DeathAnimation();
         public void HasSword(bool hasSword);
-        public void AttackAnimation();
+        public void GroundAttackAnimation(int attack);
+        public void AirAttackAnimation();
         public void ThrowSwordAnimation();
         public void RespawnAnimation();
         public void SpawnDustParticleEffect(int trigger);

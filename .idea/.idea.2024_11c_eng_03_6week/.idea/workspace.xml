@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Effects/DustParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/DustParticles.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Interfaces/IPlayerAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Interfaces/IPlayerAnimator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/DuntParticles.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/DuntParticles.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/Dust Particles/Animations/FallDustEffect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/Dust Particles/Animations/FallDustEffect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/Dust Particles/Animations/JumpDustEffect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/Dust Particles/Animations/JumpDustEffect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/Dust Particles/Animations/RunDustEffect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Effects/Dust Particles/Animations/RunDustEffect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Animations/21-Dash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Animations/21-Dash.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Player Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Player Controller.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ce0bd04a7a04b4b9395538239d3fdd846ac00/3c/28323d23/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/GoldCoin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/SwordCollectable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Interfaces/ITotemAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/TotemAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs" root0="FORCE_HIGHLIGHTING" />
@@ -48,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.35827664",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "Piotr",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -126,7 +122,7 @@
       <workItem from="1729445883395" duration="1081000" />
       <workItem from="1729449904861" duration="1000" />
       <workItem from="1729449917279" duration="416000" />
-      <workItem from="1729486328013" duration="8507000" />
+      <workItem from="1729486328013" duration="11011000" />
     </task>
     <servers />
   </component>

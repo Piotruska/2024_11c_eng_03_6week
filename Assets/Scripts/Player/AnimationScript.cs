@@ -32,11 +32,10 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _dashDustEffectTrigger = "DashDustEffect";
     
     private bool _facingRight = true;
-    private bool _sword;
+    private bool _sword = false;
 
     void Awake()
     {
-        
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();

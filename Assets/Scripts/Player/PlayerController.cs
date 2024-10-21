@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool _isDashing = false;
     private bool _canDash = true;
     public bool _isStunned { get; set; } = false;
-    [SerializeField] private bool _hasSword = false;
+    private bool _hasSword = false;
     
 
     [Header("Configurations")] 
@@ -97,6 +97,12 @@ public class PlayerController : MonoBehaviour
         _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();
         if (_jumpbool) Jump();
+    }
+    
+    public void HasSword(bool hasSword)
+    {
+        _animator.HasSword(hasSword);
+        _hasSword = hasSword;
     }
 
     private void CheckIfGrounded()

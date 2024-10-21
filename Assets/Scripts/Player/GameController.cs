@@ -16,8 +16,7 @@ public class GameController : MonoBehaviour , IDamageable
     private Collider2D _collider;
     [Header("Configurations")]
     [SerializeField] private CheckPointConfig _checkPointConfig;
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _stunTime;
+    [SerializeField] private PlayerConfig _playerConfig;
     private float _currentHealth;
 
     private void Awake()
@@ -27,7 +26,7 @@ public class GameController : MonoBehaviour , IDamageable
         _animator = GetComponent<AnimationScript>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        _currentHealth = _maxHealth;
+        _currentHealth = _playerConfig.maxHealth;
     }
 
     void Start()
@@ -61,7 +60,7 @@ public class GameController : MonoBehaviour , IDamageable
     {
         _animator.HitAnimation();
         _currentHealth -= damageAmount;
-        StartCoroutine(Stun(_stunTime));
+        StartCoroutine(Stun(_playerConfig.stunTime));
     }
 
     private void Die()
@@ -80,7 +79,7 @@ public class GameController : MonoBehaviour , IDamageable
     {
         
         _animator.DeathAnimation();
-        _currentHealth = _maxHealth;
+        _currentHealth = _playerConfig.maxHealth;
         yield return new WaitForSeconds(duration);
         _spriteRenderer.enabled = false;
         _animator.RespawnAnimation();

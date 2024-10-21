@@ -191,9 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db31fa7b5325b948ab7c0e187e95c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hasSword: 1
   _config: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
-  _amountOfAirDash: 1
   _groundCheck: {fileID: 8130355705453322025}
   _checkRadious: 0.2
   _whatIsGround:
@@ -215,8 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkPointConfig: {fileID: 11400000, guid: d806eda7c838deb43922ae36d42a2ab3, type: 2}
-  _maxHealth: 10
-  _stunTime: 0
+  _playerConfig: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
 --- !u!114 &2647143907879388512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,9 +244,7 @@ MonoBehaviour:
   _enemies:
     serializedVersion: 2
     m_Bits: 512
-  _dammageAmount: 1
-  _knockbackStrength: 2
-  _upwardKnockbackStrength: 2
+  _config: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
 --- !u!114 &3435622810395982027
 MonoBehaviour:
   m_ObjectHideFlags: 0

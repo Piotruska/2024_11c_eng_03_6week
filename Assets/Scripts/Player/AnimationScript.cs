@@ -16,7 +16,10 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _jumpTrigger = "Jump";
     private string _hitTrigger = "Hit";
     private string _deathTrigger = "Dies";
-    private string _attackTrigger = "Attack";
+    private string _attack1Trigger = "Attack1";
+    private string _attack2Trigger = "Attack2";
+    private string _attack3Trigger = "Attack3";
+    private string _airAttackTrigger = "AirAttack";
     private string _throwTrigger = "Throw";
     private string _respawnTrigger = "Respawn";
     private string _runningBool = "isRunning";
@@ -114,9 +117,26 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         _animator.SetTrigger(_deathTrigger);
     }
 
-    public void AttackAnimation()
+    public void GroundAttackAnimation(int attack)
     {
-        _animator.SetTrigger(_attackTrigger);
+        switch (attack)
+        {
+            case 1 :
+                _animator.SetTrigger(_attack1Trigger);
+                break;
+            case 2:
+                _animator.SetTrigger(_attack2Trigger);
+                break;
+            case 3:
+                _animator.SetTrigger(_attack3Trigger);
+                break;
+        }
+        
+    }
+
+    public void AirAttackAnimation()
+    {
+        _animator.SetTrigger(_airAttackTrigger);
     }
 
     public void ThrowSwordAnimation()

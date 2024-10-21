@@ -12,11 +12,10 @@ public class AttackMechanic : MonoBehaviour, ICanAttack
     [SerializeField] private CapsuleCollider2D _airAttackCollider; // Reference to the Air CapsuleCollider2D
     [Header("Enemy Identification")] 
     [SerializeField] private LayerMask _enemies;
-    [Header("Values")] 
-    [SerializeField] private float _dammageAmount = 1;
-    [SerializeField] private float _knockbackStrength = 2;
-    [SerializeField] private float _upwardKnockbackStrength = 2;
+    [Header("Player Configurations")] 
+    [SerializeField] private PlayerConfig _config;
 
+    
     public void GroundAttackEnemies()
     {
         List<Collider2D> colliders = new List<Collider2D>();
@@ -50,14 +49,14 @@ public class AttackMechanic : MonoBehaviour, ICanAttack
             
             if (iDamageable != null) 
             { 
-                iDamageable.Hit(_dammageAmount);
+                iDamageable.Hit(_config.dammageAmount);
                 Rigidbody2D enemyRb = collider.GetComponent<Rigidbody2D>();
                 enemyRb.bodyType = RigidbodyType2D.Dynamic;
                 enemyRb.velocity = new Vector2(0, 0);
                 Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
-                knockbackDirection.y += _upwardKnockbackStrength; 
+                knockbackDirection.y += _config.yAxisKnockbackStrength; 
                 knockbackDirection.Normalize();
-                enemyRb.AddForce(knockbackDirection * _knockbackStrength, ForceMode2D.Impulse);
+                enemyRb.AddForce(knockbackDirection * _config.generalKnockbackStrength, ForceMode2D.Impulse);
             }
         }
     }

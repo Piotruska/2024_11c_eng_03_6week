@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Player Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Player Controller.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +18,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ce0bd04a7a04b4b9395538239d3fdd846ac00/3c/28323d23/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/GoldCoin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/SwordCollectable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Interfaces/ITotemAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/TotemAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Effects/EffectsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/InteractionMechanic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -25,18 +38,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Feature-TestingLevel&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.35827664",
+    "git-widget-placeholder": "Piotr",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
@@ -97,9 +111,18 @@
       <workItem from="1728728484333" duration="887000" />
       <workItem from="1728732949496" duration="1144000" />
       <workItem from="1728990611616" duration="315000" />
-      <workItem from="1729445709370" duration="1644000" />
-      <workItem from="1729454046378" duration="151000" />
-      <workItem from="1729454491458" duration="68000" />
+      <workItem from="1729159200263" duration="4011000" />
+      <workItem from="1729164105427" duration="1769000" />
+      <workItem from="1729243503151" duration="4896000" />
+      <workItem from="1729334295260" duration="13000" />
+      <workItem from="1729334316936" duration="7223000" />
+      <workItem from="1729352628729" duration="7212000" />
+      <workItem from="1729442005528" duration="755000" />
+      <workItem from="1729445865331" duration="12000" />
+      <workItem from="1729445883395" duration="1081000" />
+      <workItem from="1729449904861" duration="1000" />
+      <workItem from="1729449917279" duration="416000" />
+      <workItem from="1729486328013" duration="11011000" />
     </task>
     <servers />
   </component>
@@ -107,6 +130,11 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -138,16 +166,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs</url>
-          <line>108</line>
-          <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\Player\AnimationScript.cs" initialLine="100" containingFunctionPresentation="Method 'Death'" />
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Player/Effects/EffectsController.cs</url>
+          <line>8</line>
+          <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\Player\Effects\EffectsController.cs" initialLine="8" containingFunctionPresentation="Method 'DeleteEffect'">
+            <startOffsets>
+              <option value="174" />
+            </startOffsets>
+            <endOffsets>
+              <option value="194" />
+            </endOffsets>
+          </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Player/AnimationScript.cs</url>
-          <line>115</line>
-          <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\Player\AnimationScript.cs" initialLine="107" containingFunctionPresentation="Method 'Attack'" />
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

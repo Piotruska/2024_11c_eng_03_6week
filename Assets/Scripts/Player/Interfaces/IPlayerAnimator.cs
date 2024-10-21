@@ -3,15 +3,16 @@ namespace Player
     public interface IPlayerAnimator
     {
         public void FacingCheck();
-        public void Idle();
-        public void Walk();
-        public void Jump();
+        public void IdleAnimation();
+        public void WalkAnimation();
+        public void JumpAnimation();
         public void DashOn();
-        public void Hit();
-        public void Death();
+        public void HitAnimation();
+        public void DeathAnimation();
         public void HasSword(bool hasSword);
-        public void Attack();
-        public void ThrowSword();
-        public void Respawn();
+        public void AttackAnimation();
+        public void ThrowSwordAnimation();
+        public void RespawnAnimation();
+        public void SpawnDustParticleEffect(int trigger);
     }
 }

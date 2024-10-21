@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AnimationScript : MonoBehaviour , IPlayerAnimator
 {
+    [SerializeField] private GameObject _particleEffects;
+    
     private Rigidbody2D _rb;
     private PlayerController _playerController;
     private float _xInput;
@@ -22,15 +24,18 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
     private string _isGroundedBool = "IsGrounded";
     
     private string _withSwordLayerName = "With Sword";
-    
     private int _withSwordLayerIndex;
+
+    private string _runDustEffectTrigger = "RunDustEffect";
+    private string _jumpDustEffectTrigger = "JumpDustEffect";
+    private string _fallDustEffectTrigger = "FallDustEffect";
+    private string _dashDustEffectTrigger = "DashDustEffect";
     
     private bool _facingRight = true;
-    private bool _sword;
+    private bool _sword = false;
 
     void Awake()
     {
-        
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
@@ -40,7 +45,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
 
     void Update()
     {
-        _xInput = Input.GetAxis("Horizontal");
+        _xInput = Input.GetAxis("Horizontal Movement");
         _animator.SetBool(_isGroundedBool, _playerController.IsGrounded);
     }
     
@@ -78,18 +83,18 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         transform.localScale = scaler;
     }
     
-    public void Idle()
+    public void IdleAnimation()
     {
         _animator.SetBool(_runningBool, false);
         _animator.SetBool(_dashBool, false);
     }
 
-    public void Walk()
+    public void WalkAnimation()
     {
         _animator.SetBool(_runningBool, true);
     }
 
-    public void Jump()
+    public void JumpAnimation()
     {
         _animator.SetTrigger(_jumpTrigger);
     }
@@ -99,28 +104,28 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
         _animator.SetBool(_dashBool, true);
     }
 
-    public void Hit()
+    public void HitAnimation()
     {
         _animator.SetTrigger(_hitTrigger);
     }
     
-    public void Death()
+    public void DeathAnimation()
     {
         _animator.SetLayerWeight(_withSwordLayerIndex,0);
         _animator.SetTrigger(_deathTrigger);
     }
 
-    public void Attack()
+    public void AttackAnimation()
     {
         _animator.SetTrigger(_attackTrigger);
     }
 
-    public void ThrowSword()
+    public void ThrowSwordAnimation()
     {
         _animator.SetTrigger(_throwTrigger);
     }
 
-    public void Respawn()
+    public void RespawnAnimation()
     {
         if (_sword)
         {
@@ -129,5 +134,27 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
             _animator.SetLayerWeight(_withSwordLayerIndex,0);
         }
         _animator.SetTrigger(_respawnTrigger);
+    }
+
+    public void SpawnDustParticleEffect(int trigger)
+    {
+        var obj = Instantiate(_particleEffects, _rb.transform.position, _rb.transform.rotation);
+        obj.transform.localScale = _rb.transform.localScale;
+        var particleAnimator = obj.GetComponent<Animator>();
+        switch (trigger)
+        {
+            case 1: //run
+                particleAnimator.SetTrigger(_runDustEffectTrigger);
+                break;
+            case 2: //jump
+                particleAnimator.SetTrigger(_jumpDustEffectTrigger);
+                break;
+            case 3 : //fall
+                particleAnimator.SetTrigger(_fallDustEffectTrigger);
+                break;
+            case 4 : //dash
+                particleAnimator.SetTrigger(_dashDustEffectTrigger);
+                break;
+        }
     }
 }

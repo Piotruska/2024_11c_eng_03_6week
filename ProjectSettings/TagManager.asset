@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: LandScape
+    uniqueID: 3338211345
+    locked: 0
   - name: BackGround
     uniqueID: 3460569859
     locked: 0

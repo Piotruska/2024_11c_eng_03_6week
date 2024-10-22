@@ -68,4 +68,9 @@ public class WoodSpikeAttack : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    public void IsAliveFalse()
+    {
+        _isAlive = false;
+    }
 }

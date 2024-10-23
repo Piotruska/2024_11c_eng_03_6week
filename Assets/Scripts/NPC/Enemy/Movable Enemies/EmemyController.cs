@@ -125,30 +125,38 @@ public class EmemyController : MonoBehaviour
             Vector2.Distance(transform.position, _wallInFrontCheck.position), _groundLayer);
         
         RaycastHit2D noGapAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.8f, _groundLayer);
+        RaycastHit2D dangerAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.8f, _dangerLayer);
         
         RaycastHit2D groundAfter1BlockGap =
             Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 1.8f, _groundLayer);
+        RaycastHit2D dangerAfter1BlockGap =
+            Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 1.8f, _dangerLayer);
         
         RaycastHit2D groundAfter2BlockGap =
             Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 1.8f, _groundLayer);
+        RaycastHit2D dangerAfter2BlockGap =
+            Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 1.8f, _dangerLayer);
+
         
         RaycastHit2D groundAfter2blocksGap1BlockAbove = 
             Physics2D.Raycast(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down, 0.6f, _groundLayer);
 
+        
         bool isPatrolling = _enemyState == EnemyState.Patrol;
         bool isChasing = _enemyState == EnemyState.Chase;
         bool isIdle = _enemyState == EnemyState.Idle;
         bool isStunned = _enemyState == EnemyState.Stunned;
         bool isDead = _enemyState == EnemyState.Die;
         
-        bool noGroundAhead = !groundAfter1BlockGap && !groundAfter2BlockGap && !groundAfter2blocksGap1BlockAbove && !noGapAhead && !wallInFront && !groundInFront;
+        bool noGroundAhead = (!groundAfter1BlockGap && !groundAfter2BlockGap && !groundAfter2blocksGap1BlockAbove && !noGapAhead && !wallInFront && !groundInFront) ||
+                             (dangerAfter1BlockGap && dangerAfter2BlockGap && dangerAhead);
         bool gapAhead = !noGapAhead;
         
         bool shouldBeAbleToJump = (_canJump && _isGrounded && !wallInFront);
         bool shouldJumpIfGroundInFront = (shouldBeAbleToJump && groundInFront && !wallInFront && !noGapAhead); 
-        bool shouldJump1BlockX  = (shouldBeAbleToJump && (!noGapAhead && groundAfter1BlockGap));
-        bool shouldJump2BlocksX = (shouldBeAbleToJump && (!noGapAhead && groundAfter2BlockGap));
-        bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (!noGapAhead && groundAfter2blocksGap1BlockAbove));
+        bool shouldJump1BlockX  = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter1BlockGap && !dangerAfter1BlockGap ;
+        bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && !dangerAfter2BlockGap ;
+        bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (gapAhead&& groundAfter2blocksGap1BlockAbove));
         
         bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f));
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 

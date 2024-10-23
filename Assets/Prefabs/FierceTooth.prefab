@@ -332,6 +332,9 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  _dangerLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   _canChase: 0
   _canPatroll: 0
   _canJump: 0

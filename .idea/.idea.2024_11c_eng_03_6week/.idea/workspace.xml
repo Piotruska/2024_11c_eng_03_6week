@@ -44,6 +44,10 @@
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ce0bd04a7a04b4b9395538239d3fdd846ac00/3c/28323d23/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/GoldCoin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectibles/SwordCollectable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -153,7 +157,7 @@
       <workItem from="1729539898682" duration="39000" />
       <workItem from="1729593753840" duration="1000" />
       <workItem from="1729619750683" duration="26391000" />
-      <workItem from="1729699437985" duration="16170000" />
+      <workItem from="1729699437985" duration="18689000" />
     </task>
     <servers />
   </component>
@@ -208,6 +212,20 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <condition expression="dangerAhead == true" language="C#" />
+          <url>file://$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmemyController.cs</url>
+          <line>129</line>
+          <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\NPC\Enemy\Movable Enemies\EmemyController.cs" initialLine="129" containingFunctionPresentation="Method 'Move'">
+            <startOffsets>
+              <option value="4451" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4588" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

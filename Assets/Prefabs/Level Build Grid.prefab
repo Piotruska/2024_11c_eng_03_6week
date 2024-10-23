@@ -79312,7 +79312,7 @@ GameObject:
   - component: {fileID: 3467315402926211926}
   - component: {fileID: 8465225869541607640}
   - component: {fileID: 7964521469717813044}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tilemap - Danger
   m_TagString: InstantDeath
   m_Icon: {fileID: 0}

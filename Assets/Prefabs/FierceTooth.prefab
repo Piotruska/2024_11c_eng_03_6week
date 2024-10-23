@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 3754818491243061062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: -0.76, z: 0}
+  m_LocalPosition: {x: 1, y: -0.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,16 +329,17 @@ MonoBehaviour:
   _wallInFrontCheck: {fileID: 8472506513550691442}
   _groundAfter2blocksGap1BlockAboveCheck: {fileID: 2731613000634472704}
   _groundInFrontCheck: {fileID: 8831662141675768860}
-  _chaseSpeed: 2.5
-  _jumpForce: 5
-  _durationBeforeSwitch: 20
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
   _canChase: 0
-  _canPatroll: 1
-  _canJump: 1
-  _enemyState: 1
+  _canPatroll: 0
+  _canJump: 0
+  _groundDetectionBased: 0
+  _timeBased: 0
+  _durationBeforeSwitch: 20
+  _enemyState: 0
+  _showMovementGizmos: 0
 --- !u!1 &7427796085175852434
 GameObject:
   m_ObjectHideFlags: 0

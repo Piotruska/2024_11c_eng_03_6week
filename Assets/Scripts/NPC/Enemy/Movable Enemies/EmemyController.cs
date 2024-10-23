@@ -5,23 +5,37 @@ using UnityEngine;
 
 public class EmemyController : MonoBehaviour
 {
+    [Header("Movement Rays Transforms")]
     [SerializeField] private Transform _player;
-    [SerializeField] private Transform _gapCheck;
-    [SerializeField] private Transform _groundAfter1BlockGapCheck;
-    [SerializeField] private Transform _groundAfter2BlockGapCheck;
-    [SerializeField] private Transform _wallInFrontCheck;
-    [SerializeField] private Transform _groundAfter2blocksGap1BlockAboveCheck;
-    [SerializeField] private Transform _groundInFrontCheck;
-    [SerializeField] private float _chaseSpeed = 2.5f; //recomended for proper jump movements
-    [SerializeField] private float _jumpForce = 5f;
-    [SerializeField] private float _durationBeforeSwitch = 20;
+    [SerializeField] private Transform _gapCheck; // x : 1 , y : 0.-76
+    [SerializeField] private Transform _groundAfter1BlockGapCheck; // x : 2.8 , y : -0.83
+    [SerializeField] private Transform _groundAfter2BlockGapCheck; // x : 4.55 , y : -0.81
+    [SerializeField] private Transform _wallInFrontCheck; // x : 1.64 , y : 2.13
+    [SerializeField] private Transform _groundAfter2blocksGap1BlockAboveCheck; // x : 3.48 , y : 1.54
+    [SerializeField] private Transform _groundInFrontCheck; // x : 2.65  , y : 0
+    [Header("Movement Rays Config")]
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _dangerLayer;
+    
+    [Header("Behaviour")]
     [SerializeField] private bool _canChase = false;
     [SerializeField] private bool _canPatroll = false;
     [SerializeField] private bool _canJump = false;
+
+    [Header("Patroll Configurations")] 
+    [SerializeField] private bool _groundDetectionBased =false;
+    [SerializeField] private bool _timeBased =false;
+    [Range(0f, 20f)]
+    [SerializeField] private float _durationBeforeSwitch = 20;
+    
+    [Header("Starting Phase")]
     [SerializeField] private EnemyState _enemyState = EnemyState.Idle;
+    
+    [Header("Gizmos Options")]
     [SerializeField] private bool _showMovementGizmos = true;
     
+    private float _chaseSpeed = 2.5f; //recomended for proper jump movements
+    private float _jumpForce = 5f; //recomended for proper jump movements
     private Rigidbody2D _rb;
     private bool _isGrounded;
     private bool _shouldJump1Block;
@@ -38,10 +52,8 @@ public class EmemyController : MonoBehaviour
 
     void Update()
     {
-        Chase();
-        Patrol();
         Move();
-        Flip();
+        CorrectLocalScale();
     }
 
     private void FixedUpdate()
@@ -69,19 +81,26 @@ public class EmemyController : MonoBehaviour
 
     private IEnumerator PatrolTimer(float durationBeforeSwitch)
     {
-        while (_canPatroll)
+        while (true)
         {
             yield return new WaitForSeconds(durationBeforeSwitch);
-            _patrollDirection *= -1; 
+            if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased && !_groundDetectionBased)
+            {
+                _direction *= -1;
+            }
         }
-        if (!_canPatroll) _direction = 0;
     }
 
-    private void Patrol()
+    private void Patrol(bool changeDirection)
     {
-        if (_enemyState == EnemyState.Patrol && _canPatroll)
+        if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased)
         {
-            _direction = _patrollDirection;
+            
+        }
+        
+        if (_enemyState == EnemyState.Patrol && _canPatroll && _groundDetectionBased && !_timeBased && changeDirection)
+        {
+            _direction *= -1;
         }
     }
     
@@ -115,59 +134,59 @@ public class EmemyController : MonoBehaviour
         
         RaycastHit2D groundAfter2blocksGap1BlockAbove = 
             Physics2D.Raycast(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down, 0.6f, _groundLayer);
+
+        bool isPatrolling = _enemyState == EnemyState.Patrol;
+        bool isChasing = _enemyState == EnemyState.Chase;
+        bool isIdle = _enemyState == EnemyState.Idle;
+        bool isStunned = _enemyState == EnemyState.Stunned;
+        bool isDead = _enemyState == EnemyState.Die;
+        
+        bool noGroundAhead = !groundAfter1BlockGap && !groundAfter2BlockGap && !groundAfter2blocksGap1BlockAbove && !noGapAhead && !wallInFront && !groundInFront;
+        bool gapAhead = !noGapAhead;
+        
+        bool shouldBeAbleToJump = (_canJump && _isGrounded && !wallInFront);
+        bool shouldJumpIfGroundInFront = (shouldBeAbleToJump && groundInFront && !wallInFront && !noGapAhead); 
+        bool shouldJump1BlockX  = (shouldBeAbleToJump && (!noGapAhead && groundAfter1BlockGap));
+        bool shouldJump2BlocksX = (shouldBeAbleToJump && (!noGapAhead && groundAfter2BlockGap));
+        bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (!noGapAhead && groundAfter2blocksGap1BlockAbove));
+        
+        bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f));
+        bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 
+                                         (_canPatroll && !_canJump && (gapAhead)));
+        bool shouldBeMovingFullSpeed  = (_canJump && _canPatroll && (_isJumping  || (noGapAhead && !shouldJumpIfGroundInFront ))) ||
+                                        (_canPatroll && !_canJump && (noGapAhead));
         
         
-        bool shouldBeAbleToJump = _canJump && _isGrounded && !wallInFront;
-        bool shouldJumpIfGroundInFront = shouldBeAbleToJump && groundInFront && !wallInFront && !noGapAhead; 
-        bool shouldJump1BlockX  = shouldBeAbleToJump && (!noGapAhead && groundAfter1BlockGap);
-        bool shouldJump2BlocksX = shouldBeAbleToJump && (!noGapAhead && groundAfter2BlockGap);
-        bool shouldJump2BlocksX1BlockY = shouldBeAbleToJump && (!noGapAhead && groundAfter2blocksGap1BlockAbove);
-        bool groundInFrontOfPlayer = noGapAhead;
-        bool shouldStopIfCloseToWall = wallInFront && (groundInFront.distance < 0.5f);
-        
-        bool noGroundAhead = !groundAfter1BlockGap
-                                         && !groundAfter2BlockGap
-                                         && !groundAfter2blocksGap1BlockAbove
-                                         && !noGapAhead
-                                         && !wallInFront;
-        
-        bool shouldBeMovingFullSpeed  = (_isJumping ) || (groundInFrontOfPlayer && !shouldJumpIfGroundInFront ) ;
-        
-        
-        //TODO : Steps with drop suicide problem fix
-        
-        if (shouldBeMovingFullSpeed)
+        if (shouldBeMovingFullSpeed && (isPatrolling || isChasing))
         {
             _rb.velocity = new Vector2(_direction * _chaseSpeed, _rb.velocity.y);
         }
-        if ( shouldStopIfCloseToWall || (_isGrounded && noGroundAhead))
+        if ((( shouldStopIfCloseToWall || shouldStopIfCloseToCliff) 
+            && (isPatrolling || isChasing)) || isIdle || isDead)
         {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
         
-        if (shouldJump1BlockX)
+        if (shouldJump1BlockX 
+            && (isPatrolling || isChasing))
         {
             _shouldJump1Block = true;
         }
-        if ((shouldJumpIfGroundInFront && !noGapAhead ) || shouldJump2BlocksX || shouldJump2BlocksX1BlockY)
+        if (((shouldJumpIfGroundInFront && !noGapAhead ) || shouldJump2BlocksX || shouldJump2BlocksX1BlockY)
+            && (isPatrolling || isChasing))
         {
             _shouldJump2Blocks = true;
         }
         
-        
-        
-        
-        
+        Chase();
+        Patrol(shouldStopIfCloseToWall || shouldStopIfCloseToCliff);
     }
 
-    private void Flip()
+    private void CorrectLocalScale()
     {
-        if (_direction != 0)
-        {
-            Vector3 localScale = transform.localScale;
-            localScale.x = Mathf.Abs(localScale.x) * Mathf.Sign(_direction); 
-            transform.localScale = localScale; 
-        }
+        Vector3 localScale = transform.localScale;
+        localScale.x = Mathf.Abs(localScale.x) * Mathf.Sign(_direction); 
+        transform.localScale = localScale;
     }
 
     public void OnDrawGizmos()

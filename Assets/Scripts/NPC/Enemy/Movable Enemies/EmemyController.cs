@@ -24,7 +24,7 @@ public class EmemyController : MonoBehaviour
     private bool _shouldJump1Block;
     private bool _shouldJump2Blocks;
     private float _direction = 0;
-    private float _patrollDirection = 1;
+    private float _patrollDirection = -1;
     
     void Start()
     {
@@ -86,7 +86,7 @@ public class EmemyController : MonoBehaviour
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
         RaycastHit2D groundInFront =
             Physics2D.Raycast(transform.position, new Vector2(_direction, 0), 2f, _groundLayer);
-        RaycastHit2D wallInFront = Physics2D.Raycast(transform.position,
+        RaycastHit2D wallInFront = Physics2D.Raycast(transform.position+new Vector3(0,0.5f,0),
             (_wallInFrontCheck.position - transform.position).normalized,
             Vector2.Distance(transform.position, _wallInFrontCheck.position), _groundLayer);
         RaycastHit2D noGapAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.5f, _groundLayer);
@@ -105,7 +105,7 @@ public class EmemyController : MonoBehaviour
             _rb.velocity = new Vector2(0, 0);
         }
 
-        if (_isGrounded && _canJump)
+        if (_isGrounded && _canJump && !(wallInFront.collider))
         {
             if (!groundInFront.collider && !noGapAhead.collider && groundAfter1BlockGap.collider ) // Gap detected
             {
@@ -115,7 +115,7 @@ public class EmemyController : MonoBehaviour
             {
                 _shouldJump2Blocks = true;
             }
-            else if (groundInFront.collider && !wallInFront.collider) 
+            else if (groundInFront.collider) 
             {
                 _shouldJump2Blocks = true;
             }
@@ -153,7 +153,8 @@ public class EmemyController : MonoBehaviour
         
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, new Vector2(_direction, 0) * 2f); // Draw the ground in front ray
-        Gizmos.DrawRay(transform.position, (_wallInFrontCheck.position - transform.position).normalized * 
-                                           Vector2.Distance(transform.position, _wallInFrontCheck.position)); // Draw the wall in front ray
+        Gizmos.DrawRay(transform.position + new Vector3(0, 0.5f, 0), 
+            (_wallInFrontCheck.position - (transform.position + new Vector3(0, 0.5f, 0))).normalized * 
+            Vector2.Distance(transform.position + new Vector3(0, 0.5f, 0), _wallInFrontCheck.position));
     }
 }

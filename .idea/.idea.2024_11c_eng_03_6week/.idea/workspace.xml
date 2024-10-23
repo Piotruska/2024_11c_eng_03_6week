@@ -7,9 +7,7 @@
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FierceTooth.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FierceTooth.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/FollowPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/FollowPlayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmemyController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmemyController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,7 @@
       <workItem from="1729531969790" duration="820000" />
       <workItem from="1729539898682" duration="39000" />
       <workItem from="1729593753840" duration="1000" />
-      <workItem from="1729619750683" duration="21575000" />
+      <workItem from="1729619750683" duration="26391000" />
     </task>
     <servers />
   </component>
@@ -188,10 +186,10 @@
           <line>119</line>
           <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\NPC\Enemy\Movable Enemies\FollowPlayer.cs" initialLine="98" containingFunctionPresentation="Method 'Move'">
             <startOffsets>
-              <option value="4118" />
+              <option value="4182" />
             </startOffsets>
             <endOffsets>
-              <option value="4144" />
+              <option value="4208" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />

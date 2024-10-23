@@ -20,6 +20,7 @@ public class EmemyController : MonoBehaviour
     [SerializeField] private bool _canPatroll = false;
     [SerializeField] private bool _canJump = false;
     [SerializeField] private EnemyState _enemyState = EnemyState.Idle;
+    [SerializeField] private bool _showMovementGizmos = true;
     
     private Rigidbody2D _rb;
     private bool _isGrounded;
@@ -104,75 +105,51 @@ public class EmemyController : MonoBehaviour
             (_wallInFrontCheck.position - transform.position).normalized,
             Vector2.Distance(transform.position, _wallInFrontCheck.position), _groundLayer);
         
-        RaycastHit2D groundAfter2blocksGap1BlockAbove = 
-            Physics2D.Raycast(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down, 0.5f, _groundLayer);
-        
-        RaycastHit2D noGapAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.5f, _groundLayer);
+        RaycastHit2D noGapAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.8f, _groundLayer);
         
         RaycastHit2D groundAfter1BlockGap =
-            Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 1.5f, _groundLayer);
+            Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 1.8f, _groundLayer);
         
         RaycastHit2D groundAfter2BlockGap =
-            Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 1.5f, _groundLayer);
+            Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 1.8f, _groundLayer);
         
-
-
-        // bool shouldBeAbleToJump = _isGrounded && _canJump && !wallInFront.collider;
-        // bool shouldJumpIfGroundInFront = groundInFront.collider;
-        // bool shouldBeMoving = noGapAhead.collider || ((groundAfter2BlockGap.collider || groundAfter1BlockGap.collider) && _canJump);
-        // bool shouldJump1Block = !groundInFront.collider && !noGapAhead.collider && groundAfter1BlockGap.collider ;
-        // bool shouldJump2Blocks = !groundInFront.collider && !noGapAhead.collider && groundAfter2BlockGap.collider;
-        //
-        // if (shouldBeMoving)
-        // {
-        //     _rb.velocity = new Vector2(_direction * _chaseSpeed, _rb.velocity.y);
-        // }
-        // else if (_isGrounded)
-        // {
-        //     _rb.velocity = new Vector2(0, 0);
-        // }
-        //
-        // if (shouldBeAbleToJump)
-        // {
-        //     if (shouldJump1Block) // Gap detected
-        //     {
-        //         _shouldJump1Block = true;
-        //     }
-        //     else if (shouldJump2Blocks || shouldJumpIfGroundInFront)
-        //     {
-        //         _shouldJump2Blocks = true;
-        //     }
-        // }
+        RaycastHit2D groundAfter2blocksGap1BlockAbove = 
+            Physics2D.Raycast(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down, 0.6f, _groundLayer);
         
         
-        bool shouldBeAbleToJump = _canJump && _isGrounded && !wallInFront; //true
+        bool shouldBeAbleToJump = _canJump && _isGrounded && !wallInFront;
         bool shouldJumpIfGroundInFront = shouldBeAbleToJump && groundInFront && !wallInFront && !noGapAhead; 
         bool shouldJump1BlockX  = shouldBeAbleToJump && (!noGapAhead && groundAfter1BlockGap);
         bool shouldJump2BlocksX = shouldBeAbleToJump && (!noGapAhead && groundAfter2BlockGap);
         bool shouldJump2BlocksX1BlockY = shouldBeAbleToJump && (!noGapAhead && groundAfter2blocksGap1BlockAbove);
         bool groundInFrontOfPlayer = noGapAhead;
-        bool shouldBeMovingFullSpeed  = _isJumping || (groundInFrontOfPlayer && !shouldJumpIfGroundInFront ) ;
-        bool shouldBeMovingHalfSpeed = (groundInFrontOfPlayer && shouldJumpIfGroundInFront ) ;
+        bool shouldStopIfCloseToWall = wallInFront && (groundInFront.distance < 0.5f);
         
-        //TODO : Add so that if close to wall then dont move
+        bool noGroundAhead = !groundAfter1BlockGap
+                                         && !groundAfter2BlockGap
+                                         && !groundAfter2blocksGap1BlockAbove
+                                         && !noGapAhead
+                                         && !wallInFront;
+        
+        bool shouldBeMovingFullSpeed  = (_isJumping ) || (groundInFrontOfPlayer && !shouldJumpIfGroundInFront ) ;
+        
         
         //TODO : Steps with drop suicide problem fix
         
-        if (shouldBeMovingHalfSpeed)
-        {
-            _rb.velocity = new Vector2(_direction * _chaseSpeed/3, _rb.velocity.y);
-        } else if (shouldBeMovingFullSpeed)
+        if (shouldBeMovingFullSpeed)
         {
             _rb.velocity = new Vector2(_direction * _chaseSpeed, _rb.velocity.y);
-        }else if (_isGrounded)
+        }
+        if ( shouldStopIfCloseToWall || (_isGrounded && noGroundAhead))
         {
-                _rb.velocity = new Vector2(0, 0);
+                _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
         
         if (shouldJump1BlockX)
         {
             _shouldJump1Block = true;
-        }else if ((shouldJumpIfGroundInFront && !noGapAhead ) || shouldJump2BlocksX || shouldJump2BlocksX1BlockY)
+        }
+        if ((shouldJumpIfGroundInFront && !noGapAhead ) || shouldJump2BlocksX || shouldJump2BlocksX1BlockY)
         {
             _shouldJump2Blocks = true;
         }
@@ -195,34 +172,40 @@ public class EmemyController : MonoBehaviour
 
     public void OnDrawGizmos()
     {
+        if (_showMovementGizmos)
+        {
+            //_isGrounded
+            Debug.DrawRay(transform.position, Vector2.down * 0.6f, Color.yellow);
         
-        //_isGrounded
-        Debug.DrawRay(transform.position, Vector2.down * 0.6f, Color.yellow);
+            var position = transform.position;
         
-        var position = transform.position;
+            Gizmos.color = Color.red; // Draw the gap check ray
+            Gizmos.DrawRay(position, (_gapCheck.position - position).normalized * Vector2.Distance(transform.position, _gapCheck.position));
+            Gizmos.DrawRay(_gapCheck.position, Vector2.down * 1.8f);
         
-        Gizmos.color = Color.red; // Draw the gap check ray
-        Gizmos.DrawRay(position, (_gapCheck.position - position).normalized * Vector2.Distance(transform.position, _gapCheck.position));
-        Gizmos.DrawRay(_gapCheck.position, Vector2.down * 1.5f);
+            Gizmos.color = Color.blue; // Draw the ground after gap check ray
+            Gizmos.DrawRay(position, (_groundAfter2BlockGapCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter2BlockGapCheck.position));
+            Gizmos.DrawRay(_groundAfter2BlockGapCheck.position, Vector2.down * 1.8f); 
         
-        Gizmos.color = Color.blue; // Draw the ground after gap check ray
-        Gizmos.DrawRay(position, (_groundAfter2BlockGapCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter2BlockGapCheck.position));
-        Gizmos.DrawRay(_groundAfter2BlockGapCheck.position, Vector2.down * 1.5f); 
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawRay(position, (_groundAfter1BlockGapCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter1BlockGapCheck.position));
-        Gizmos.DrawRay(_groundAfter1BlockGapCheck.position, Vector2.down * 1.5f);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(position, (_groundAfter1BlockGapCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter1BlockGapCheck.position));
+            Gizmos.DrawRay(_groundAfter1BlockGapCheck.position, Vector2.down * 1.8f);
         
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(position, (_groundInFrontCheck.position - position).normalized * Vector2.Distance(transform.position, _groundInFrontCheck.position));
-        // Draw the ground in front ray
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawRay(position,
+                (_groundAfter2blocksGap1BlockAboveCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter2blocksGap1BlockAboveCheck.position));
+            Gizmos.DrawRay(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down * 0.6f); 
         
-        Gizmos.DrawRay(position + new Vector3(0, 0.5f, 0), 
-            (_wallInFrontCheck.position - (position + new Vector3(0, 0.5f, 0))).normalized * 
-            Vector2.Distance(position + new Vector3(0, 0.5f, 0), _wallInFrontCheck.position));
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(position, (_groundInFrontCheck.position - position).normalized * Vector2.Distance(transform.position, _groundInFrontCheck.position));
+            // Draw the ground in front ray
         
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(position,
-            (_groundAfter2blocksGap1BlockAboveCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter2blocksGap1BlockAboveCheck.position));
-        Gizmos.DrawRay(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down * 0.5f); 
+            Gizmos.DrawRay(position + new Vector3(0, 0.5f, 0), 
+                (_wallInFrontCheck.position - (position + new Vector3(0, 0.5f, 0))).normalized * 
+                Vector2.Distance(position + new Vector3(0, 0.5f, 0), _wallInFrontCheck.position));
+        }
+        
+        
+        
     }
 }

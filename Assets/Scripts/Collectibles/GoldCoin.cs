@@ -8,8 +8,6 @@ namespace Collectibles
     public class GoldCoin : ICollectible
     {
         [SerializeField] private CoinConfig _coinConfig;
-        private Animator _animator;
-        private string _collectTrigger = "Collect";
 
         private void Awake()
         {
@@ -20,11 +18,6 @@ namespace Collectibles
         {
             PlayerCollectibles.IncreaseCoinCount(_coinConfig.goldValue);
             _animator.SetTrigger(_collectTrigger);
-        }
-
-        private void RemoveCoin()
-        {
-            Destroy(gameObject);
         }
     }
 }

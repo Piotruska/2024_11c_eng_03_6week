@@ -8,12 +8,12 @@ public class EnemyController : MonoBehaviour, IEnemyController
 {
     [Header("Movement Rays Transforms")]
     [SerializeField] private Transform _player;
-    [SerializeField] private Transform _gapCheck; // x : 1 , y : 0.-76
-    [SerializeField] private Transform _groundAfter1BlockGapCheck; // x : 2.8 , y : -0.83
-    [SerializeField] private Transform _groundAfter2BlockGapCheck; // x : 4.55 , y : -0.81
-    [SerializeField] private Transform _wallInFrontCheck; // x : 1.64 , y : 2.13
-    [SerializeField] private Transform _groundAfter2blocksGap1BlockAboveCheck; // x : 3.48 , y : 1.54
-    [SerializeField] private Transform _groundInFrontCheck; // x : 2.65  , y : 0
+    [SerializeField] private Transform _gapCheck; 
+    [SerializeField] private Transform _groundAfter1BlockGapCheck; 
+    [SerializeField] private Transform _groundAfter2BlockGapCheck; 
+    [SerializeField] private Transform _wallInFrontCheck; 
+    [SerializeField] private Transform _groundAfter2blocksGap1BlockAboveCheck; 
+    [SerializeField] private Transform _groundInFrontCheck; 
     [Header("Movement Rays Config")]
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _dangerLayer;

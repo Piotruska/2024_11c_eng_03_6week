@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyAnimator : MonoBehaviour , IEnemyAnimator
 {
     [SerializeField] private GameObject _dustParticleEffect;
+    [SerializeField] private Transform _dustparticleSpawn;
     private Rigidbody2D _rb;
 
     private string _isRunningBool = "isRunning";
@@ -88,7 +89,7 @@ public class EnemyAnimator : MonoBehaviour , IEnemyAnimator
 
     public void SpawnDustParticleEffect(int trigger)
     {
-        var obj = Instantiate(_dustParticleEffect, _rb.transform.position, _rb.transform.rotation);
+        var obj = Instantiate(_dustParticleEffect, _dustparticleSpawn.position, _dustparticleSpawn.rotation);
         obj.transform.localScale = _rb.transform.localScale;
         var particleAnimator = obj.GetComponent<Animator>();
         switch (trigger)
@@ -98,9 +99,6 @@ public class EnemyAnimator : MonoBehaviour , IEnemyAnimator
                 break;
             case 2: //jump
                 particleAnimator.SetTrigger(_jumpDustEffectTrigger);
-                break;
-            case 3 : //fall
-                particleAnimator.SetTrigger(_fallDustEffectTrigger);
                 break;
         }
     }

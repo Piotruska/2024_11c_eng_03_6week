@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour , IDamageable
     {
         _controller = GetComponent<PlayerController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<AnimationScript>();
+        _animator = GetComponent<PlayerAnimationScript>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _currentHealth = _playerConfig.maxHealth;

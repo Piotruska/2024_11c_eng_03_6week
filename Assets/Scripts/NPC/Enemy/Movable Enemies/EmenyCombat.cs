@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using UnityEngine;
 
-public class EmenyAttack : MonoBehaviour , IEnemyAttack
+public class EmenyCombat : MonoBehaviour , IEnemyCombat
 {
     private IEnemyController _enemyController;
 

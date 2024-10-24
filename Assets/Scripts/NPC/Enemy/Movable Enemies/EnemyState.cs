@@ -5,7 +5,6 @@ namespace NPC.Enemy.Movable_Enemies
         Idle,
         Patrol,
         Chase,
-        Attack,
         Stunned,
         Die
     }

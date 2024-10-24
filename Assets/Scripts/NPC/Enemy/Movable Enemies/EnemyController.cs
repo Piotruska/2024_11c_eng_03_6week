@@ -4,7 +4,7 @@ using NPC.Enemy.Movable_Enemies;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using UnityEngine;
 
-public class EmemyController : MonoBehaviour, IEnemyController
+public class EnemyController : MonoBehaviour, IEnemyController
 {
     [Header("Movement Rays Transforms")]
     [SerializeField] private Transform _player;
@@ -19,20 +19,22 @@ public class EmemyController : MonoBehaviour, IEnemyController
     [SerializeField] private LayerMask _dangerLayer;
     
     [Header("Behaviour")]
-    [SerializeField] private bool _canChase = false;
-    [SerializeField] private bool _canPatroll = false;
-    [SerializeField] private bool _canJump = false;
+    [SerializeField] public bool _canChase = false;
+    [SerializeField] public bool _canPatroll = false;
+    [SerializeField] public bool _canJump = false;
 
     [Header("Patroll Configurations")] 
-    [SerializeField] private bool _groundDetectionBased =false;
-    [SerializeField] private bool _timeBased =false;
+    [SerializeField] public bool _groundDetectionBased =false;
+    [SerializeField] public bool _timeBased =false;
     [Range(0f, 20f)]
-    [SerializeField] private float _durationBeforeSwitch = 20;
+    [SerializeField] public float _durationBeforeSwitch = 20;
     
     [SerializeField] private EnemyState _enemyState = EnemyState.Idle;
     
     [Header("Gizmos Options")]
     [SerializeField] private bool _showMovementGizmos = true;
+
+    private IEnemyAnimator _enemyAnimator;
     
     private float _chaseSpeed = 2.5f; //recomended for proper jump movements
     private float _jumpForce = 5f; //recomended for proper jump movements
@@ -67,26 +69,29 @@ public class EmemyController : MonoBehaviour, IEnemyController
 
     void Start()
     {
+        _enemyAnimator = GetComponent<IEnemyAnimator>();
         _rb = GetComponent<Rigidbody2D>();
         StartCoroutine(PatrolTimer(_durationBeforeSwitch));
     }
 
     void Update()
     {
+        if (_enemyState == EnemyState.Die) return;
         Move();
         CorrectLocalScale();
     }
 
     private void FixedUpdate()
     {
-        if (_isGrounded)
-        {
-            _isJumping = false;
-            
-        }
+        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
+        _enemyAnimator.IsGrounded(_isGrounded);
+        _enemyAnimator.IsJumping(_isJumping);
+
+        if (_isGrounded) _isJumping = false;
         
-        if (_shouldJump1Block)
+        if (_shouldJump1Block )
         {
+            _enemyAnimator.JumpAnimation();
             _isJumping = true;
             _shouldJump1Block = false;
             _rb.velocity = Vector2.up * _jumpForce/2;
@@ -94,6 +99,7 @@ public class EmemyController : MonoBehaviour, IEnemyController
         
         if (_shouldJump2Blocks)
         {
+            _enemyAnimator.JumpAnimation();
             _isJumping = true;
             _shouldJump2Blocks = false;
             _rb.velocity = Vector2.up * _jumpForce;
@@ -114,9 +120,9 @@ public class EmemyController : MonoBehaviour, IEnemyController
 
     private void Patrol(bool changeDirection)
     {
-        if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased)
+        if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased && !_groundDetectionBased)
         {
-            
+            StartCoroutine(PatrolTimer(_durationBeforeSwitch));
         }
         
         if (_enemyState == EnemyState.Patrol && _canPatroll && _groundDetectionBased && !_timeBased && changeDirection)
@@ -124,8 +130,10 @@ public class EmemyController : MonoBehaviour, IEnemyController
             _direction *= -1;
         }
     }
+
     
-    private void Chase()
+    
+    private void Chase() 
     {
         
         if (_enemyState == EnemyState.Chase && _canChase)
@@ -151,7 +159,7 @@ public class EmemyController : MonoBehaviour, IEnemyController
 
     private void Move()
     {
-        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
+        
         
         RaycastHit2D groundInFront =Physics2D.Raycast(transform.position,
             (_groundInFrontCheck.position - transform.position).normalized,
@@ -205,21 +213,25 @@ public class EmemyController : MonoBehaviour, IEnemyController
         if (shouldBeMovingFullSpeed && (isPatrolling || isChasing))
         {
             _rb.velocity = new Vector2(_direction * _chaseSpeed, _rb.velocity.y);
+            _enemyAnimator.RunAnimation();
         }
         if ((( shouldStopIfCloseToWall || shouldStopIfCloseToCliff) 
             && (isPatrolling || isChasing)) || isIdle || isDead)
         {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
+                _enemyAnimator.IdleAnimation();
         }
         
         if (shouldJump1BlockX 
             && (isPatrolling || isChasing))
         {
+            
             _shouldJump1Block = true;
         }
         if (((shouldJumpIfGroundInFront && !noGapAhead ) || shouldJump2BlocksX || shouldJump2BlocksX1BlockY)
             && (isPatrolling || isChasing))
         {
+            
             _shouldJump2Blocks = true;
         }
         

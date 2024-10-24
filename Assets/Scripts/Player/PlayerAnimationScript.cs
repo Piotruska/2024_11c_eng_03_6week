@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
-public class AnimationScript : MonoBehaviour , IPlayerAnimator
+public class PlayerAnimationScript : MonoBehaviour , IPlayerAnimator
 {
-    [SerializeField] private GameObject _particleEffects;
+    [SerializeField] private GameObject _dustparticleEffects;
     
     private Rigidbody2D _rb;
     private PlayerController _playerController;
@@ -157,7 +157,7 @@ public class AnimationScript : MonoBehaviour , IPlayerAnimator
 
     public void SpawnDustParticleEffect(int trigger)
     {
-        var obj = Instantiate(_particleEffects, _rb.transform.position, _rb.transform.rotation);
+        var obj = Instantiate(_dustparticleEffects, _rb.transform.position, _rb.transform.rotation);
         obj.transform.localScale = _rb.transform.localScale;
         var particleAnimator = obj.GetComponent<Animator>();
         switch (trigger)

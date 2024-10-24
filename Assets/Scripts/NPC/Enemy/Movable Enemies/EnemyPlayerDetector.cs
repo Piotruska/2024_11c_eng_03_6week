@@ -8,30 +8,30 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
     
     [Header("RayCast / OverlapBox Configuration - Front")] 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private float _frontXAxisMaxDistance = 6; 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private float _frontYAxisMaxDistance = 4; 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private int _frontXAxisBoxAmount = 12; 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private int _frontYAxisBoxAmount = 8; 
 
     [Header("RayCast / OverlapBox Configuration - Back")] 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private float _backXAxisMaxDistance = 6; 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private float _backYAxisMaxDistance = 4; 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private int _backXAxisBoxAmount = 12; 
     [SerializeField]
-    [Range(0f, 15f)]
+    [Range(0f, 50f)]
     private int _backYAxisBoxAmount = 8; 
 
     [Header("Detection Configuration")] 

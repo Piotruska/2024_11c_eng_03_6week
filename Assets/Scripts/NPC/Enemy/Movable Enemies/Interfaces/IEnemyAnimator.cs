@@ -5,6 +5,8 @@ using UnityEngine;
 
 public interface IEnemyAnimator
 {
+    public void IsGrounded(bool isGrounded);
+    public void IsJumping(bool value);
     public void IdleAnimation();
     public void RunAnimation();
     public void JumpAnimation();
@@ -12,5 +14,5 @@ public interface IEnemyAnimator
     public void AttackAnimation();
     public void HitAnimation();
     public void DeadHitAnimation();
-    public void SpawnDustParticles();
+    public void SpawnDustParticleEffect(int trigger);
 }

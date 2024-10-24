@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<AnimationScript>();
+        _animator = GetComponent<PlayerAnimationScript>();
         _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
         _extraJumpsValue = _config.extraJumpCount;

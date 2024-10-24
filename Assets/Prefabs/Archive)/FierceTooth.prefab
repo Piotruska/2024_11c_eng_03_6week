@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6087c387bf7f4483c21ef668c93bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dustParticleEffect: {fileID: 0}
 --- !u!95 &3836415749806176090
 Animator:
   serializedVersion: 5

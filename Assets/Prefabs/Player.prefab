@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85dd2aeba1bcc04ea1d2c16164ea044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleEffects: {fileID: 5369337687508789472, guid: 0c911953026bdd2449c3224f6bb61560, type: 3}
+  _dustparticleEffects: {fileID: 5369337687508789472, guid: 0c911953026bdd2449c3224f6bb61560, type: 3}
 --- !u!114 &2294452819115858780
 MonoBehaviour:
   m_ObjectHideFlags: 0

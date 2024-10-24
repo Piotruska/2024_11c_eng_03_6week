@@ -6,7 +6,10 @@ namespace Collectibles.Configurations
     public class PotionConfig : ScriptableObject
     {
         [Header("Potion Parameters")]
-        private int healthRestore = 20;
-        private int speedBoost = 50;
+        [Header("Red Potion")]
+        public int healthRestore = 20;
+        [Header("Blue Potion")]
+        public int speedBoostEffect = 2;
+        public int speedBoostDuration = 10;
     }
 }

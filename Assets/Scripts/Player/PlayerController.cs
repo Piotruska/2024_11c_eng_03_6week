@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Collectibles.Configurations;
 using Player;
 using Player.Interfaces;
 using UnityEngine;
@@ -18,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private bool _dashInput;
     private bool _meleeAttackInput;
     private bool _interactInput;
+    private bool _item1Input;
+    private bool _item2Input;
+
     
     //Surroundings Checks
     private bool _isGrounded;
@@ -39,9 +43,13 @@ public class PlayerController : MonoBehaviour
     private Coroutine _attackCoroutine;
     private bool _canAttack = true;
     
+    //Parameters
+    private float _playerSpeed;
+    
 
     [Header("Configurations")] 
     [SerializeField] private PlayerConfig _config;
+    [SerializeField] private PotionConfig _potionConfig;
     
 
     [Header("Ground Check")] 
@@ -64,6 +72,7 @@ public class PlayerController : MonoBehaviour
         _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
         _extraJumpsValue = _config.extraJumpCount;
+        SpeedSetDefault();
     }
 
     void Update()
@@ -75,6 +84,8 @@ public class PlayerController : MonoBehaviour
         _dashInput = Input.GetButton("Dash");
         _meleeAttackInput = Input.GetButtonDown("Melee Attack");
         _interactInput = Input.GetButtonDown("Interact");
+        _item1Input = Input.GetButtonDown("Item 1");
+        _item2Input = Input.GetButtonDown("Item 2");
 
         if (_isGrounded)
         {
@@ -97,6 +108,12 @@ public class PlayerController : MonoBehaviour
         if (_interactInput) Interact();
         if (_dashInput && _canDash && (_currentAirDashCount > 0)) StartCoroutine(Dash());
 
+        if (_item2Input && PlayerCollectibles.GetBluePotionCount()>0)
+        {
+            PlayerCollectibles.DecreaseBluePotionCount(1);
+            StartCoroutine(SpeedIncrease(_potionConfig.speedBoostEffect, _potionConfig.speedBoostDuration));
+        }
+
     }
 
     void FixedUpdate()
@@ -104,19 +121,19 @@ public class PlayerController : MonoBehaviour
         CheckIfGrounded();
         if(_isDashing || _isStunned) return;
         _animator.FacingCheck();
-        SpeedSetDefault();
+        _rb.velocity = new Vector2(_xInput * _playerSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();
         if (_jumpbool) Jump();
     }
 
     void SpeedSetDefault()
     {
-        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
+        _playerSpeed = _config.movementSpeed;
     }
     
     IEnumerator SpeedIncrease(int increase, int duration)
     {
-        _rb.velocity = new Vector2(_xInput * (_config.movementSpeed*increase), _rb.velocity.y);
+        _playerSpeed *= increase;
         yield return new WaitForSeconds(duration);
         SpeedSetDefault();
     }

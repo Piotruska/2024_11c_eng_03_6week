@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Collectibles
+namespace Collectibles.Configurations
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/CoinConfig",fileName = "CoinConfig")]
     public class CoinConfig : ScriptableObject

@@ -1,4 +1,5 @@
 using System;
+using Collectibles.Configurations;
 using Player;
 using Unity.VisualScripting;
 using UnityEngine;

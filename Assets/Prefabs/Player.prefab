@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
+  _potionConfig: {fileID: 11400000, guid: 3733f3a8c52123045b877d96f5ebda3b, type: 2}
   _groundCheck: {fileID: 8130355705453322025}
   _checkRadious: 0.2
   _whatIsGround:

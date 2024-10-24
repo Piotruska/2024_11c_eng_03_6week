@@ -18,9 +18,19 @@ namespace Player
             _redPotionCount+=amount;
         }
         
+        public static void DecreaseRedPotionCount(int amount)
+        {
+            _redPotionCount-=amount;
+        }
+        
         public static void IncreaseBluePotionCount(int amount)
         {
             _bluePotionCount+=amount;
+        }
+        
+        public static void DecreaseBluePotionCount(int amount)
+        {
+            _bluePotionCount-=amount;
         }
 
         public static int GetCoinCount()

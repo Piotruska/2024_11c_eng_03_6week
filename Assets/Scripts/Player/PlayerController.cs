@@ -104,9 +104,21 @@ public class PlayerController : MonoBehaviour
         CheckIfGrounded();
         if(_isDashing || _isStunned) return;
         _animator.FacingCheck();
-        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
+        SpeedSetDefault();
         if (_xInput != 0) Walk(); else Idle();
         if (_jumpbool) Jump();
+    }
+
+    void SpeedSetDefault()
+    {
+        _rb.velocity = new Vector2(_xInput * _config.movementSpeed, _rb.velocity.y);
+    }
+    
+    IEnumerator SpeedIncrease(int increase, int duration)
+    {
+        _rb.velocity = new Vector2(_xInput * (_config.movementSpeed*increase), _rb.velocity.y);
+        yield return new WaitForSeconds(duration);
+        SpeedSetDefault();
     }
     
     public void HasSword(bool hasSword)

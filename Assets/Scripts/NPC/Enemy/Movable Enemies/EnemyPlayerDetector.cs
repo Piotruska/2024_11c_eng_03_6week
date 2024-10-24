@@ -269,7 +269,7 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
                 }
             }
         }
-
+        
         if (_showGrid)
         {
             Gizmos.color = _gizmoGridColour;

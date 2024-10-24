@@ -5,11 +5,12 @@ using UnityEngine;
 
 public interface IEnemyAnimator
 {
-    public void Idle();
-    public void Run();
-    public void Jump();
-    public void Anticipate();
-    public void Hit();
-    public void DeadHit();
+    public void IdleAnimation();
+    public void RunAnimation();
+    public void JumpAnimation();
+    public void AnticipateAnimation();
+    public void AttackAnimation();
+    public void HitAnimation();
+    public void DeadHitAnimation();
     public void SpawnDustParticles();
 }

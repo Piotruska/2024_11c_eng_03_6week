@@ -1,42 +1,64 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour , IEnemyAnimator
 {
+
+    private string _isRunningBool = "isRunning";
+    private string _isGroundedBool = "isGrounded";
     
-    public void Idle()
+    private string _jumpTrigger = "Jump";
+    private string _attackTrigger= "Attack";
+    private string _hitTrigger = "Hit";
+    private string _deadHitTrigger = "DeadHit";
+    private string _anticipationTrigger = "Anticipation";
+
+    private Animator _animator;
+
+    private void Awake()
     {
-        throw new System.NotImplementedException();
+        _animator = GetComponent<Animator>();
     }
 
-    public void Run()
+    public void IdleAnimation()
     {
-        throw new System.NotImplementedException();
+        _animator.SetBool(_isRunningBool,false);
     }
 
-    public void Jump()
+    public void RunAnimation()
     {
-        throw new System.NotImplementedException();
+        _animator.SetBool(_isRunningBool,true);
     }
 
-    public void Anticipate()
+    public void JumpAnimation()
     {
-        throw new System.NotImplementedException();
+        _animator.SetTrigger(_jumpTrigger);
     }
 
-    public void Hit()
+    public void AnticipateAnimation()
     {
-        throw new System.NotImplementedException();
+        _animator.SetTrigger(_anticipationTrigger);
+    }
+    
+    public void AttackAnimation()
+    {
+        _animator.SetTrigger(_attackTrigger);
     }
 
-    public void DeadHit()
+    public void HitAnimation()
     {
-        throw new System.NotImplementedException();
+        _animator.SetTrigger(_hitTrigger);
+    }
+
+    public void DeadHitAnimation()
+    {
+        _animator.SetTrigger(_deadHitTrigger);
     }
 
     public void SpawnDustParticles()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

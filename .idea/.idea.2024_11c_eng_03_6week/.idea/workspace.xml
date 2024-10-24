@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyPlayerDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyPlayerDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FierceTooth FS Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FierceTooth FS Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/Interfaces/IEnemyAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/Interfaces/IEnemyAnimator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

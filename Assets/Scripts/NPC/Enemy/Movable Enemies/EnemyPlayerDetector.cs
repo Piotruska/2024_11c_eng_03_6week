@@ -97,6 +97,7 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
 
      private void Update()
     {
+        if (_enemyController.GetState() == EnemyState.Die) return;
         // Update logic to manage detection and state transitions
         _innerxAxisMaxDistance = Mathf.Abs(_enemyController.Direction() > 0 ? _frontXAxisMaxDistance : _backXAxisMaxDistance);
         float direction = _enemyController.Direction();

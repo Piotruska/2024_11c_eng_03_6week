@@ -6,6 +6,7 @@ namespace NPC.Enemy.Movable_Enemies.Interfaces
         public EnemyState GetState();
         public bool CanChase();
         public bool CanPatroll();
+        public void Stunn(float timeStunned);
         public float Direction();
 
     }

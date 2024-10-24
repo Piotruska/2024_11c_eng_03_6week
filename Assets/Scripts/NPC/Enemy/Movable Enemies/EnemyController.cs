@@ -131,8 +131,19 @@ public class EnemyController : MonoBehaviour, IEnemyController
         }
     }
 
-    
-    
+    public void Stunn(float timeStunned)
+    {
+        StartCoroutine(StunnCoroutine(timeStunned));
+    }
+
+    public IEnumerator StunnCoroutine(float timeStunned)
+    {
+        var saveState = _enemyState;
+        _enemyState = EnemyState.Stunned;
+        yield return new WaitForSeconds(timeStunned);
+        _enemyState = saveState;
+    }
+
     private void Chase() 
     {
         
@@ -159,7 +170,13 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private void Move()
     {
-        
+        bool isPatrolling = _enemyState == EnemyState.Patrol;
+        bool isChasing = _enemyState == EnemyState.Chase;
+        bool isIdle = _enemyState == EnemyState.Idle;
+        bool isStunned = _enemyState == EnemyState.Stunned;
+        bool isDead = _enemyState == EnemyState.Die;
+
+        if(isStunned) return;
         
         RaycastHit2D groundInFront =Physics2D.Raycast(transform.position,
             (_groundInFrontCheck.position - transform.position).normalized,
@@ -187,11 +204,6 @@ public class EnemyController : MonoBehaviour, IEnemyController
             Physics2D.Raycast(_groundAfter2blocksGap1BlockAboveCheck.position, Vector2.down, 0.6f, _groundLayer);
 
         
-        bool isPatrolling = _enemyState == EnemyState.Patrol;
-        bool isChasing = _enemyState == EnemyState.Chase;
-        bool isIdle = _enemyState == EnemyState.Idle;
-        bool isStunned = _enemyState == EnemyState.Stunned;
-        bool isDead = _enemyState == EnemyState.Die;
         
         bool noGroundAhead = (!groundAfter1BlockGap && !groundAfter2BlockGap && !groundAfter2blocksGap1BlockAbove && !noGapAhead && !wallInFront && !groundInFront) ||
                              (dangerAfter1BlockGap && dangerAfter2BlockGap && dangerAhead);

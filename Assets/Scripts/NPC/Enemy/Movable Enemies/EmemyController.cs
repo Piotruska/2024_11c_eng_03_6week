@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using NPC.Enemy.Movable_Enemies;
+using NPC.Enemy.Movable_Enemies.Interfaces;
 using UnityEngine;
 
-public class EmemyController : MonoBehaviour
+public class EmemyController : MonoBehaviour, IEnemyController
 {
     [Header("Movement Rays Transforms")]
     [SerializeField] private Transform _player;
@@ -43,7 +44,17 @@ public class EmemyController : MonoBehaviour
     private bool _isJumping = false;
     private float _direction = 1;
     private float _patrollDirection = 1;
-    
+
+    public bool CanChase()
+    {
+        return _canChase;
+    }
+
+    public float Direction()
+    {
+        return _direction;
+    }
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -160,7 +171,7 @@ public class EmemyController : MonoBehaviour
         
         bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f));
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 
-                                         (_canPatroll && !_canJump && (gapAhead)));
+                                         (_canPatroll && !_canJump && (gapAhead || dangerAhead)));
         bool shouldBeMovingFullSpeed  = (_canJump && _canPatroll && (_isJumping  || (noGapAhead && !shouldJumpIfGroundInFront ))) ||
                                         (_canPatroll && !_canJump && (noGapAhead));
         
@@ -195,6 +206,14 @@ public class EmemyController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x = Mathf.Abs(localScale.x) * Mathf.Sign(_direction); 
         transform.localScale = localScale;
+    }
+
+    public void ChangeState(EnemyState state)
+    {
+        if (_enemyState != EnemyState.Die)
+        {
+            _enemyState = state;
+        }
     }
 
     public void OnDrawGizmos()

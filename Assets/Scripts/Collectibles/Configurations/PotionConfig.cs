@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/PotionConfig",fileName = "PotionConfig")]
-public class PotionConfig : ScriptableObject
+namespace Collectibles.Configurations
 {
-    
+    [CreateAssetMenu(menuName = "Scriptable Objects/PotionConfig",fileName = "PotionConfig")]
+    public class PotionConfig : ScriptableObject
+    {
+        [Header("Potion Parameters")]
+        private int healthRestore = 20;
+        private int speedBoost = 50;
+    }
 }

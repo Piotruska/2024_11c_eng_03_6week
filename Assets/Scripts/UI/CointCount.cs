@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Player;
+using TMPro;
 using UnityEngine;
 
-public class CointCount : MonoBehaviour
+namespace UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CointCount : MonoBehaviour
     {
-        
-    }
+        private TMP_Text _text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake()
+        {
+            _text = gameObject.GetComponent<TMP_Text>();
+        }
+
+        private void Update()
+        {
+            _text.text = PlayerCollectibles.GetCoinCount().ToString();
+        }
     }
 }

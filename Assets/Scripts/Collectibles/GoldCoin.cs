@@ -20,7 +20,6 @@ namespace Collectibles
         {
             PlayerCollectibles.IncreaseCoinCount(_coinConfig.goldValue);
             _animator.SetTrigger(_collectTrigger);
-            Debug.Log("Count" + PlayerCollectibles.GetCoinCount());
         }
 
         private void RemoveCoin()

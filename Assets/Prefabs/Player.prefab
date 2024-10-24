@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2647143907879388512}
   - component: {fileID: 2294452819115858780}
   - component: {fileID: 3435622810395982027}
+  - component: {fileID: 3974204413472613987}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -261,6 +262,18 @@ MonoBehaviour:
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &3974204413472613987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243117496495063907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884a49776ea59114ca7079d7e79324af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2097139280021279262
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +338,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025827885, y: 0.040355742}
+  m_Offset: {x: 0.40937138, y: 0.07533538}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -336,7 +349,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0395632, y: 1.0807115}
+  m_Size: {x: 1.7077026, y: 1.2268353}
   m_EdgeRadius: 0
 --- !u!1 &3757278642653864443
 GameObject:
@@ -385,7 +398,7 @@ CapsuleCollider2D:
     m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -452,7 +465,7 @@ CapsuleCollider2D:
     m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -469,8 +482,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: -0.036316156}
+  m_Size: {x: 0.5, y: 0.9273677}
   m_Direction: 0
 --- !u!1 &6162345102281010053
 GameObject:
@@ -484,7 +497,7 @@ GameObject:
   m_Layer: 12
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -497,7 +510,7 @@ Transform:
   m_GameObject: {fileID: 6162345102281010053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.007, y: -0.206, z: -0.0063515105}
+  m_LocalPosition: {x: -0.007, y: -0.222, z: -0.0063515105}
   m_LocalScale: {x: 1.2576311, y: 2.3083239, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

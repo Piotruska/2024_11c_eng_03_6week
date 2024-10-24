@@ -1,4 +1,5 @@
 using System;
+using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,7 +18,9 @@ namespace Collectibles
 
         protected override void Collect()
         {
+            PlayerCollectibles.IncreaseCoinCount(_coinConfig.goldValue);
             _animator.SetTrigger(_collectTrigger);
+            Debug.Log("Count" + PlayerCollectibles.GetCoinCount());
         }
 
         private void RemoveCoin()

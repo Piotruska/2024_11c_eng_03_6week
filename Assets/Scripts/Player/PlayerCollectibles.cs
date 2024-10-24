@@ -4,11 +4,16 @@ namespace Player
 {
     public class PlayerCollectibles : MonoBehaviour
     {
-        private int _coinCount = 0;
+        private static int _coinCount = 0;
 
-        public void IncreaseCoinCount(int amount)
+        public static void IncreaseCoinCount(int amount)
         {
             _coinCount+=amount;
+        }
+
+        public static int GetCoinCount()
+        {
+            return _coinCount;
         }
     }
 }

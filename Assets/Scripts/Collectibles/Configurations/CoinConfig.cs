@@ -6,6 +6,6 @@ namespace Collectibles
     [CreateAssetMenu(menuName = "Scriptable Objects/CoinConfig",fileName = "CoinConfig")]
     public class CoinConfig : ScriptableObject
     {
-        public float value = 10;
+        public int goldValue = 10;
     }
 }

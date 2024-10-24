@@ -29,7 +29,6 @@ public class EmemyController : MonoBehaviour, IEnemyController
     [Range(0f, 20f)]
     [SerializeField] private float _durationBeforeSwitch = 20;
     
-    [Header("Starting Phase")]
     [SerializeField] private EnemyState _enemyState = EnemyState.Idle;
     
     [Header("Gizmos Options")]
@@ -44,10 +43,21 @@ public class EmemyController : MonoBehaviour, IEnemyController
     private bool _isJumping = false;
     private float _direction = 1;
     private float _patrollDirection = 1;
+    private bool changeDirectionDuringChase = false;
 
     public bool CanChase()
     {
         return _canChase;
+    }
+
+    public bool CanPatroll()
+    {
+        return _canPatroll;
+    }
+
+    public EnemyState GetState()
+    {
+        return _enemyState;
     }
 
     public float Direction()
@@ -117,10 +127,26 @@ public class EmemyController : MonoBehaviour, IEnemyController
     
     private void Chase()
     {
+        
         if (_enemyState == EnemyState.Chase && _canChase)
         {
-            _direction = Mathf.Sign(_player.position.x - transform.position.x);
+            var playerDirection= Mathf.Sign(_player.position.x - transform.position.x);
+            if (playerDirection != _direction)
+            {
+                changeDirectionDuringChase = true;
+            }
+            else
+            {
+                changeDirectionDuringChase = false;
+            }
+            
+            if (changeDirectionDuringChase && _isGrounded)
+            {
+                _direction = playerDirection;
+            }
         }
+
+        
     }
 
     private void Move()

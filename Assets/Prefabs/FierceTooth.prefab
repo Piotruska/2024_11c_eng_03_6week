@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 24925318245330606}
   - component: {fileID: 4579421680018073462}
   - component: {fileID: 1604437348745404284}
+  - component: {fileID: 9015508092989251095}
   - component: {fileID: 5291985061220150959}
   m_Layer: 9
   m_Name: FierceTooth
@@ -310,6 +311,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9015508092989251095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670629928104095153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c5418d4e75f93458e8dd5ba3bfef27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frontXAxisMaxDistance: 6
+  _frontYAxisMaxDistance: 4
+  _frontXAxisBoxAmount: 12
+  _frontYAxisBoxAmount: 8
+  _backXAxisMaxDistance: 6
+  _backYAxisMaxDistance: 4
+  _backXAxisBoxAmount: 12
+  _backYAxisBoxAmount: 8
+  _frontYOffset: -0.35
+  _frontXOffset: 0
+  _backYOffset: -0.35
+  _backXOffset: 0
+  _backDetectionDuration: 8
+  _detectionDelay: 0.1
+  _detectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _showGizmos: 0
+  _showGrid: 0
+  _gizmoGridColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _showXYLimits: 0
+  _gizmoXYLimitsColour: {r: 0, g: 0, b: 1, a: 1}
+  _showPlayerDetection: 0
+  _gizmoIdleColour: {r: 0, g: 1, b: 0, a: 1}
+  _gizmoDetectedColour: {r: 1, g: 0, b: 0, a: 1}
+  _showGroundDetection: 0
+  _gizmoRayColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &5291985061220150959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +384,7 @@ MonoBehaviour:
   _groundDetectionBased: 0
   _timeBased: 0
   _durationBeforeSwitch: 20
-  _enemyState: 0
+  _enemyState: 1
   _showMovementGizmos: 0
 --- !u!1 &7427796085175852434
 GameObject:

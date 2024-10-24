@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Collectibles
@@ -10,6 +11,7 @@ namespace Collectibles
         }
         protected override void Collect()
         {
+            PlayerCollectibles.IncreaseBluePotionCount(1);
             _animator.SetTrigger(_collectTrigger);
         }
     }

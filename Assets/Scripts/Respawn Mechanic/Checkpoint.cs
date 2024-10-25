@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private GameController _gameController;
+    private PlayerHealthScript _playerHealthScript;
     [SerializeField] private Transform _respawnPoint;
     private Collider2D _collider2D;
 
     private void Awake()
     {
-        _gameController = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
+        _playerHealthScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthScript>();
         _collider2D = gameObject.GetComponent<Collider2D>();
     }
 
@@ -19,7 +19,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _gameController.UpdateCheckpointPosition(_respawnPoint.position);
+            _playerHealthScript.UpdateCheckpointPosition(_respawnPoint.position);
             _collider2D.enabled = false; //Disables collider so that player wont respawn in previous checkpoints if they go back
         }
     }

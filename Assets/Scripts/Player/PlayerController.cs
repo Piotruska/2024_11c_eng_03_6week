@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerAnimator _animator;
     private ICanAttack _IcanAttack;
     private ICanInteract _canInteract;
+
     
     //Inputs
     private float _xInput;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private int _currentAttackIndex = 1; 
     private Coroutine _attackCoroutine;
     private bool _canAttack = true;
+    public bool _isAlive = true;
+
     
     //Parameters
     private float _playerSpeed;
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<AnimationScript>();
+        _animator = GetComponent<PlayerAnimationScript>();
         _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
         _extraJumpsValue = _config.extraJumpCount;
@@ -77,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(_isDashing || _isStunned) return;
+        if(_isDashing || _isStunned || !_isAlive) return;
         
         _xInput = Input.GetAxis("Horizontal Movement");
         _jumpInput = Input.GetButtonDown("Jump");

@@ -7,9 +7,9 @@ using UnityEngine;
 public class AttackMechanic : MonoBehaviour, ICanAttack
 {
     [Header("Ground Attack Config")] 
-    [SerializeField] private CapsuleCollider2D _groundAttackCollider; // Reference to the Ground CapsuleCollider2D
+    [SerializeField] private CapsuleCollider2D _groundAttackCollider; 
     [Header("Air Attack Config")] 
-    [SerializeField] private CapsuleCollider2D _airAttackCollider; // Reference to the Air CapsuleCollider2D
+    [SerializeField] private CapsuleCollider2D _airAttackCollider; 
     [Header("Enemy Identification")] 
     [SerializeField] private LayerMask _enemies;
     [Header("Player Configurations")] 

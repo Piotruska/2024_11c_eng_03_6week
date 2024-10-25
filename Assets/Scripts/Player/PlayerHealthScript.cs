@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class GameController : MonoBehaviour , IDamageable
+public class PlayerHealthScript : MonoBehaviour , IDamageable
 {
     private Vector2 _checkPointposition;
     private SpriteRenderer _spriteRenderer;
@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour , IDamageable
     {
         _controller = GetComponent<PlayerController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<AnimationScript>();
+        _animator = GetComponent<PlayerAnimationScript>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _currentHealth = _playerConfig.maxHealth;
@@ -82,10 +82,12 @@ public class GameController : MonoBehaviour , IDamageable
         
         _animator.DeathAnimation();
         _currentHealth = _playerConfig.maxHealth;
+        _controller._isAlive = false;
         yield return new WaitForSeconds(duration);
         _spriteRenderer.enabled = false;
         _animator.RespawnAnimation();
         _spriteRenderer.enabled = true;
+        _controller._isAlive = true;
         transform.position = _checkPointposition;
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         _rigidbody2D.velocity = new Vector2(0, 0);

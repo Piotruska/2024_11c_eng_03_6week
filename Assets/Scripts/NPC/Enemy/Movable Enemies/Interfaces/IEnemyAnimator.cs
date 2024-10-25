@@ -14,5 +14,4 @@ public interface IEnemyAnimator
     public void AttackAnimation();
     public void HitAnimation();
     public void DeadHitAnimation();
-    public void SpawnDustParticleEffect(int trigger);
 }

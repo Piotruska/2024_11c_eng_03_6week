@@ -46,6 +46,22 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private float _direction = 1;
     private float _patrollDirection = 1;
     private bool changeDirectionDuringChase = false;
+    private bool _isAttacking = false;
+
+    public bool isGrounded()
+    {
+        return _isGrounded;
+    }
+
+    public void isAttackingTrue()
+    {
+        _isAttacking = true;
+    }
+
+    public void isAttackingFalse()
+    {
+        _isAttacking = false;
+    }
 
     public bool CanChase()
     {
@@ -218,8 +234,9 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f));
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 
                                          (_canPatroll && !_canJump && (gapAhead || dangerAhead)));
-        bool shouldBeMovingFullSpeed  = (_canJump && _canPatroll && (_isJumping  || (noGapAhead && !shouldJumpIfGroundInFront ))) ||
-                                        (_canPatroll && !_canJump && (noGapAhead));
+        bool shouldStopIfAttacking = _isAttacking && _isGrounded;
+        bool shouldBeMovingFullSpeed  = ((_canJump && _canPatroll && (_isJumping  || (noGapAhead && !shouldJumpIfGroundInFront ))) ||
+                                        (_canPatroll && !_canJump && (noGapAhead)))&&!_isAttacking;
         
         
         if (shouldBeMovingFullSpeed && (isPatrolling || isChasing))
@@ -227,7 +244,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _rb.velocity = new Vector2(_direction * _chaseSpeed, _rb.velocity.y);
             _enemyAnimator.RunAnimation();
         }
-        if ((( shouldStopIfCloseToWall || shouldStopIfCloseToCliff) 
+        if ((( shouldStopIfCloseToWall || shouldStopIfCloseToCliff || shouldStopIfAttacking) 
             && (isPatrolling || isChasing)) || isIdle || isDead)
         {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);

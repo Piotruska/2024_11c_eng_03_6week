@@ -8,19 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FierceTooth.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FierceTooth.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmenyCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmenyCombat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyHealthScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyHealthScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/Interfaces/IEnemieHealthScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/Interfaces/IEnemieHealthScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealthScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GameController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealthScript.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Respawn Mechanic/Checkpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Respawn Mechanic/Checkpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/11-AttachEffect FT.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/11-AttachEffect FT.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/07-Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/07-Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/AttackEffectController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/AttackEffectController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/FierceTooth.physicsMaterial2D" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/FierceTooth.physicsMaterial2D.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

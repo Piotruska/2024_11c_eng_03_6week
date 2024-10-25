@@ -3,99 +3,130 @@ using UnityEngine;
 
 public class FallingPlatformBehavior : MonoBehaviour
 {
-    public float fallDelay = 0.5f;       
-    public float despawnDelay = 1.5f;   
-    public float respawnDelay = 3.0f;   
-    public float fadeOutDuration = 1.0f; 
-    [SerializeField] private LayerMask excludedLayers; 
+    [SerializeField] private float fallDelay = 0.5f;       
+    [SerializeField] private float despawnDelay = 1.5f;   
+    [SerializeField] private float respawnDelay = 3.0f;   
+    [SerializeField] private float fadeOutDuration = 1.0f; 
+    [SerializeField] private LayerMask groundLayer; 
 
-    private Rigidbody2D rb;
-    private Collider2D col;
-    private SpriteRenderer spriteRenderer;
-    private Vector3 initialPosition;
-    private bool isFalling = false;
+    private Rigidbody2D _rb;
+    private Collider2D _col;
+    private SpriteRenderer _spriteRenderer;
+    private Vector3 _initialPosition;
+    private Quaternion _initialRotation;
+    private bool _isFalling = false;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        rb.isKinematic = true; 
-        initialPosition = transform.position; 
+        _rb = GetComponent<Rigidbody2D>();
+        _col = GetComponent<Collider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rb.isKinematic = true; 
+        _initialPosition = transform.position;
+        _initialRotation = transform.rotation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isFalling && collision.gameObject.CompareTag("Player"))
+        if (!_isFalling && collision.gameObject.CompareTag("Player"))
         {
-            isFalling = true;
+            _isFalling = true;
             Invoke("DropPlatform", fallDelay);
         }
     }
 
     private void DropPlatform()
     {
-        rb.bodyType = RigidbodyType2D.Dynamic; 
+        AllowOnlyGroundCollisions(); 
+        _rb.bodyType = RigidbodyType2D.Dynamic; 
         StartCoroutine(DespawnAndRespawn());   
     }
 
     private IEnumerator DespawnAndRespawn()
     {
-        AdjustCollisionsWithExcludedLayers(true);
         yield return new WaitForSeconds(despawnDelay);
         StartCoroutine(FadeOut()); 
 
         yield return new WaitForSeconds(fadeOutDuration); 
-       
         HidePlatform(); 
 
         yield return new WaitForSeconds(respawnDelay); 
-        RespawnPlatform();
-        AdjustCollisionsWithExcludedLayers(false); 
+        RespawnPlatform(); 
+        EnableAllCollisions(); 
     }
 
     private IEnumerator FadeOut()
     {
-        Color initialColor = spriteRenderer.color;
+        Color initialColor = _spriteRenderer.color;
         float fadeOutRate = 1.0f / fadeOutDuration;
 
         for (float t = 0; t < 1; t += Time.deltaTime * fadeOutRate)
         {
             Color newColor = initialColor;
             newColor.a = Mathf.Lerp(1, 0, t); 
-            spriteRenderer.color = newColor;
+            _spriteRenderer.color = newColor;
             yield return null;
         }
 
-        spriteRenderer.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
+        _spriteRenderer.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
     }
 
-    private void AdjustCollisionsWithExcludedLayers(bool ignore)
+    private void AllowOnlyGroundCollisions()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.0f); 
+        Collider2D[] allColliders = FindObjectsOfType<Collider2D>();
 
-        foreach (Collider2D other in colliders)
+        foreach (Collider2D other in allColliders)
         {
-           
-            if (((1 << other.gameObject.layer) & excludedLayers) != 0)
+            if (other != _col) 
             {
-                Physics2D.IgnoreCollision(col, other, ignore);
+                bool isGround = groundLayer == (groundLayer | (1 << other.gameObject.layer));
+                Physics2D.IgnoreCollision(_col, other, !isGround); 
+            }
+        }
+    }
+
+    private void EnableAllCollisions()
+    {
+        Collider2D[] allColliders = FindObjectsOfType<Collider2D>();
+
+        foreach (Collider2D other in allColliders)
+        {
+            if (other != _col) 
+            {
+                Physics2D.IgnoreCollision(_col, other, false); 
             }
         }
     }
 
     private void HidePlatform()
     {
-        rb.bodyType = RigidbodyType2D.Kinematic;
-        rb.velocity = Vector2.zero; 
-        transform.position = initialPosition;
-        spriteRenderer.enabled = false;
+        _rb.bodyType = RigidbodyType2D.Kinematic;
+        _rb.velocity = Vector2.zero;
+        _rb.angularVelocity = 0f; 
+        _rb.rotation = 0f; 
+
+        transform.position = _initialPosition;
+        transform.rotation = _initialRotation;
+
+        _spriteRenderer.enabled = false;
+        _col.enabled = false; 
     }
 
     private void RespawnPlatform()
     {
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1); // Reset opacity
-        spriteRenderer.enabled = true; 
-        isFalling = false;
+        
+        _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1); 
+        _spriteRenderer.enabled = true;
+
+        
+        _rb.isKinematic = true;
+        _rb.velocity = Vector2.zero;
+        _rb.angularVelocity = 0f;
+        _rb.rotation = 0f; 
+        _rb.bodyType = RigidbodyType2D.Kinematic; 
+
+        
+        _col.enabled = true; 
+        _isFalling = false;
     }
 }

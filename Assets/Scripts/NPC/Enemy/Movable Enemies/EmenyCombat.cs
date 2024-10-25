@@ -113,7 +113,7 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
         return combinedMask;
     }
 
-    // Optional: Visualize the attack area in the editor
+
     private void OnDrawGizmosSelected()
     {
         if (_showMovementGizmos)

@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level Build Grid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level Build Grid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Ground/Island Ground Palette.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Ground/Island Ground Palette.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FallingPlatform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FallingPlatform.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FallingTiles/FallingPlatformBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FallingTiles/FallingPlatformBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmenyCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EmenyCombat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyPlayerDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyPlayerDetector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.35827664",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "Piotr",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -197,10 +199,10 @@
           <line>191</line>
           <properties documentPath="C:\Users\piotr\Documents\GitHub\2024_11c_eng_03_6week\Assets\Scripts\NPC\Enemy\Movable Enemies\EnemyPlayerDetector.cs" initialLine="190" containingFunctionPresentation="Method 'DetectPlayerFront'">
             <startOffsets>
-              <option value="6342" />
+              <option value="6239" />
             </startOffsets>
             <endOffsets>
-              <option value="6370" />
+              <option value="6267" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />

@@ -223,17 +223,17 @@ public class EnemyController : MonoBehaviour, IEnemyController
             Vector2.Distance(transform.position, _wallInFrontCheck.position), _groundLayer);
         
         RaycastHit2D noGapAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.8f, _groundLayer);
-        RaycastHit2D dangerAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 1.8f, _dangerLayer);
+        RaycastHit2D dangerAhead = Physics2D.Raycast(_gapCheck.position, Vector2.down, 0.9f, _dangerLayer);
         
         RaycastHit2D groundAfter1BlockGap =
             Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 1.8f, _groundLayer);
         RaycastHit2D dangerAfter1BlockGap =
-            Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 1.8f, _dangerLayer);
+            Physics2D.Raycast(_groundAfter1BlockGapCheck.position, Vector2.down, 0.9f, _dangerLayer);
         
         RaycastHit2D groundAfter2BlockGap =
             Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 1.8f, _groundLayer);
         RaycastHit2D dangerAfter2BlockGap =
-            Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 1.8f, _dangerLayer);
+            Physics2D.Raycast(_groundAfter2BlockGapCheck.position, Vector2.down, 0.9f, _dangerLayer);
 
         
         RaycastHit2D groundAfter2blocksGap1BlockAbove = 
@@ -249,7 +249,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool shouldBeAbleToJump = (_canJump && _isGrounded && !wallInFront);
         bool shouldJumpIfGroundInFront = (shouldBeAbleToJump && groundInFront && !wallInFront && !noGapAhead); 
         bool shouldJump1BlockX  = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter1BlockGap && !dangerAfter1BlockGap ;
-        bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && !dangerAfter2BlockGap ;
+        bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && (!dangerAfter2BlockGap || (dangerAfter2BlockGap && groundAfter2blocksGap1BlockAbove));
         bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (gapAhead&& groundAfter2blocksGap1BlockAbove));
 
         bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f ;
@@ -315,16 +315,15 @@ public class EnemyController : MonoBehaviour, IEnemyController
     {
         if (_showMovementGizmos)
         {
-            //_isGrounded
             Debug.DrawRay(transform.position, Vector2.down * 0.6f, Color.yellow);
         
             var position = transform.position;
         
-            Gizmos.color = Color.red; // Draw the gap check ray
+            Gizmos.color = Color.red; 
             Gizmos.DrawRay(position, (_gapCheck.position - position).normalized * Vector2.Distance(transform.position, _gapCheck.position));
             Gizmos.DrawRay(_gapCheck.position, Vector2.down * 1.8f);
         
-            Gizmos.color = Color.blue; // Draw the ground after gap check ray
+            Gizmos.color = Color.blue; 
             Gizmos.DrawRay(position, (_groundAfter2BlockGapCheck.position - position).normalized * Vector2.Distance(transform.position, _groundAfter2BlockGapCheck.position));
             Gizmos.DrawRay(_groundAfter2BlockGapCheck.position, Vector2.down * 1.8f); 
         
@@ -339,13 +338,12 @@ public class EnemyController : MonoBehaviour, IEnemyController
         
             Gizmos.color = Color.green;
             Gizmos.DrawRay(position, (_groundInFrontCheck.position - position).normalized * Vector2.Distance(transform.position, _groundInFrontCheck.position));
-            // Draw the ground in front ray
+            
         
             Gizmos.DrawRay(position + new Vector3(0, 0.5f, 0), 
                 (_wallInFrontCheck.position - (position + new Vector3(0, 0.5f, 0))).normalized * 
                 Vector2.Distance(position + new Vector3(0, 0.5f, 0), _wallInFrontCheck.position));
             
-            // Enemy in front
             Gizmos.color = Color.yellow;
             var positionForEnemyCheck = new Vector3(transform.position.x + _direction*0.6f, transform.position.y+0.05f);
             var groundcheckPos = new Vector3(_groundInFrontCheck.position.x, _groundInFrontCheck.position.y + 0.05f);

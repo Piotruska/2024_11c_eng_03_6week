@@ -98,7 +98,7 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
      private void Update()
     {
         if (_enemyController.GetState() == EnemyState.Die) return;
-        // Update logic to manage detection and state transitions
+        
         _innerxAxisMaxDistance = Mathf.Abs(_enemyController.Direction() > 0 ? _frontXAxisMaxDistance : _backXAxisMaxDistance);
         float direction = _enemyController.Direction();
         _innerxOffset = direction > 0 ? _frontXOffset : _backXOffset;
@@ -108,7 +108,7 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
             StartCoroutine(DetectionCoroutine());
         }
 
-        // State management based on player detection
+       
         var state = _enemyController.GetState();
         bool changeStateToChase = _playerDetected && state != EnemyState.Die && _enemyController.CanChase();
         bool changeStateToPatrol = !_playerDetected && state != EnemyState.Die && _enemyController.CanPatroll();

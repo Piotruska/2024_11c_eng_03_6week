@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NPC.Enemy.Movable_Enemies;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using Player;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour, IEnemyCombat
@@ -28,6 +30,8 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
 
     [Header("Damageable Detection")]
     [SerializeField]
+    private LayerMask[] _damageLayer;
+    [SerializeField]
     private LayerMask[] _attackLayers;
 
     [Header("Attack Cooldown")]
@@ -37,6 +41,8 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
     [Header("Gizmos Options")]
     [SerializeField] private bool _showMovementGizmos = true;
 
+    private Collider2D[] colliders = null;
+
     private void Awake()
     {
         _enemyController = GetComponent<IEnemyController>();
@@ -45,6 +51,7 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
 
     private void Update()
     {
+        if(_enemyController.GetState()== EnemyState.Die) return;
         _isGrounded = _enemyController.isGrounded();
 
         if (attackCooldownTimer > 0)
@@ -63,20 +70,20 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
 
     private bool IsPlayerInAttackRange()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(_centerPoint.position, _boxSize, 0f, GetCombinedLayerMask());
+        colliders = Physics2D.OverlapBoxAll(_centerPoint.position, _boxSize, 0f, GetCombinedLayerMask(_attackLayers));
         return colliders.Length > 0;
     }
 
     private void Attack()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(_centerPoint.position, _boxSize, 0f, GetCombinedLayerMask());
-        ApplyEffects(colliders);
+        colliders = null;
         _enemyAnimator.AttackAnimation();
     }
     
-    private void ApplyEffects(Collider2D[] players)
+    private void ApplyEffects()
     {
-        foreach (Collider2D collider in players)
+        colliders = Physics2D.OverlapBoxAll(_centerPoint.position, _boxSize, 0f, GetCombinedLayerMask(_damageLayer));
+        foreach (Collider2D collider in colliders)
         {
             IDamageable iDamageable = collider.gameObject.GetComponent<IDamageable>();
 
@@ -96,10 +103,10 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
         }
     }
 
-    private LayerMask GetCombinedLayerMask()
+    private LayerMask GetCombinedLayerMask(LayerMask[] layers)
     {
         LayerMask combinedMask = 0;
-        foreach (var layer in _attackLayers)
+        foreach (var layer in layers)
         {
             combinedMask |= layer;
         }
@@ -117,5 +124,6 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
                 Gizmos.DrawWireCube(_centerPoint.position, _boxSize);
             } 
         }
+        
     }
 }

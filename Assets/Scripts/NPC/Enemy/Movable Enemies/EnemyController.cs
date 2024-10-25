@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour, IEnemyController
     [Header("Movement Rays Config")]
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _dangerLayer;
+    [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private LayerMask _enemyLayer;
     
     [Header("Behaviour")]
     [SerializeField] public bool _canChase = false;
@@ -35,6 +37,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     [SerializeField] private bool _showMovementGizmos = true;
 
     private IEnemyAnimator _enemyAnimator;
+    private IEnemieHealthScript _enemieHealthScript;
     
     private float _chaseSpeed = 2.5f; //recomended for proper jump movements
     private float _jumpForce = 5f; //recomended for proper jump movements
@@ -43,10 +46,11 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private bool _shouldJump1Block;
     private bool _shouldJump2Blocks;
     private bool _isJumping = false;
-    private float _direction = 1;
+    private float _direction = -1;
     private float _patrollDirection = 1;
     private bool changeDirectionDuringChase = false;
     private bool _isAttacking = false;
+    private Coroutine _timeBasePatrol = null;
 
     public bool isGrounded()
     {
@@ -83,10 +87,21 @@ public class EnemyController : MonoBehaviour, IEnemyController
         return _direction;
     }
 
+    private void CheckIfOnSpikes()
+    {
+        var _isOnSpikes = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _dangerLayer);
+
+        if (_isOnSpikes)
+        {
+            _enemieHealthScript.Die();
+        }
+    }
+    
     void Start()
     {
         _enemyAnimator = GetComponent<IEnemyAnimator>();
         _rb = GetComponent<Rigidbody2D>();
+        _enemieHealthScript = GetComponent<IEnemieHealthScript>();
         StartCoroutine(PatrolTimer(_durationBeforeSwitch));
     }
 
@@ -99,10 +114,11 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private void FixedUpdate()
     {
+        if (_enemyState == EnemyState.Die) return;
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
         _enemyAnimator.IsGrounded(_isGrounded);
         _enemyAnimator.IsJumping(_isJumping);
-
+        CheckIfOnSpikes();
         if (_isGrounded) _isJumping = false;
         
         if (_shouldJump1Block )
@@ -124,21 +140,15 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private IEnumerator PatrolTimer(float durationBeforeSwitch)
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(durationBeforeSwitch);
-            if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased && !_groundDetectionBased)
-            {
-                _direction *= -1;
-            }
-        }
+        yield return new WaitForSeconds(durationBeforeSwitch);
+        if(_isGrounded) _direction *= -1;
     }
 
     private void Patrol(bool changeDirection)
     {
-        if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased && !_groundDetectionBased)
+        if (_enemyState == EnemyState.Patrol && _canPatroll && _timeBased && !_groundDetectionBased && _timeBasePatrol == null)
         {
-            StartCoroutine(PatrolTimer(_durationBeforeSwitch));
+             _timeBasePatrol = StartCoroutine(PatrolTimer(_durationBeforeSwitch));
         }
         
         if (_enemyState == EnemyState.Patrol && _canPatroll && _groundDetectionBased && !_timeBased && changeDirection)
@@ -192,11 +202,21 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool isStunned = _enemyState == EnemyState.Stunned;
         bool isDead = _enemyState == EnemyState.Die;
 
+        
         if(isStunned) return;
         
         RaycastHit2D groundInFront =Physics2D.Raycast(transform.position,
             (_groundInFrontCheck.position - transform.position).normalized,
             Vector2.Distance(transform.position, _groundInFrontCheck.position), _groundLayer);
+        
+        RaycastHit2D playerInFront =Physics2D.Raycast(transform.position,
+            (_groundInFrontCheck.position - transform.position).normalized,
+            Vector2.Distance(transform.position, _groundInFrontCheck.position), _playerLayer);
+
+        var positionForEnemyCheck = new Vector3(transform.position.x + _direction*0.6f, transform.position.y);
+        RaycastHit2D enemyInFront =Physics2D.Raycast(positionForEnemyCheck,
+            (_groundInFrontCheck.position - positionForEnemyCheck).normalized,
+            Vector2.Distance(positionForEnemyCheck, _groundInFrontCheck.position), _enemyLayer);
         
         RaycastHit2D wallInFront = Physics2D.Raycast(transform.position+new Vector3(0,0.5f,0),
             (_wallInFrontCheck.position - transform.position).normalized,
@@ -221,6 +241,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
         
         
+        
         bool noGroundAhead = (!groundAfter1BlockGap && !groundAfter2BlockGap && !groundAfter2blocksGap1BlockAbove && !noGapAhead && !wallInFront && !groundInFront) ||
                              (dangerAfter1BlockGap && dangerAfter2BlockGap && dangerAhead);
         bool gapAhead = !noGapAhead;
@@ -230,8 +251,10 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool shouldJump1BlockX  = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter1BlockGap && !dangerAfter1BlockGap ;
         bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && !dangerAfter2BlockGap ;
         bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (gapAhead&& groundAfter2blocksGap1BlockAbove));
-        
-        bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f));
+
+        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f ;
+        bool shouldSwitchDirectionIenemyInFront = enemyInFront && enemyInFront.distance < 0.1f;
+        bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f) && _isGrounded);
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 
                                          (_canPatroll && !_canJump && (gapAhead || dangerAhead)));
         bool shouldStopIfAttacking = _isAttacking && _isGrounded;
@@ -244,8 +267,8 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _rb.velocity = new Vector2(_direction * _chaseSpeed, _rb.velocity.y);
             _enemyAnimator.RunAnimation();
         }
-        if ((( shouldStopIfCloseToWall || shouldStopIfCloseToCliff || shouldStopIfAttacking) 
-            && (isPatrolling || isChasing)) || isIdle || isDead)
+        if ((( shouldStopIfCloseToWall || shouldStopIfCloseToCliff || shouldStopIfAttacking || shouldStopIfInfrontOfPlayer) 
+            && (isPatrolling || isChasing)) || isIdle)
         {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
                 _enemyAnimator.IdleAnimation();
@@ -262,6 +285,11 @@ public class EnemyController : MonoBehaviour, IEnemyController
         {
             
             _shouldJump2Blocks = true;
+        }
+
+        if (shouldSwitchDirectionIenemyInFront && isPatrolling)
+        {
+            _direction *= -1;
         }
         
         Chase();
@@ -316,6 +344,12 @@ public class EnemyController : MonoBehaviour, IEnemyController
             Gizmos.DrawRay(position + new Vector3(0, 0.5f, 0), 
                 (_wallInFrontCheck.position - (position + new Vector3(0, 0.5f, 0))).normalized * 
                 Vector2.Distance(position + new Vector3(0, 0.5f, 0), _wallInFrontCheck.position));
+            
+            // Enemy in front
+            Gizmos.color = Color.yellow;
+            var positionForEnemyCheck = new Vector3(transform.position.x + _direction*0.6f, transform.position.y+0.05f);
+            var groundcheckPos = new Vector3(_groundInFrontCheck.position.x, _groundInFrontCheck.position.y + 0.05f);
+            Gizmos.DrawRay(positionForEnemyCheck, (groundcheckPos- positionForEnemyCheck).normalized * Vector2.Distance(positionForEnemyCheck, groundcheckPos));
         }
         
         

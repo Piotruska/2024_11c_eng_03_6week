@@ -342,7 +342,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 1fdc7884b6dc9674cba2d6f0de37a64a, type: 2}
+  m_Material: {fileID: 6200000, guid: 119ca6a1d3af3d04cbffe2699d56f304, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -367,6 +367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 20
   _stunnTime: 2
+  _despawnTime: 3
+  _fadeDuration: 2
 --- !u!114 &97595288554019044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,12 +394,18 @@ MonoBehaviour:
   _dangerLayer:
     serializedVersion: 2
     m_Bits: 8192
-  _canChase: 1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  _canChase: 0
   _canPatroll: 1
   _canJump: 0
   _groundDetectionBased: 1
   _timeBased: 0
-  _durationBeforeSwitch: 20
+  _durationBeforeSwitch: 4
   _enemyState: 1
   _showMovementGizmos: 1
 --- !u!114 &6006431606682435603
@@ -432,12 +440,12 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  _showGizmos: 1
-  _showGrid: 1
+  _showGizmos: 0
+  _showGrid: 0
   _gizmoGridColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _showXYLimits: 1
+  _showXYLimits: 0
   _gizmoXYLimitsColour: {r: 0, g: 0, b: 1, a: 1}
-  _showPlayerDetection: 1
+  _showPlayerDetection: 0
   _gizmoIdleColour: {r: 0, g: 1, b: 0, a: 1}
   _gizmoDetectedColour: {r: 1, g: 0, b: 0, a: 1}
   _showGroundDetection: 0
@@ -456,14 +464,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canAttack: 1
   _centerPoint: {fileID: 6120825495333094182}
-  _boxSize: {x: 2, y: 2}
+  _boxSize: {x: 0.62, y: 0.92}
   _damage: 4
   _yAxisKnockbackStrength: 4
   _generalKnockbackForce: 4
-  _attackLayers:
+  _damageLayer:
   - serializedVersion: 2
     m_Bits: 128
-  attackCooldown: 5
+  _attackLayers:
+  - serializedVersion: 2
+    m_Bits: 640
+  attackCooldown: 0.7
+  _showMovementGizmos: 1
 --- !u!114 &5791414665452585524
 MonoBehaviour:
   m_ObjectHideFlags: 0

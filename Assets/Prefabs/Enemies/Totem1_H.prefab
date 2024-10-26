@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1330257783943026613}
   m_Layer: 9
   m_Name: Totem1_H
-  m_TagString: Untagged
+  m_TagString: Totem1H
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

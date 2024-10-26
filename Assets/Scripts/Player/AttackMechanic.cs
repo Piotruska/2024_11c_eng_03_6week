@@ -49,9 +49,13 @@ public class AttackMechanic : MonoBehaviour, ICanAttack
             
             if (iDamageable != null) 
             { 
+                if(iDamageable.isDead()) return;
                 iDamageable.Hit(_config.dammageAmount);
                 Rigidbody2D enemyRb = collider.GetComponent<Rigidbody2D>();
-                enemyRb.bodyType = RigidbodyType2D.Dynamic;
+                if (enemyRb.CompareTag("Projectile"))
+                {
+                    enemyRb.bodyType = RigidbodyType2D.Dynamic;
+                }
                 enemyRb.velocity = new Vector2(0, 0);
                 Vector2 knockbackDirection = (collider.transform.position - transform.position).normalized;
                 knockbackDirection.y += _config.yAxisKnockbackStrength; 

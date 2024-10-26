@@ -17,7 +17,10 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
     [Header("Configurations")]
     [SerializeField] private CheckPointConfig _checkPointConfig;
     [SerializeField] private PlayerConfig _playerConfig;
+    [SerializeField] private LayerMask _includedLayersWhenDead;
     private float _currentHealth;
+    private bool _isAlive;
+    
 
     private void Awake()
     {
@@ -40,8 +43,9 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         {
             Die();
         }
+
         
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +57,11 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         }
     }
 
+    public bool isDead()
+    {
+        return !_controller._isAlive;
+    }
+
     public void UpdateCheckpointPosition(Vector2 position)
     {
         _checkPointposition = position;
@@ -60,6 +69,7 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
 
     public void Hit(float damageAmount)
     {
+        if(!_controller._isAlive) return;
         _animator.HitAnimation();
         _currentHealth -= damageAmount;
         StartCoroutine(Stun(_playerConfig.stunTime));
@@ -67,6 +77,7 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
 
     private void Die()
     {
+        _controller._isAlive = false;
         StartCoroutine(Respawn(_checkPointConfig._respawnDuration));
     }
 
@@ -77,21 +88,32 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         _controller._isStunned = false;
     }
 
+    private int _originalLayers;
+
     private IEnumerator Respawn(float duration)
     {
+        int allLayers = ~0;
+        _originalLayers = _collider.excludeLayers;
+        
+        _collider.isTrigger = false;
+        _collider.excludeLayers = allLayers & ~_includedLayersWhenDead;
         
         _animator.DeathAnimation();
         _currentHealth = _playerConfig.maxHealth;
         _controller._isAlive = false;
+        
         yield return new WaitForSeconds(duration);
+        
         _spriteRenderer.enabled = false;
         _animator.RespawnAnimation();
         _spriteRenderer.enabled = true;
+        
         _controller._isAlive = true;
         transform.position = _checkPointposition;
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-        _rigidbody2D.velocity = new Vector2(0, 0);
+        _rigidbody2D.velocity = Vector2.zero;
         
-        
+        _collider.excludeLayers = _originalLayers;
     }
+
 }

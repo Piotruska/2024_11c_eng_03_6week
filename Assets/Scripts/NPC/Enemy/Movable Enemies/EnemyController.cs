@@ -51,6 +51,13 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private bool changeDirectionDuringChase = false;
     private bool _isAttacking = false;
     private Coroutine _timeBasePatrol = null;
+    public bool playerAlive;
+    private PlayerController _playerController;
+
+    public bool isPlayerAlive()
+    {
+        return playerAlive;
+    }
 
     public bool isGrounded()
     {
@@ -102,11 +109,13 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _enemyAnimator = GetComponent<IEnemyAnimator>();
         _rb = GetComponent<Rigidbody2D>();
         _enemieHealthScript = GetComponent<IEnemieHealthScript>();
+        _playerController = _player.gameObject.GetComponent<PlayerController>();
         StartCoroutine(PatrolTimer(_durationBeforeSwitch));
     }
 
     void Update()
     {
+        playerAlive = _playerController._isAlive;
         if (_enemyState == EnemyState.Die) return;
         Move();
         CorrectLocalScale();
@@ -115,7 +124,8 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private void FixedUpdate()
     {
         if (_enemyState == EnemyState.Die) return;
-        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
+
+    _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
         _enemyAnimator.IsGrounded(_isGrounded);
         _enemyAnimator.IsJumping(_isJumping);
         CheckIfOnSpikes();
@@ -252,7 +262,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && (!dangerAfter2BlockGap || (dangerAfter2BlockGap && groundAfter2blocksGap1BlockAbove));
         bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (gapAhead&& groundAfter2blocksGap1BlockAbove));
 
-        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f ;
+        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f && playerAlive;
         bool shouldSwitchDirectionIenemyInFront = enemyInFront && enemyInFront.distance < 0.1f;
         bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f) && _isGrounded);
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 

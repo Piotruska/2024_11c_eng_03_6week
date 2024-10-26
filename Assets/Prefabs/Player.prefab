@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db31fa7b5325b948ab7c0e187e95c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAlive: 1
   _config: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
   _potionConfig: {fileID: 11400000, guid: 3733f3a8c52123045b877d96f5ebda3b, type: 2}
   _groundCheck: {fileID: 8130355705453322025}
@@ -216,6 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkPointConfig: {fileID: 11400000, guid: d806eda7c838deb43922ae36d42a2ab3, type: 2}
   _playerConfig: {fileID: 11400000, guid: 7f8380faf63c9c743bd4709e2b29a87d, type: 2}
+  _includedLayersWhenDead:
+    serializedVersion: 2
+    m_Bits: 8216
 --- !u!114 &2647143907879388512
 MonoBehaviour:
   m_ObjectHideFlags: 0

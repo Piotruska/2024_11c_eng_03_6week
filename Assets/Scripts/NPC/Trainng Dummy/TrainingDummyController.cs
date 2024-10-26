@@ -10,6 +10,7 @@ namespace Trainng_Dummy
         [SerializeField] private float _maxHealth = 20.0f;
         private float _currentHealth;
         private Animator _animator;
+        private bool _isAlive = true;
 
         private void Awake()
         {
@@ -31,6 +32,11 @@ namespace Trainng_Dummy
             _currentHealth -= damageAmount;
         }
 
+        public bool isDead()
+        {
+            return !_isAlive;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("InstantDeath"))
@@ -41,6 +47,7 @@ namespace Trainng_Dummy
 
         private void Die()
         {
+            _isAlive = false;
             Destroy(gameObject);
         }
     }

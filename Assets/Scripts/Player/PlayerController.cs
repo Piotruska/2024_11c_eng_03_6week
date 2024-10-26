@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerAnimator _animator;
     private ICanAttack _IcanAttack;
     private ICanInteract _canInteract;
+    private PlayerHealthScript _playerHealth;
 
     
     //Inputs
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<PlayerAnimationScript>();
         _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
+        _playerHealth = GetComponent<PlayerHealthScript>();
         _extraJumpsValue = _config.extraJumpCount;
         SpeedSetDefault();
     }
@@ -110,13 +112,18 @@ public class PlayerController : MonoBehaviour
         if (_meleeAttackInput && _hasSword) Attack();
         if (_interactInput) Interact();
         if (_dashInput && _canDash && (_currentAirDashCount > 0)) StartCoroutine(Dash());
-
+        
+        if (_item1Input && PlayerCollectibles.GetRedPotionCount()>0)
+        {
+            PlayerCollectibles.DecreaseRedPotionCount(1);
+            _playerHealth.HealthRestore(_potionConfig.healthRestorePercent);
+        }
+        
         if (_item2Input && PlayerCollectibles.GetBluePotionCount()>0)
         {
             PlayerCollectibles.DecreaseBluePotionCount(1);
             StartCoroutine(SpeedIncrease(_potionConfig.speedBoostEffect, _potionConfig.speedBoostDuration));
         }
-
     }
 
     void FixedUpdate()
@@ -140,7 +147,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         SpeedSetDefault();
     }
-    
     public void HasSword(bool hasSword)
     {
         _animator.HasSword(hasSword);

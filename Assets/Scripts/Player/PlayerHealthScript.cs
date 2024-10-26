@@ -48,9 +48,6 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         {
             Die();
         }
-
-        
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -125,6 +122,12 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         _rigidbody2D.velocity = Vector2.zero;
         
         _collider.excludeLayers = _originalLayers;
+    }
+
+    public void HealthRestore(int amount)
+    {
+        _currentHealth += _maxHealth * amount/100;
+        _healthBarDisplay.UpdateHealthBar(_currentHealth, _maxHealth);
     }
 
 }

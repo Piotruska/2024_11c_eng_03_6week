@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 7860785665692499732}
   m_Layer: 9
   m_Name: FierceTooth
-  m_TagString: Untagged
+  m_TagString: FierceTooth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371aaa0a778ffc84e94f3deed76b9d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _gapCheck: {fileID: 4468419699472740609}
   _groundAfter1BlockGapCheck: {fileID: 7379569478901738658}
   _groundAfter2BlockGapCheck: {fileID: 7863953827222512877}

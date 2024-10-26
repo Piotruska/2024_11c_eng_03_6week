@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InstantDeath
   - Ground
+  - Projectile
   layers:
   - Default
   - TransparentFX

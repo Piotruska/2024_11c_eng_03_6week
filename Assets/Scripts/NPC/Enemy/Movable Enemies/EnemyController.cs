@@ -262,7 +262,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && (!dangerAfter2BlockGap || (dangerAfter2BlockGap && groundAfter2blocksGap1BlockAbove));
         bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (gapAhead&& groundAfter2blocksGap1BlockAbove));
 
-        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f ;
+        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f && playerAlive;
         bool shouldSwitchDirectionIenemyInFront = enemyInFront && enemyInFront.distance < 0.1f;
         bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f) && _isGrounded);
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 

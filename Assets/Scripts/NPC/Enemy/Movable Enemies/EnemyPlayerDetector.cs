@@ -46,8 +46,10 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
 
     private void FixedUpdate()
     {
-        if (_enemyController.GetState() == EnemyState.Die || _playerTransform == null || !_enemyController.isPlayerAlive()) 
+        if (_enemyController.GetState() == EnemyState.Die || _playerTransform == null) 
             return;
+
+        if (!_enemyController.isPlayerAlive()) _playerDetected = false;
 
         if (_enemyController.CanChase())
         {
@@ -56,9 +58,9 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
 
         
         var state = _enemyController.GetState();
-        bool changeStateToChase = _playerDetected && state != EnemyState.Die && _enemyController.CanChase();
-        bool changeStateToPatrol = !_playerDetected && state != EnemyState.Die && _enemyController.CanPatroll();
-        bool changeStateToIdle = !_playerDetected && state != EnemyState.Die && !_enemyController.CanPatroll();
+        bool changeStateToChase = _playerDetected && state != EnemyState.Die && _enemyController.CanChase() && _enemyController.isPlayerAlive();
+        bool changeStateToPatrol = (!_playerDetected || !_enemyController.isPlayerAlive()) && state != EnemyState.Die && _enemyController.CanPatroll()  ;
+        bool changeStateToIdle = (!_playerDetected || !_enemyController.isPlayerAlive()) && state != EnemyState.Die && !_enemyController.CanPatroll();
 
         if (changeStateToChase)
         {

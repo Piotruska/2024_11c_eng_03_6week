@@ -23,4 +23,6 @@ public class Checkpoint : MonoBehaviour
             _collider2D.enabled = false; //Disables collider so that player wont respawn in previous checkpoints if they go back
         }
     }
+    
+    private 
 }

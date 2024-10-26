@@ -49,9 +49,9 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
         _enemyAnimator = GetComponent<IEnemyAnimator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(_enemyController.GetState()== EnemyState.Die || !_enemyController.isPlayerAlive()) return;
+        if(_enemyController.GetState() == EnemyState.Die || !_enemyController.isPlayerAlive()) return;
         _isGrounded = _enemyController.isGrounded();
 
         if (attackCooldownTimer > 0)
@@ -82,6 +82,7 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
     
     private void ApplyEffects()
     {
+        if(_enemyController.GetState() == EnemyState.Die) return;
         colliders = Physics2D.OverlapBoxAll(_centerPoint.position, _boxSize, 0f, GetCombinedLayerMask(_damageLayer));
         foreach (Collider2D collider in colliders)
         {

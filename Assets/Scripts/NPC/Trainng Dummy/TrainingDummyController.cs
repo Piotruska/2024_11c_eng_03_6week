@@ -34,7 +34,7 @@ namespace Trainng_Dummy
 
         public bool isDead()
         {
-            return _isAlive;
+            return !_isAlive;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

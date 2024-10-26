@@ -48,7 +48,7 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
         StartCoroutine(Despawn(_despawnDuration));
         int allLayers = ~0;
         _collider.isTrigger = false;
-        _collider.excludeLayers = allLayers & ~_groundLayer; // excludes all layers accept ground
+        _collider.excludeLayers = allLayers & ~_groundLayer; 
     }
     
     public bool isDead()

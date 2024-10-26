@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         CheckIfGrounded();
-        if(_isDashing || _isStunned) return;
+        if(_isDashing || _isStunned || !_isAlive) return;
         _animator.FacingCheck();
         _rb.velocity = new Vector2(_xInput * _playerSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();

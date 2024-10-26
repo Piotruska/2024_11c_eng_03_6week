@@ -54,6 +54,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private Coroutine _timeBasePatrol = null;
     public bool playerAlive;
     private PlayerController _playerController;
+    private EnemyState lastState;
 
     public bool isPlayerAlive()
     {
@@ -121,6 +122,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     void Update()
     {
+        if (_enemyState != EnemyState.Stunned) lastState = _enemyState;
         playerAlive = _playerController._isAlive;
         if (_enemyState == EnemyState.Die) return;
         Move();
@@ -180,10 +182,10 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     public IEnumerator StunnCoroutine(float timeStunned)
     {
-        var saveState = _enemyState;
+        Debug.Log("saved state : " + lastState);
         _enemyState = EnemyState.Stunned;
         yield return new WaitForSeconds(timeStunned);
-        _enemyState = saveState;
+        _enemyState = lastState;
     }
 
     private void Chase() 

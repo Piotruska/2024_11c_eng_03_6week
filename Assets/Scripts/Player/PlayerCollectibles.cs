@@ -9,6 +9,10 @@ namespace Player
         private static int _redPotionCount = 0;
         private static int _bluePotionCount = 0;
 
+        public static int GetCoinCount()
+        {
+            return _coinCount;
+        }
         public static void IncreaseCoinCount(int amount)
         {
             _coinCount+=amount;
@@ -17,6 +21,11 @@ namespace Player
         public static void DecreaseCoinCount(int amount)
         {
             _coinCount-=amount;
+        }
+
+        public static int GetKeyCount()
+        {
+            return _keyCount;
         }
         
         public static void IncreaseKeyCount(int amount)
@@ -29,6 +38,11 @@ namespace Player
             _keyCount-=amount;
         }
         
+        public static int GetRedPotionCount()
+        {
+            return _redPotionCount;
+        }
+        
         public static void IncreaseRedPotionCount(int amount)
         {
             _redPotionCount+=amount;
@@ -39,6 +53,11 @@ namespace Player
             _redPotionCount-=amount;
         }
         
+        public static int GetBluePotionCount()
+        {
+            return _bluePotionCount;
+        }
+        
         public static void IncreaseBluePotionCount(int amount)
         {
             _bluePotionCount+=amount;
@@ -47,21 +66,6 @@ namespace Player
         public static void DecreaseBluePotionCount(int amount)
         {
             _bluePotionCount-=amount;
-        }
-
-        public static int GetCoinCount()
-        {
-            return _coinCount;
-        }
-        
-        public static int GetRedPotionCount()
-        {
-            return _redPotionCount;
-        }
-        
-        public static int GetBluePotionCount()
-        {
-            return _bluePotionCount;
         }
     }
 }

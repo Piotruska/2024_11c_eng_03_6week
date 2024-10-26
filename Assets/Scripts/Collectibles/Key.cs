@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Collectibles
@@ -11,6 +12,7 @@ namespace Collectibles
         
         protected override void Collect()
         {
+            PlayerCollectibles.IncreaseKeyCount(1);
             _animator.SetTrigger(_collectTrigger);
         }
     }

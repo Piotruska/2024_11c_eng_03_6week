@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
+using UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,10 +15,12 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
     private IPlayerAnimator _animator;
     private PlayerController _controller;
     private Collider2D _collider;
+    private HealthBarDisplay _healthBarDisplay;
     [Header("Configurations")]
     [SerializeField] private CheckPointConfig _checkPointConfig;
     [SerializeField] private PlayerConfig _playerConfig;
     [SerializeField] private LayerMask _includedLayersWhenDead;
+    private float _maxHealth;
     private float _currentHealth;
     private bool _isAlive;
     
@@ -29,6 +32,8 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         _animator = GetComponent<PlayerAnimationScript>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        _healthBarDisplay = FindObjectOfType<HealthBarDisplay>();
+        _maxHealth = _playerConfig.maxHealth;
         _currentHealth = _playerConfig.maxHealth;
     }
 
@@ -72,6 +77,9 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         if(!_controller._isAlive) return;
         _animator.HitAnimation();
         _currentHealth -= damageAmount;
+        
+        _healthBarDisplay.UpdateHealthBar(_currentHealth, _maxHealth);
+        
         StartCoroutine(Stun(_playerConfig.stunTime));
     }
 
@@ -100,6 +108,7 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         
         _animator.DeathAnimation();
         _currentHealth = _playerConfig.maxHealth;
+        
         _controller._isAlive = false;
         
         yield return new WaitForSeconds(duration);
@@ -107,6 +116,8 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         _spriteRenderer.enabled = false;
         _animator.RespawnAnimation();
         _spriteRenderer.enabled = true;
+        
+        _healthBarDisplay.ResetHealthBar();
         
         _controller._isAlive = true;
         transform.position = _checkPointposition;

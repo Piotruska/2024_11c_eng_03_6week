@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -8,6 +9,20 @@ namespace Player
         private static int _keyCount = 0;
         private static int _redPotionCount = 0;
         private static int _bluePotionCount = 0;
+        private static bool _hasDiamond1 = false;
+        private static bool _hasDiamond2 = false;
+        private static bool _hasDiamond3 = false;
+
+        public void Reset()
+        { 
+            _coinCount = 0; 
+            _keyCount = 0; 
+            _redPotionCount = 0; 
+            _bluePotionCount = 0;
+            _hasDiamond1 = false;
+            _hasDiamond2 = false; 
+            _hasDiamond3 = false;
+        }
 
         public static int GetCoinCount()
         {
@@ -66,6 +81,21 @@ namespace Player
         public static void DecreaseBluePotionCount(int amount)
         {
             _bluePotionCount-=amount;
+        }
+
+        public static void GetDiamond1()
+        {
+            _hasDiamond1 = true;
+        }
+        
+        public static void GetDiamond2()
+        {
+            _hasDiamond2 = true;
+        }
+        
+        public static void GetDiamond3()
+        {
+            _hasDiamond3 = true;
         }
     }
 }

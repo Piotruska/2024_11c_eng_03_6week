@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "Totem1HTileTile", menuName = "Tiles/Totem 1H Tile ")]
+[CreateAssetMenu(fileName = "Totem1HTile", menuName = "Tiles/Totem 1H Tile ")]
 public class Totem1HTile : Tile
 {
     public GameObject totwm1HPrefab;

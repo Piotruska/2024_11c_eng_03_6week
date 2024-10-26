@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Island Objects.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Island Objects.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Totems.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Totems/Totem1HTileTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Totems/Totem1HTileTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Totems/Totem1TileTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Terrain/Island/Objects/Totems/Totem1TileTile.asset.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

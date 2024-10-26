@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - Projectile
   - CheckPoint
+  - Totem1
+  - Totem1H
+  - GoldCoin
   layers:
   - Default
   - TransparentFX

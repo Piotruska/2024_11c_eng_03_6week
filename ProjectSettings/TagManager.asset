@@ -11,7 +11,13 @@ TagManager:
   - Totem1
   - Totem1H
   - GoldCoin
-  - Chest
+  - HealthPotion
+  - SpeedPotion
+  - BlueDiamond
+  - Key
+  - Sword
+  - FierceTooth
+  - TrainingDummy
   layers:
   - Default
   - TransparentFX

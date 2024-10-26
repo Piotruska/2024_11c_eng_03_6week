@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NPC.Enemy.Movable_Enemies;
@@ -7,7 +8,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IEnemyController
 {
     [Header("Movement Rays Transforms")]
-    [SerializeField] private Transform _player;
     [SerializeField] private Transform _gapCheck; 
     [SerializeField] private Transform _groundAfter1BlockGapCheck; 
     [SerializeField] private Transform _groundAfter2BlockGapCheck; 
@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private IEnemyAnimator _enemyAnimator;
     private IEnemieHealthScript _enemieHealthScript;
+    private Transform _player;
     
     private float _chaseSpeed = 2.5f; //recomended for proper jump movements
     private float _jumpForce = 5f; //recomended for proper jump movements
@@ -103,9 +104,14 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _enemieHealthScript.Die();
         }
     }
-    
-    void Start()
+
+    private void Awake()
     {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            _player = playerObject.transform;
+        }
         _enemyAnimator = GetComponent<IEnemyAnimator>();
         _rb = GetComponent<Rigidbody2D>();
         _enemieHealthScript = GetComponent<IEnemieHealthScript>();

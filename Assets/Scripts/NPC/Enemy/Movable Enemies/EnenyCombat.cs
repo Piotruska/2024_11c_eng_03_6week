@@ -59,7 +59,7 @@ public class EnemyCombat : MonoBehaviour, IEnemyCombat
             attackCooldownTimer -= Time.deltaTime;
         }
 
-        bool shouldAttack = attackCooldownTimer <= 0 && _isGrounded && IsPlayerInAttackRange() && _canAttack;
+        bool shouldAttack = attackCooldownTimer <= 0 && _isGrounded && IsPlayerInAttackRange() && _canAttack && _enemyController.GetState() != EnemyState.Die;
 
         if (shouldAttack)
         {

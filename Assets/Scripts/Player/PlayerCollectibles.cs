@@ -5,6 +5,7 @@ namespace Player
     public class PlayerCollectibles : MonoBehaviour
     {
         private static int _coinCount = 0;
+        private static int _keyCount = 0;
         private static int _redPotionCount = 0;
         private static int _bluePotionCount = 0;
 
@@ -12,6 +13,11 @@ namespace Player
         {
             _coinCount+=amount;
         }
+        
+        public static void DecreaseCoinCount(int amount)
+                {
+                    _coinCount-=amount;
+                }
         
         public static void IncreaseRedPotionCount(int amount)
         {

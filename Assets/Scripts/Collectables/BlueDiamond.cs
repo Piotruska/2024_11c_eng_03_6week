@@ -1,4 +1,5 @@
 using Collectibles;
+using Player;
 using UI;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace Collectables
         protected override void Collect()
         {
             _blueDiamondDisplay.SetCollected();
+            PlayerCollectibles.GetDiamond1();
             _animator.SetTrigger(_collectTrigger);
         }
     }

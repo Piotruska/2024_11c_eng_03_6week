@@ -11,6 +11,7 @@ TagManager:
   - Totem1
   - Totem1H
   - GoldCoin
+  - Chest
   layers:
   - Default
   - TransparentFX

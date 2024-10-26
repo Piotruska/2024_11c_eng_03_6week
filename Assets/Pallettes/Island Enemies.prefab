@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8758540791004350328}
   - component: {fileID: 7183890573593637004}
   m_Layer: 0
-  m_Name: Enemies
+  m_Name: Island Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

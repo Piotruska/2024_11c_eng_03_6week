@@ -56,6 +56,7 @@ public class WoodSpikeAttack : MonoBehaviour
             
             if (iDamageable != null) 
             { 
+                if(iDamageable.isDead()) return;
                 iDamageable.Hit(_dammageAmount);
                 Rigidbody2D enemyRb = collider.GetComponent<Rigidbody2D>();
                 enemyRb.bodyType = RigidbodyType2D.Dynamic;

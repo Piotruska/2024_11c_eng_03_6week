@@ -38,6 +38,11 @@ namespace NPC.Enemy.Movable_Enemies
             }
         }
 
+        public bool isDead()
+        {
+            return _enemyController.GetState() == EnemyState.Die;
+        }
+
         public void DecreaseHealth(float amount)
         {
             _health -= amount;
@@ -47,6 +52,8 @@ namespace NPC.Enemy.Movable_Enemies
         {
             if (_enemyController.GetState() == EnemyState.Die) return;
 
+            
+            
             _enemyAnimator.DeadHitAnimation();
             _enemyController.ChangeState(EnemyState.Die);
             StartCoroutine(DespawnCoroutine());
@@ -58,13 +65,14 @@ namespace NPC.Enemy.Movable_Enemies
             
             if (_collider != null)
             {
-                _collider.enabled = false;
+                _collider.enabled = false;  //TODO: CHECK WHY FALLING THROUGH GROUND WHEN DEAD
             }
+            
             yield return new WaitForSeconds(_despawnTime);
             
             Color color = _spriteRenderer.color;
             float fadeSpeed = color.a / _fadeDuration;
-
+            
             while (color.a > 0)
             {
                 color.a -= fadeSpeed * Time.deltaTime; 

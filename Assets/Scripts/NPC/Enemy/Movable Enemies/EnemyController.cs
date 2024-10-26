@@ -51,6 +51,13 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private bool changeDirectionDuringChase = false;
     private bool _isAttacking = false;
     private Coroutine _timeBasePatrol = null;
+    public bool playerAlive;
+    private PlayerController _playerController;
+
+    public bool isPlayerAlive()
+    {
+        return playerAlive;
+    }
 
     public bool isGrounded()
     {
@@ -102,11 +109,13 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _enemyAnimator = GetComponent<IEnemyAnimator>();
         _rb = GetComponent<Rigidbody2D>();
         _enemieHealthScript = GetComponent<IEnemieHealthScript>();
+        _playerController = _player.gameObject.GetComponent<PlayerController>();
         StartCoroutine(PatrolTimer(_durationBeforeSwitch));
     }
 
     void Update()
     {
+        playerAlive = _playerController._isAlive;
         if (_enemyState == EnemyState.Die) return;
         Move();
         CorrectLocalScale();
@@ -115,7 +124,8 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private void FixedUpdate()
     {
         if (_enemyState == EnemyState.Die) return;
-        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
+
+    _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
         _enemyAnimator.IsGrounded(_isGrounded);
         _enemyAnimator.IsJumping(_isJumping);
         CheckIfOnSpikes();

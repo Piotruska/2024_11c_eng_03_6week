@@ -53,6 +53,11 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         }
     }
 
+    public bool isDead()
+    {
+        return !_controller._isAlive;
+    }
+
     public void UpdateCheckpointPosition(Vector2 position)
     {
         _checkPointposition = position;
@@ -60,6 +65,7 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
 
     public void Hit(float damageAmount)
     {
+        if(!_controller._isAlive) return;
         _animator.HitAnimation();
         _currentHealth -= damageAmount;
         StartCoroutine(Stun(_playerConfig.stunTime));

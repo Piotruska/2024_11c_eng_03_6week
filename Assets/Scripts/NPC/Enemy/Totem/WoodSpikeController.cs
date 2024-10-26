@@ -50,6 +50,11 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
         _collider.isTrigger = false;
         _collider.excludeLayers = allLayers & ~_groundLayer; // excludes all layers accept ground
     }
+    
+    public bool isDead()
+    {
+        return _woodSpikeAttack._isAlive;
+    }
 
     private IEnumerator Despawn(float duration)
     {

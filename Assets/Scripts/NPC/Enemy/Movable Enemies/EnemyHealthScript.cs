@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using Player;
@@ -26,6 +27,14 @@ namespace NPC.Enemy.Movable_Enemies
             _enemyController = GetComponent<IEnemyController>();
             _enemyAnimator = GetComponent<IEnemyAnimator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            if (isDead() && _enemyController.isGrounded())
+            {
+                _rb.velocity = new Vector2(0, _rb.velocity.y);
+            }
         }
 
         public void Hit(float damageAmount)
@@ -60,7 +69,7 @@ namespace NPC.Enemy.Movable_Enemies
 
         private IEnumerator DespawnCoroutine()
         {
-            _rb.bodyType = RigidbodyType2D.Static;
+            //_rb.bodyType = RigidbodyType2D.Static;
             
             int allLayers = ~0;
             _collider.isTrigger = false;

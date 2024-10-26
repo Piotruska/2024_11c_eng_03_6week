@@ -48,6 +48,12 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         {
             Die();
         }
+
+        if (isDead() && _controller.IsGrounded)
+        {
+            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -115,19 +121,12 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         _spriteRenderer.enabled = true;
         
         _healthBarDisplay.ResetHealthBar();
-        
         _controller._isAlive = true;
         transform.position = _checkPointposition;
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         _rigidbody2D.velocity = Vector2.zero;
         
-        _collider.excludeLayers = _originalLayers;
-    }
-
-    public void HealthRestore(int amount)
-    {
-        _currentHealth += _maxHealth * amount/100;
-        _healthBarDisplay.UpdateHealthBar(_currentHealth, _maxHealth);
+        _collider.excludeLayers = 0;
     }
 
 }

@@ -15,9 +15,19 @@ namespace Player
         }
         
         public static void DecreaseCoinCount(int amount)
-                {
-                    _coinCount-=amount;
-                }
+        {
+            _coinCount-=amount;
+        }
+        
+        public static void IncreaseKeyCount(int amount)
+        {
+            _keyCount+=amount;
+        }
+        
+        public static void DecreaseKeyCount(int amount)
+        {
+            _keyCount-=amount;
+        }
         
         public static void IncreaseRedPotionCount(int amount)
         {

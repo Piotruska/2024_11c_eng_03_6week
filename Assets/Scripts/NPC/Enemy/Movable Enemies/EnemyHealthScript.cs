@@ -69,8 +69,6 @@ namespace NPC.Enemy.Movable_Enemies
 
         private IEnumerator DespawnCoroutine()
         {
-            //_rb.bodyType = RigidbodyType2D.Static;
-            
             int allLayers = ~0;
             _collider.isTrigger = false;
             _collider.excludeLayers = allLayers & ~_groundLayer;

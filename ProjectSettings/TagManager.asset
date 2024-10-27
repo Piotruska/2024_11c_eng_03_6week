@@ -20,6 +20,7 @@ TagManager:
   - TrainingDummy
   - PalmFront
   - Chest
+  - FallingPlatform
   layers:
   - Default
   - TransparentFX

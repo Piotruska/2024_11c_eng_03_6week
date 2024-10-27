@@ -21,15 +21,16 @@ public class EnemyController : MonoBehaviour, IEnemyController
     [SerializeField] private LayerMask _enemyLayer;
     
     [Header("Behaviour")]
-    [SerializeField] public bool _canChase = false;
-    [SerializeField] public bool _canPatroll = false;
-    [SerializeField] public bool _canJump = false;
+    [SerializeField] private bool _canChase = false;
+    [SerializeField] private bool _canPatroll = false;
+    [SerializeField] private bool _canJump = false;
+    [SerializeField] private bool _switchDirectionIfenemyInFront  = false;
 
     [Header("Patroll Configurations")] 
-    [SerializeField] public bool _groundDetectionBased =false;
-    [SerializeField] public bool _timeBased =false;
+    [SerializeField] private bool _groundDetectionBased =false;
+    [SerializeField] private bool _timeBased =false;
     [Range(0f, 20f)]
-    [SerializeField] public float _durationBeforeSwitch = 20;
+    [SerializeField] private float _durationBeforeSwitch = 20;
     
     [SerializeField] private EnemyState _enemyState = EnemyState.Idle;
     
@@ -305,7 +306,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _shouldJump2Blocks = true;
         }
 
-        if (shouldSwitchDirectionIenemyInFront && isPatrolling)
+        if (shouldSwitchDirectionIenemyInFront && isPatrolling && _switchDirectionIfenemyInFront)
         {
             _direction *= -1;
         }

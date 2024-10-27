@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Interactables
@@ -14,8 +15,12 @@ namespace Interactables
         
         public void OnInteractAction()
         {
-            _animator.SetTrigger("Unlock");
-            _isUnlocked = true;
+            if (PlayerCollectibles.GetKeyCount() > 0)
+            {
+                PlayerCollectibles.DecreaseKeyCount(1);
+                _animator.SetTrigger("Unlock");
+                _isUnlocked = true;
+            }
         }
     }
 }

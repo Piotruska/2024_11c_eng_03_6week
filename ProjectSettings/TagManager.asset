@@ -6,6 +6,21 @@ TagManager:
   tags:
   - InstantDeath
   - Ground
+  - Projectile
+  - CheckPoint
+  - Totem1
+  - Totem1H
+  - GoldCoin
+  - HealthPotion
+  - SpeedPotion
+  - BlueDiamond
+  - Key
+  - Sword
+  - FierceTooth
+  - TrainingDummy
+  - PalmFront
+  - Chest
+  - FallingPlatform
   layers:
   - Default
   - TransparentFX
@@ -51,6 +66,9 @@ TagManager:
     locked: 0
   - name: BackGround
     uniqueID: 3460569859
+    locked: 0
+  - name: ObjectsBack
+    uniqueID: 2888472801
     locked: 0
   - name: Default
     uniqueID: 0

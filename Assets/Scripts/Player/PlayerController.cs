@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerAnimator _animator;
     private ICanAttack _IcanAttack;
     private ICanInteract _canInteract;
+    private PlayerHealthScript _playerHealth;
 
     
     //Inputs
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool _interactInput;
     private bool _item1Input;
     private bool _item2Input;
-
+    private float _yInput;
+    public bool _fallThrough;
     
     //Surroundings Checks
     private bool _isGrounded;
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<PlayerAnimationScript>();
         _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
+        _playerHealth = GetComponent<PlayerHealthScript>();
         _extraJumpsValue = _config.extraJumpCount;
         SpeedSetDefault();
     }
@@ -89,6 +92,10 @@ public class PlayerController : MonoBehaviour
         _interactInput = Input.GetButtonDown("Interact");
         _item1Input = Input.GetButtonDown("Item 1");
         _item2Input = Input.GetButtonDown("Item 2");
+        _yInput = Input.GetAxis("Vertical Movement");
+
+        if (_yInput < -0.01f) _fallThrough = true;
+        else _fallThrough = false;
 
         if (_isGrounded)
         {
@@ -110,19 +117,24 @@ public class PlayerController : MonoBehaviour
         if (_meleeAttackInput && _hasSword) Attack();
         if (_interactInput) Interact();
         if (_dashInput && _canDash && (_currentAirDashCount > 0)) StartCoroutine(Dash());
-
+        
+        if (_item1Input && PlayerCollectibles.GetRedPotionCount()>0)
+        {
+            PlayerCollectibles.DecreaseRedPotionCount(1);
+            _playerHealth.HealthRestore(_potionConfig.healthRestorePercent);
+        }
+        
         if (_item2Input && PlayerCollectibles.GetBluePotionCount()>0)
         {
             PlayerCollectibles.DecreaseBluePotionCount(1);
             StartCoroutine(SpeedIncrease(_potionConfig.speedBoostEffect, _potionConfig.speedBoostDuration));
         }
-
     }
 
     void FixedUpdate()
     {
         CheckIfGrounded();
-        if(_isDashing || _isStunned) return;
+        if(_isDashing || _isStunned || !_isAlive) return;
         _animator.FacingCheck();
         _rb.velocity = new Vector2(_xInput * _playerSpeed, _rb.velocity.y);
         if (_xInput != 0) Walk(); else Idle();
@@ -140,7 +152,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         SpeedSetDefault();
     }
-    
     public void HasSword(bool hasSword)
     {
         _animator.HasSword(hasSword);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NPC.Enemy.Movable_Enemies;
@@ -7,7 +8,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IEnemyController
 {
     [Header("Movement Rays Transforms")]
-    [SerializeField] private Transform _player;
     [SerializeField] private Transform _gapCheck; 
     [SerializeField] private Transform _groundAfter1BlockGapCheck; 
     [SerializeField] private Transform _groundAfter2BlockGapCheck; 
@@ -21,15 +21,16 @@ public class EnemyController : MonoBehaviour, IEnemyController
     [SerializeField] private LayerMask _enemyLayer;
     
     [Header("Behaviour")]
-    [SerializeField] public bool _canChase = false;
-    [SerializeField] public bool _canPatroll = false;
-    [SerializeField] public bool _canJump = false;
+    [SerializeField] private bool _canChase = false;
+    [SerializeField] private bool _canPatroll = false;
+    [SerializeField] private bool _canJump = false;
+    [SerializeField] private bool _switchDirectionIfenemyInFront  = false;
 
     [Header("Patroll Configurations")] 
-    [SerializeField] public bool _groundDetectionBased =false;
-    [SerializeField] public bool _timeBased =false;
+    [SerializeField] private bool _groundDetectionBased =false;
+    [SerializeField] private bool _timeBased =false;
     [Range(0f, 20f)]
-    [SerializeField] public float _durationBeforeSwitch = 20;
+    [SerializeField] private float _durationBeforeSwitch = 20;
     
     [SerializeField] private EnemyState _enemyState = EnemyState.Idle;
     
@@ -38,6 +39,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private IEnemyAnimator _enemyAnimator;
     private IEnemieHealthScript _enemieHealthScript;
+    private Transform _player;
     
     private float _chaseSpeed = 2.5f; //recomended for proper jump movements
     private float _jumpForce = 5f; //recomended for proper jump movements
@@ -51,6 +53,14 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private bool changeDirectionDuringChase = false;
     private bool _isAttacking = false;
     private Coroutine _timeBasePatrol = null;
+    public bool playerAlive;
+    private PlayerController _playerController;
+    private EnemyState lastState;
+
+    public bool isPlayerAlive()
+    {
+        return playerAlive;
+    }
 
     public bool isGrounded()
     {
@@ -96,17 +106,25 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _enemieHealthScript.Die();
         }
     }
-    
-    void Start()
+
+    private void Awake()
     {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            _player = playerObject.transform;
+        }
         _enemyAnimator = GetComponent<IEnemyAnimator>();
         _rb = GetComponent<Rigidbody2D>();
         _enemieHealthScript = GetComponent<IEnemieHealthScript>();
+        _playerController = _player.gameObject.GetComponent<PlayerController>();
         StartCoroutine(PatrolTimer(_durationBeforeSwitch));
     }
 
     void Update()
     {
+        if (_enemyState != EnemyState.Stunned) lastState = _enemyState;
+        playerAlive = _playerController._isAlive;
         if (_enemyState == EnemyState.Die) return;
         Move();
         CorrectLocalScale();
@@ -115,7 +133,8 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private void FixedUpdate()
     {
         if (_enemyState == EnemyState.Die) return;
-        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
+
+    _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
         _enemyAnimator.IsGrounded(_isGrounded);
         _enemyAnimator.IsJumping(_isJumping);
         CheckIfOnSpikes();
@@ -164,10 +183,10 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     public IEnumerator StunnCoroutine(float timeStunned)
     {
-        var saveState = _enemyState;
+        Debug.Log("saved state : " + lastState);
         _enemyState = EnemyState.Stunned;
         yield return new WaitForSeconds(timeStunned);
-        _enemyState = saveState;
+        _enemyState = lastState;
     }
 
     private void Chase() 
@@ -252,7 +271,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         bool shouldJump2BlocksX = shouldBeAbleToJump && (gapAhead || dangerAhead) && groundAfter2BlockGap && (!dangerAfter2BlockGap || (dangerAfter2BlockGap && groundAfter2blocksGap1BlockAbove));
         bool shouldJump2BlocksX1BlockY = (shouldBeAbleToJump && (gapAhead&& groundAfter2blocksGap1BlockAbove));
 
-        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f ;
+        bool shouldStopIfInfrontOfPlayer = playerInFront && playerInFront.distance < 0.3f && playerAlive;
         bool shouldSwitchDirectionIenemyInFront = enemyInFront && enemyInFront.distance < 0.1f;
         bool shouldStopIfCloseToWall = (wallInFront && (groundInFront.distance < 0.5f) && _isGrounded);
         bool shouldStopIfCloseToCliff = (_canJump && (_isGrounded && noGroundAhead) || 
@@ -287,7 +306,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _shouldJump2Blocks = true;
         }
 
-        if (shouldSwitchDirectionIenemyInFront && isPatrolling)
+        if (shouldSwitchDirectionIenemyInFront && isPatrolling && _switchDirectionIfenemyInFront)
         {
             _direction *= -1;
         }

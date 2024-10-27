@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -248842170642296810}
   m_Layer: 3
   m_Name: WP Single
-  m_TagString: Ground
+  m_TagString: FallingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

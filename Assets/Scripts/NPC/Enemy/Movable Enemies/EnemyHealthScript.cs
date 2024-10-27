@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using Player;
@@ -16,7 +17,8 @@ namespace NPC.Enemy.Movable_Enemies
         [SerializeField] private float _health = 20f;
         [SerializeField] private float _stunnTime = 2f;
         [SerializeField] private float _despawnTime = 3f; 
-        [SerializeField] private float _fadeDuration = 2f; 
+        [SerializeField] private float _fadeDuration = 2f;
+        [SerializeField] private LayerMask _groundLayer;
 
         private void Awake()
         {
@@ -27,8 +29,17 @@ namespace NPC.Enemy.Movable_Enemies
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
+        private void Update()
+        {
+            if (isDead() && _enemyController.isGrounded())
+            {
+                _rb.velocity = new Vector2(0, _rb.velocity.y);
+            }
+        }
+
         public void Hit(float damageAmount)
         {
+            if(_enemyController.GetState() == EnemyState.Die) return;
             DecreaseHealth(damageAmount);
             if (_health <= 0) Die();
             else
@@ -36,6 +47,11 @@ namespace NPC.Enemy.Movable_Enemies
                 _enemyAnimator.HitAnimation();
                 _enemyController.Stunn(_stunnTime);
             }
+        }
+
+        public bool isDead()
+        {
+            return _enemyController.GetState() == EnemyState.Die;
         }
 
         public void DecreaseHealth(float amount)
@@ -46,7 +62,6 @@ namespace NPC.Enemy.Movable_Enemies
         public void Die()
         {
             if (_enemyController.GetState() == EnemyState.Die) return;
-
             _enemyAnimator.DeadHitAnimation();
             _enemyController.ChangeState(EnemyState.Die);
             StartCoroutine(DespawnCoroutine());
@@ -54,17 +69,15 @@ namespace NPC.Enemy.Movable_Enemies
 
         private IEnumerator DespawnCoroutine()
         {
-            _rb.bodyType = RigidbodyType2D.Static;
+            int allLayers = ~0;
+            _collider.isTrigger = false;
+            _collider.excludeLayers = allLayers & ~_groundLayer;
             
-            if (_collider != null)
-            {
-                _collider.enabled = false;
-            }
             yield return new WaitForSeconds(_despawnTime);
             
             Color color = _spriteRenderer.color;
             float fadeSpeed = color.a / _fadeDuration;
-
+            
             while (color.a > 0)
             {
                 color.a -= fadeSpeed * Time.deltaTime; 

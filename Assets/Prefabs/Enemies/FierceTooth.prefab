@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 7860785665692499732}
   m_Layer: 9
   m_Name: FierceTooth
-  m_TagString: Untagged
+  m_TagString: FierceTooth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +306,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -369,6 +369,9 @@ MonoBehaviour:
   _stunnTime: 2
   _despawnTime: 3
   _fadeDuration: 2
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8216
 --- !u!114 &97595288554019044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371aaa0a778ffc84e94f3deed76b9d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _gapCheck: {fileID: 4468419699472740609}
   _groundAfter1BlockGapCheck: {fileID: 7379569478901738658}
   _groundAfter2BlockGapCheck: {fileID: 7863953827222512877}
@@ -400,14 +402,15 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  _canChase: 0
+  _canChase: 1
   _canPatroll: 1
-  _canJump: 0
+  _canJump: 1
   _groundDetectionBased: 1
   _timeBased: 0
   _durationBeforeSwitch: 4
   _enemyState: 1
   _showMovementGizmos: 1
+  playerAlive: 0
 --- !u!114 &6006431606682435603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,36 +423,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c5418d4e75f93458e8dd5ba3bfef27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frontXAxisMaxDistance: 6
-  _frontYAxisMaxDistance: 4
-  _frontXAxisBoxAmount: 12
-  _frontYAxisBoxAmount: 8
-  _backXAxisMaxDistance: 6
-  _backYAxisMaxDistance: 4
-  _backXAxisBoxAmount: 12
-  _backYAxisBoxAmount: 8
-  _frontYOffset: -0.35
-  _frontXOffset: 0
-  _backYOffset: -0.35
-  _backXOffset: 0
   _backDetectionDuration: 8
   _detectionDelay: 0.01
+  _lingerTime: 2
+  _detectionDistance: 10
+  _minDetectionAngle: 10
   _detectorLayerMask:
     serializedVersion: 2
     m_Bits: 128
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  _showGizmos: 0
-  _showGrid: 0
-  _gizmoGridColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _showXYLimits: 0
-  _gizmoXYLimitsColour: {r: 0, g: 0, b: 1, a: 1}
-  _showPlayerDetection: 0
-  _gizmoIdleColour: {r: 0, g: 1, b: 0, a: 1}
-  _gizmoDetectedColour: {r: 1, g: 0, b: 0, a: 1}
-  _showGroundDetection: 0
-  _gizmoRayColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _showDetectionCircle: 1
 --- !u!114 &3034216179538537456
 MonoBehaviour:
   m_ObjectHideFlags: 0

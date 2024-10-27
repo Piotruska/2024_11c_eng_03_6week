@@ -10,6 +10,7 @@ namespace NPC.Enemy.Movable_Enemies.Interfaces
         public void isAttackingTrue();
         public void isAttackingFalse();
         public bool isGrounded();
+        public bool isPlayerAlive();
         public float Direction();
 
     }

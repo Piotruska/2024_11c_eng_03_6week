@@ -128,5 +128,11 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         
         _collider.excludeLayers = 0;
     }
+    
+    public void HealthRestore(int amount)
+    {
+        _currentHealth += _maxHealth * amount/100;
+        _healthBarDisplay.UpdateHealthBar(_currentHealth, _maxHealth);
+    }
 
 }

@@ -7,7 +7,7 @@ namespace Collectibles.Configurations
     {
         [Header("Potion Parameters")]
         [Header("Red Potion")]
-        public int healthRestore = 20;
+        public int healthRestorePercent = 25;
         [Header("Blue Potion")]
         public int speedBoostEffect = 2;
         public int speedBoostDuration = 10;

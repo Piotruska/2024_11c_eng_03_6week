@@ -18,6 +18,8 @@ TagManager:
   - Sword
   - FierceTooth
   - TrainingDummy
+  - PalmFront
+  - Chest
   layers:
   - Default
   - TransparentFX

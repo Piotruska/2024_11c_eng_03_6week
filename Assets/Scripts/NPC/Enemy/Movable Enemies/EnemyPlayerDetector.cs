@@ -11,11 +11,11 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
     [SerializeField]
     private float _detectionDelay = 0.1f;
     [SerializeField]
-    private float _lingerTime = 2f; // Time to keep detection after losing sight
+    private float _lingerTime = 2f; 
     [SerializeField]
-    private float _detectionDistance = 10f; // Maximum distance the enemy can see
+    private float _detectionDistance = 10f;
     [SerializeField]
-    private float _minDetectionAngle = 10f; // Minimum angle for detection (from the vertical)
+    private float _minDetectionAngle = 10f; 
     [SerializeField]
     private LayerMask _detectorLayerMask; 
     [SerializeField]
@@ -23,7 +23,7 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
 
     [Header("Gizmos Config")]
     [SerializeField]
-    private bool _showDetectionCircle = true; // Show detection circle
+    private bool _showDetectionCircle = true; 
 
     private IEnemyController _enemyController;
     private bool _playerDetected;

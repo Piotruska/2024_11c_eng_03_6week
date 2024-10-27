@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20867002-0057-49a9-b7b4-9144393f7600" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2024_11c_eng_03_6week/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyHealthScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyHealthScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Totem1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Totem1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Totem1_H.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Totem1_H.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Respawn/CheckPoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Respawn/CheckPoint.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing/DevelopmentScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyPlayerDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnemyPlayerDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Totem/WoodSpikeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AttackMechanic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AttackMechanic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnenyCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/EnenyCombat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/Interfaces/IEnemyCombat.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/Enemy/Movable Enemies/Interfaces/IEnemyCombat.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealthScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealthScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/06-Anticipation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/06-Anticipation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/07-Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/07-Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/10-DeadGround.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/NPC/Enemy/FierceTooth/Animations/10-DeadGround.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Player Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Player/Movement/Player Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,29 +52,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.35827664",
-    "git-widget-placeholder": "Piotr",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.35827664&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Piotr&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\piotr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\piotr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\piotr\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\piotr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\piotr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\piotr\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Unity.exe" />
@@ -142,6 +145,7 @@
       <workItem from="1729619750683" duration="26391000" />
       <workItem from="1729699437985" duration="19563000" />
       <workItem from="1729754938927" duration="23238000" />
+      <workItem from="1730014967408" duration="6201000" />
     </task>
     <servers />
   </component>

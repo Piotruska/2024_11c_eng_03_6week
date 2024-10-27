@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     private bool _interactInput;
     private bool _item1Input;
     private bool _item2Input;
-
+    private float _yInput;
+    public bool _fallThrough;
     
     //Surroundings Checks
     private bool _isGrounded;
@@ -89,6 +90,10 @@ public class PlayerController : MonoBehaviour
         _interactInput = Input.GetButtonDown("Interact");
         _item1Input = Input.GetButtonDown("Item 1");
         _item2Input = Input.GetButtonDown("Item 2");
+        _yInput = Input.GetAxis("Vertical Movement");
+
+        if (_yInput < -0.01f) _fallThrough = true;
+        else _fallThrough = false;
 
         if (_isGrounded)
         {

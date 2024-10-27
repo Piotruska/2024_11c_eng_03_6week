@@ -7,7 +7,7 @@ using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyCombat : MonoBehaviour, IEnemyCombat
+public class EnemyCombat : MonoBehaviour
 {
     private IEnemyController _enemyController;
     private IEnemyAnimator _enemyAnimator;

@@ -53,7 +53,7 @@ public class WoodSpikeController : MonoBehaviour , IDamageable
     
     public bool isDead()
     {
-        return _woodSpikeAttack._isAlive;
+        return !_woodSpikeAttack._isAlive;
     }
 
     private IEnumerator Despawn(float duration)

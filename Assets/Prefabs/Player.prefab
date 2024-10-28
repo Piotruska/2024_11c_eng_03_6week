@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6463991302424949231}
   - component: {fileID: 5404326867460443069}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: AirAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

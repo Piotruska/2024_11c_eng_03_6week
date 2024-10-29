@@ -64,7 +64,6 @@ public class EnemyPlayerDetector : MonoBehaviour, IEnemyPlayerDetector
 
         if (changeStateToChase)
         {
-            if(state != EnemyState.Chase)Debug.Log(state);
             _enemyController.ChangeState(EnemyState.Chase);
         }
         else if (changeStateToPatrol)

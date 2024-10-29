@@ -183,7 +183,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     public IEnumerator StunnCoroutine(float timeStunned)
     {
-        Debug.Log("saved state : " + lastState);
+        
         _enemyState = EnemyState.Stunned;
         yield return new WaitForSeconds(timeStunned);
         _enemyState = lastState;

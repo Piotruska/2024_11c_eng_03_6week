@@ -1,4 +1,6 @@
 using System;
+using Collectables;
+using UI;
 using UnityEngine;
 
 namespace Player
@@ -13,6 +15,28 @@ namespace Player
         private static bool _hasDiamond2 = false;
         private static bool _hasDiamond3 = false;
 
+        public void ResetDiamonds()
+        {
+            FindObjectOfType<BlueDiamondDisplay>().Reset();
+            _hasDiamond1 = false;
+            // FindObjectOfType<>().Reset();
+            // _hasDiamond2 = false;
+            // FindObjectOfType<>().Reset();
+            // _hasDiamond3 = false;
+            //TODO : Mark add this lines for the rest of the diamonds
+        }
+
+        public bool HasAllDiamonds()
+        {
+            return _hasDiamond1 && _hasDiamond2 && _hasDiamond3;  
+        }
+
+        public void DiamondReset()
+        {
+            _hasDiamond1 = false;
+            _hasDiamond2 = false;
+            _hasDiamond3 = false;
+        }
         public void Reset()
         { 
             _coinCount = 0; 

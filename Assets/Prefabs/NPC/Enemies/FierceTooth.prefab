@@ -405,6 +405,7 @@ MonoBehaviour:
   _canChase: 1
   _canPatroll: 1
   _canJump: 1
+  _switchDirectionIfenemyInFront: 0
   _groundDetectionBased: 1
   _timeBased: 0
   _durationBeforeSwitch: 4
@@ -449,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canAttack: 1
   _centerPoint: {fileID: 6120825495333094182}
-  _boxSize: {x: 0.65, y: 0.38}
+  _boxSize: {x: 0.53, y: 0.77}
   _damage: 4
   _yAxisKnockbackStrength: 4
   _generalKnockbackForce: 4
@@ -460,7 +461,7 @@ MonoBehaviour:
   - serializedVersion: 2
     m_Bits: 128
   attackCooldown: 0.7
-  _showMovementGizmos: 0
+  _showMovementGizmos: 1
 --- !u!114 &5791414665452585524
 MonoBehaviour:
   m_ObjectHideFlags: 0

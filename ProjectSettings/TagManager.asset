@@ -21,6 +21,7 @@ TagManager:
   - PalmFront
   - Chest
   - FallingPlatform
+  - PatricStar
   layers:
   - Default
   - TransparentFX

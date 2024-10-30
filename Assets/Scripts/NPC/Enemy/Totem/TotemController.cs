@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using NPC.Enemy.Interfaces;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 namespace NPC.Enemy.Totem
 {
@@ -11,7 +13,8 @@ namespace NPC.Enemy.Totem
         [SerializeField] private GameObject _woodSpike_Projectile;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Collider2D _hitRange;
-        [SerializeField] private float _cooldown = 2;
+        [SerializeField] 
+        [Range(1,3)]private float _cooldown = 2;
         private bool _playerInRange;
         
         private void Awake()
@@ -33,11 +36,13 @@ namespace NPC.Enemy.Totem
         {
             while (true)
             {
+                
                 if (_playerInRange)
                 {
                     _totemAnimationController.Shoot();
                 }
-                yield return new WaitForSeconds(_cooldown);
+                float randomDelay = Random.Range(1f, _cooldown);
+                yield return new WaitForSeconds(randomDelay);
             }
         }
 

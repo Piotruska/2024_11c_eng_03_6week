@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using Collectibles.Configurations;
 using Player;
 using Player.Interfaces;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private ICanAttack _IcanAttack;
     private ICanInteract _canInteract;
     private PlayerHealthScript _playerHealth;
+    private PlayerAudioController _playerAudioController;
 
     
     //Inputs
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
         _IcanAttack = GetComponent<AttackMechanic>();
         _canInteract = GetComponent<InteractionMechanic>();
         _playerHealth = GetComponent<PlayerHealthScript>();
+        _playerAudioController = GetComponent<PlayerAudioController>();
         _extraJumpsValue = _config.extraJumpCount;
         SpeedSetDefault();
     }
@@ -188,6 +191,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        _playerAudioController.DashSFX();
         _animator.DashOn();
         _animator.SpawnDustParticleEffect(4);
         _isDashing = true;

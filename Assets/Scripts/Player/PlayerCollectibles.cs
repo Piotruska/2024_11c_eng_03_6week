@@ -7,6 +7,8 @@ namespace Player
 {
     public class PlayerCollectibles : MonoBehaviour
     {
+        private static AudioManeger _audioManeger;
+
         private static int _coinCount = 0;
         private static int _keyCount = 0;
         private static int _redPotionCount = 0;
@@ -14,6 +16,12 @@ namespace Player
         private static bool _hasDiamond1 = false;
         private static bool _hasDiamond2 = false;
         private static bool _hasDiamond3 = false;
+
+        private void Awake()
+        {
+            _audioManeger = GameObject.FindWithTag("AudioManager").GetComponent<AudioManeger>();
+
+        }
 
         public void ResetDiamonds()
         {
@@ -89,6 +97,7 @@ namespace Player
         
         public static void DecreaseRedPotionCount(int amount)
         {
+            _audioManeger.PlayCollectableSFX(_audioManeger.potionUse);
             _redPotionCount-=amount;
         }
         

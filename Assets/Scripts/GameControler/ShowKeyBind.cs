@@ -11,7 +11,7 @@ public class ShowKeyBind : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && currentKeyBind == null)
+        if (other.CompareTag("InteractionHitbox") && currentKeyBind == null)
         {
             currentKeyBind = Instantiate(keyBindPrefab, position.position, Quaternion.identity);
             StartCoroutine(FadeIn(currentKeyBind));
@@ -20,7 +20,7 @@ public class ShowKeyBind : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && currentKeyBind != null)
+        if (other.CompareTag("InteractionHitbox") && currentKeyBind != null)
         {
             StartCoroutine(FadeOutAndDestroy(currentKeyBind));
             currentKeyBind = null; 

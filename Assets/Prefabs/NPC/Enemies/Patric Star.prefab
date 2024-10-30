@@ -93,7 +93,7 @@ Transform:
   m_GameObject: {fileID: 1190531674724760334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.64, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 3034216179538537456}
   - component: {fileID: 5791414665452585524}
   - component: {fileID: 1753558438785199856}
+  - component: {fileID: 7578167207899126356}
   - component: {fileID: 7860785665692499732}
   m_Layer: 9
   m_Name: Patric Star
@@ -450,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canAttack: 1
   _centerPoint: {fileID: 6120825495333094182}
-  _boxSize: {x: 0.74, y: 1.01}
+  _boxSize: {x: 0.5, y: 0.83}
   _damage: 4
   _yAxisKnockbackStrength: 4
   _generalKnockbackForce: 4
@@ -489,6 +490,18 @@ MonoBehaviour:
   _dustParticleEffect: {fileID: 5369337687508789472, guid: 0c911953026bdd2449c3224f6bb61560, type: 3}
   _dustparticleSpawn: {fileID: 7302477392932494329}
   _attackEffect: {fileID: 5480305660660841482}
+--- !u!114 &7578167207899126356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100197540209003705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2e1e45a47f4bbe890f5efae09c7673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &7860785665692499732
 Animator:
   serializedVersion: 5

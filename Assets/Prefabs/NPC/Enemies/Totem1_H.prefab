@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4946948097513940408}
   - component: {fileID: 1330257783943026613}
   - component: {fileID: 5050526655045343771}
+  - component: {fileID: 9021796630705201149}
   m_Layer: 9
   m_Name: Totem1_H
   m_TagString: Totem1H
@@ -108,8 +109,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -15479487
-  m_SortingLayer: 3
+  m_SortingLayerID: -1406494495
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d354543e2d83731468c2ee4187eae950, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -249,6 +250,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &9021796630705201149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3091047487165016945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2e1e45a47f4bbe890f5efae09c7673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7892360964834280419
 PrefabInstance:
   m_ObjectHideFlags: 0

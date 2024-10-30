@@ -95,10 +95,24 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
+  - time: 0.2
+    functionName: Walk1SFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: SpawnDustParticleEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 0.5
+    functionName: Walk2SFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0

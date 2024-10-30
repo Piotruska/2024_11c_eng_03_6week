@@ -1,8 +1,9 @@
 using System.Collections;
+using Interactables;
 using Player;
 using UnityEngine;
 
-public class JohnnyEndLevelController : MonoBehaviour
+public class JohnnyEndLevelController : MonoBehaviour, IInteractable
 {
     [SerializeField] SceneSwitchControler _sceneSwitchControler;
     private PlayerCollectibles _playerCollectables;
@@ -11,37 +12,6 @@ public class JohnnyEndLevelController : MonoBehaviour
     private void Awake()
     {
         _playerCollectables = FindObjectOfType<PlayerCollectibles>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _isPlayerInTrigger = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _isPlayerInTrigger = false;
-        }
-    }
-
-    private void Update()
-    {
-        if (_isPlayerInTrigger && Input.GetButtonDown("Interact"))
-        {
-            if (!_playerCollectables.HasAllDiamonds())
-            {
-                NotEnoughDiamonds();
-            }
-            else
-            {
-                EnoughDiamonds();
-            }
-        }
     }
 
     private void NotEnoughDiamonds()
@@ -56,5 +26,17 @@ public class JohnnyEndLevelController : MonoBehaviour
         _sceneSwitchControler.levelComplete = true;
         Debug.Log("You have enough Diamonds, go rest now");
         // TODO: Add Dialog Mark
+    }
+
+    public void OnInteractAction()
+    {
+        if (!_playerCollectables.HasAllDiamonds())
+        {
+            NotEnoughDiamonds();
+        }
+        else
+        {
+            EnoughDiamonds();
+        }
     }
 }

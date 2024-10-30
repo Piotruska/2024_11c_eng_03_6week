@@ -22,6 +22,8 @@ TagManager:
   - Chest
   - FallingPlatform
   - PatricStar
+  - AudioManager
+  - InteractionHitbox
   layers:
   - Default
   - TransparentFX

@@ -19,13 +19,15 @@ public class PlayerController : MonoBehaviour
     
     //Inputs
     private float _xInput;
+    private float _yInput;
     private bool _jumpInput;
     private bool _dashInput;
     private bool _meleeAttackInput;
     private bool _interactInput;
     private bool _item1Input;
     private bool _item2Input;
-    private float _yInput;
+    private bool _pauseInput;
+    
     public bool _fallThrough;
     
     //Surroundings Checks
@@ -52,6 +54,9 @@ public class PlayerController : MonoBehaviour
     
     //Parameters
     private float _playerSpeed;
+    
+    // Pause
+    private bool _isPaused = false;
     
 
     [Header("Configurations")] 
@@ -96,6 +101,7 @@ public class PlayerController : MonoBehaviour
         _item1Input = Input.GetButtonDown("Item 1");
         _item2Input = Input.GetButtonDown("Item 2");
         _yInput = Input.GetAxis("Vertical Movement");
+        _pauseInput = Input.GetButtonDown("Cancel");
 
         if (_yInput < -0.01f) _fallThrough = true;
         else _fallThrough = false;
@@ -131,6 +137,20 @@ public class PlayerController : MonoBehaviour
         {
             PlayerCollectibles.DecreaseBluePotionCount(1);
             StartCoroutine(SpeedIncrease(_potionConfig.speedBoostEffect, _potionConfig.speedBoostDuration));
+        }
+
+        if (_pauseInput)
+        {
+            if (_isPaused)
+            {
+                _isPaused = false;
+                Time.timeScale = 1;
+            }
+            else
+            {
+                _isPaused = true;
+                Time.timeScale = 0;
+            }
         }
     }
 

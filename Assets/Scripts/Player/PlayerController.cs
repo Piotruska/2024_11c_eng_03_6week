@@ -5,6 +5,7 @@ using Audio;
 using Collectibles.Configurations;
 using Player;
 using Player.Interfaces;
+using UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,7 +16,8 @@ public class PlayerController : MonoBehaviour
     private ICanInteract _canInteract;
     private PlayerHealthScript _playerHealth;
     private PlayerAudioController _playerAudioController;
-
+    
+    private PauseDisplay _pauseDisplay;
     
     //Inputs
     private float _xInput;
@@ -85,6 +87,9 @@ public class PlayerController : MonoBehaviour
         _canInteract = GetComponent<InteractionMechanic>();
         _playerHealth = GetComponent<PlayerHealthScript>();
         _playerAudioController = GetComponent<PlayerAudioController>();
+        
+        _pauseDisplay = FindObjectOfType<PauseDisplay>();
+        
         _extraJumpsValue = _config.extraJumpCount;
         SpeedSetDefault();
     }
@@ -143,11 +148,13 @@ public class PlayerController : MonoBehaviour
         {
             if (_isPaused)
             {
+                _pauseDisplay.Hide();
                 _isPaused = false;
                 Time.timeScale = 1;
             }
             else
             {
+                _pauseDisplay.Show();
                 _isPaused = true;
                 Time.timeScale = 0;
             }

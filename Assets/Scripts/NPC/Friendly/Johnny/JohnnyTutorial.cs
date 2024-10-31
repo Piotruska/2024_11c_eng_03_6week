@@ -1,28 +1,23 @@
+using Cinemachine;
 using Interactables;
 using Player;
+using UI;
 using UnityEngine;
 
 namespace NPC.Friendly.Johnny
 {
     public class JohnyyTutorial : MonoBehaviour, IInteractable
     {
-        //[SerializeField] SceneSwitchControler _sceneSwitchControler;
-        //private PlayerCollectibles _playerCollectables;
-        private bool _isPlayerInTrigger = false;
+        private DialogueMenuDisplay _dialogueMenu;
 
         private void Awake()
         {
-            //_playerCollectables = FindObjectOfType<PlayerCollectibles>();
-        }
-
-        private void TutorialDisplay(string text)
-        {
-            
+            _dialogueMenu = FindObjectOfType<DialogueMenuDisplay>();
         }
 
         public void OnInteractAction()
         {
-            
+            _dialogueMenu.ShowDialogue(this.transform);
         }
     }
 }

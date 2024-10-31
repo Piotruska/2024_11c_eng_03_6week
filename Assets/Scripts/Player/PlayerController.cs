@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
             _extraJumpsValue = _config.extraJumpCount;
             _currentAirDashCount = _config.amountOfAirDash;
         }
-        
 
         if (_jumpInput && _extraJumpsValue > 0)
         {

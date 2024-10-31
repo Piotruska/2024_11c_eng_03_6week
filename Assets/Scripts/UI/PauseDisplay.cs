@@ -12,14 +12,10 @@ namespace UI
         }
 
         public void Hide() {
-            //_pauseMenu.alpha = 0f;
-            //_pauseMenu.blocksRaycasts = false;
             _pauseMenu.enabled = false;
         }
         
         public void Show() {
-            //_pauseMenu.alpha = 1f;
-            //_pauseMenu.blocksRaycasts = true;
             _pauseMenu.enabled = true;
         }
     }

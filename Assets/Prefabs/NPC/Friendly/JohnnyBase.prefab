@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6641105787915645027}
   - component: {fileID: 8020981250358201460}
   - component: {fileID: 5910186214692983431}
-  m_Layer: 16
+  m_Layer: 11
   m_Name: JohnnyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}

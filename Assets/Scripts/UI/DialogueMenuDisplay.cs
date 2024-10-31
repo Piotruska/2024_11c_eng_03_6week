@@ -16,9 +16,22 @@ namespace UI
 
         public void ShowDialogue(Transform followTransform)
         {
+            InputManager.PlayerDisable();
+            setCamera(followTransform);
+            Show();
+            //ResetCamera();
+        }
+
+        public void setCamera(Transform followTransform)
+        {
             _vcam.Follow = followTransform;
             _vcam.PreviousStateIsValid = false;
-            Show();
+        }
+
+        public void ResetCamera()
+        {
+            _vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+            _vcam.PreviousStateIsValid = false;
         }
 
         public void Hide() {

@@ -97,16 +97,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(_isDashing || _isStunned || !_isAlive) return;
-        
-        _xInput = Input.GetAxis("Horizontal Movement");
-        _jumpInput = Input.GetButtonDown("Jump");
-        _dashInput = Input.GetButton("Dash");
-        _meleeAttackInput = Input.GetButtonDown("Melee Attack");
-        _interactInput = Input.GetButtonDown("Interact");
-        _item1Input = Input.GetButtonDown("Item 1");
-        _item2Input = Input.GetButtonDown("Item 2");
-        _yInput = Input.GetAxis("Vertical Movement");
-        _pauseInput = Input.GetButtonDown("Cancel");
+
+        _xInput = Input.GetAxis(InputManager.XPlayerMovement);
+        _yInput = Input.GetAxis(InputManager.YPlayerMovement);
+        _jumpInput = Input.GetButtonDown(InputManager.JumpInput);
+        _dashInput = Input.GetButtonDown(InputManager.DashInput);
+        _meleeAttackInput = Input.GetButtonDown(InputManager.MeleeAttackInput);
+        _interactInput = Input.GetButtonDown(InputManager.InteractInput);
+        _item1Input = Input.GetButtonDown(InputManager.Item1Input);
+        _item2Input = Input.GetButtonDown(InputManager.Item2Input);
+        _pauseInput = Input.GetButtonDown(InputManager.PauseInput);
 
         if (_yInput < -0.01f) _fallThrough = true;
         else _fallThrough = false;

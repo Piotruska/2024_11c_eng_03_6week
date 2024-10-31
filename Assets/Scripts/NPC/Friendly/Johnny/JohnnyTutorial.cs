@@ -1,12 +1,10 @@
-using Cinemachine;
 using Interactables;
-using Player;
 using UI;
 using UnityEngine;
 
 namespace NPC.Friendly.Johnny
 {
-    public class JohnyyTutorial : MonoBehaviour, IInteractable
+    public class JohnnyTutorial : MonoBehaviour, IInteractable
     {
         private DialogueMenuDisplay _dialogueMenu;
 
@@ -17,7 +15,7 @@ namespace NPC.Friendly.Johnny
 
         public void OnInteractAction()
         {
-            _dialogueMenu.ShowDialogue(this.transform);
+            _dialogueMenu.EnterDialogue(this.transform, DialogueScripts.GetScript(0));
         }
     }
 }

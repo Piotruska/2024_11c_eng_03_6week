@@ -14,14 +14,15 @@ public class InputManager : MonoBehaviour
     public static string PauseInput;
     
     //Menu Navigation
-    public static string XMenuNavigation  = "Horizontal";
-    public static string YMenuNavigation = "Vertical";
-    public static string Confirm = "Confirm";
+    public static string XMenuNavigation;
+    public static string YMenuNavigation;
+    public static string Confirm;
     
 
     private void Awake()
     {
         PlayerEnable();
+        MenuDisable();
     }
     public static void PlayerEnable()
     {
@@ -47,5 +48,19 @@ public class InputManager : MonoBehaviour
         Item1Input = "Empty";
         Item2Input = "Empty";
         PauseInput = "Empty";
+    }
+
+    public static void MenuEnable()
+    {
+        XMenuNavigation = "Horizontal";
+        YMenuNavigation = "Vertical";
+        Confirm = "Confirm";
+    }
+
+    public static void MenuDisable()
+    {
+        XMenuNavigation = "Empty";
+        YMenuNavigation = "Empty";
+        Confirm = "Empty";
     }
 }

@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 
 namespace UI
@@ -7,38 +10,89 @@ namespace UI
     {
         private Canvas _dialogueMenu;
         private CinemachineVirtualCamera _vcam;
-        void Awake()
+        private TMP_Text _text;
+
+        private List<string> _dialogueText;
+        private int _dialogueIndex;
+        
+        private bool _confirmInput;
+        
+        private void Awake()
         {
             _dialogueMenu = GameObject.Find("DialogueMenu").GetComponent<Canvas>();
+            _text = GameObject.Find("Dialogue_Text").GetComponent<TMP_Text>();
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
-            _dialogueMenu.enabled = false;
+            Hide();
         }
 
-        public void ShowDialogue(Transform followTransform)
+        private void Update()
         {
-            InputManager.PlayerDisable();
-            setCamera(followTransform);
-            Show();
-            //ResetCamera();
+            _confirmInput = Input.GetButtonDown(InputManager.Confirm);
+            
+            if (_confirmInput)
+            {
+                Advance();
+            }
         }
 
-        public void setCamera(Transform followTransform)
+        private void Advance()
+        {
+            if(_dialogueText.ElementAtOrDefault(_dialogueIndex) != null)
+            {
+                SetText(_dialogueText[_dialogueIndex]);
+                _dialogueIndex++;
+            }
+            else
+            {
+                ExitDialogue();
+            }
+        }
+
+        public void EnterDialogue(Transform followTransform, List<string> dialogueText)
+        {
+            // Set
+            _dialogueIndex = 0;
+            _dialogueText = dialogueText;
+            SetText(_dialogueText[_dialogueIndex]);
+            _dialogueIndex++;
+            
+            // Display
+            InputManager.PlayerDisable();
+            InputManager.MenuEnable();
+            SetCamera(followTransform);
+            Show();
+        }
+
+        private void ExitDialogue()
+        {
+            Hide();
+            ResetCamera();
+            InputManager.MenuDisable();
+            InputManager.PlayerEnable();
+        }
+
+        private void SetText(string dialogueText)
+        {
+            _text.text = dialogueText;
+        }
+
+        private void SetCamera(Transform followTransform)
         {
             _vcam.Follow = followTransform;
             _vcam.PreviousStateIsValid = false;
         }
 
-        public void ResetCamera()
+        private void ResetCamera()
         {
             _vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
             _vcam.PreviousStateIsValid = false;
         }
 
-        public void Hide() {
+        private void Hide() {
             _dialogueMenu.enabled = false;
         }
         
-        public void Show() {
+        private void Show() {
             _dialogueMenu.enabled = true;
         }
     }

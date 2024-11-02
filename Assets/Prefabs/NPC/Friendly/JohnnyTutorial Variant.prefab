@@ -45,11 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1699883921159624945, guid: db827d5701742ee419e97b56ac4de1f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1115859
+      value: -4.437
       objectReference: {fileID: 0}
     - target: {fileID: 1699883921159624945, guid: db827d5701742ee419e97b56ac4de1f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.424287
+      value: -0.494
       objectReference: {fileID: 0}
     - target: {fileID: 1699883921159624945, guid: db827d5701742ee419e97b56ac4de1f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -139,3 +139,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLine: 1
+  destroyOnExit: 1

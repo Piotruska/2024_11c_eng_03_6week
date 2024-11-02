@@ -29,6 +29,14 @@ namespace UI
             newScript.Add("Well since I'm here already I might as well help ye out! Ye might 'ave figured it out already, but ye can use " + _movementKeys + " fer movement.");
             newScript.Add("Try it out 'n meet me a wee further away from here. Thar be much t' learn!");
             Scripts.Add(newScript);
+            // Script 2 - Level End - Enough Diamonds
+            newScript.Clear();
+            newScript.Add("Enough Diamonds");
+            Scripts.Add(newScript);
+            // Script 3 - Level End - Not enough Diamonds
+            newScript.Clear();
+            newScript.Add("Not enough Diamonds");
+            Scripts.Add(newScript);
         }
     }
 }

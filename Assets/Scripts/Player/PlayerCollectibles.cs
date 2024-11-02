@@ -23,7 +23,7 @@ namespace Player
 
         }
 
-        public void ResetDiamonds()
+        public static void ResetDiamonds()
         {
             FindObjectOfType<BlueDiamondDisplay>().Reset();
             _hasDiamond1 = false;
@@ -34,7 +34,7 @@ namespace Player
             //TODO : Mark add this lines for the rest of the diamonds
         }
 
-        public bool HasAllDiamonds()
+        public static bool HasAllDiamonds()
         {
             return _hasDiamond1 && _hasDiamond2 && _hasDiamond3;  
         }

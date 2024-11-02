@@ -100,10 +100,6 @@ namespace UI
                 yield return null;
             }
             
-            foreach(Transform child in targetObject.transform)
-            {
-                Destroy(child.gameObject);
-            }
             Destroy(targetObject);
         }
 

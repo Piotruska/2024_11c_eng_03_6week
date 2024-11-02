@@ -15,8 +15,13 @@ namespace UI
 
         private void Awake()
         {
-            // Dialogue Line 1
             List<string> newScript = new List<string>();
+            // Script 0 - Test
+            newScript.Clear();
+            newScript.Add("This is a Test Script");
+            Scripts.Add(newScript);
+            // Script 1 - Tutorial 1
+            newScript.Clear();
             newScript.Add("This is tutorial 1 Line 1");
             newScript.Add("This is tutorial 1 Line 2");
             Scripts.Add(newScript);

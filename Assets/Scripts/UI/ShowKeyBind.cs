@@ -29,6 +29,12 @@ namespace GameController
             }
         }
 
+        public void ForceDestroy()
+        {
+            StartCoroutine(FadeOutAndDestroy(_currentKeyBind));
+            _currentKeyBind = null;
+        }
+
         private IEnumerator FadeIn(GameObject keyBind)
         {
             if (keyBind == null) yield break;

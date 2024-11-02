@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
@@ -14,6 +15,9 @@ namespace UI
 
         private List<string> _dialogueText;
         private int _dialogueIndex;
+
+        private GameObject _target;
+        private bool _destroyObjectOnExit;
         
         private bool _confirmInput;
         
@@ -48,9 +52,11 @@ namespace UI
             }
         }
 
-        public void EnterDialogue(Transform followTransform, List<string> dialogueText)
+        public void EnterDialogue(GameObject targetObject, List<string> dialogueText, bool destroyOnExit)
         {
             // Set
+            _target = targetObject;
+            _destroyObjectOnExit = destroyOnExit;
             _dialogueIndex = 0;
             _dialogueText = dialogueText;
             SetText(_dialogueText[_dialogueIndex]);
@@ -59,7 +65,7 @@ namespace UI
             // Display
             InputManager.PlayerDisable();
             InputManager.MenuEnable();
-            SetCamera(followTransform);
+            SetCamera(_target.transform);
             Show();
         }
 
@@ -69,6 +75,36 @@ namespace UI
             ResetCamera();
             InputManager.MenuDisable();
             InputManager.PlayerEnable();
+
+            if (_destroyObjectOnExit)
+            {
+                StartCoroutine(FadeOutAndDestroy(_target));
+            }
+        }
+        
+        private IEnumerator FadeOutAndDestroy(GameObject targetObject)
+        {
+            float fadeDuration = 3;
+            if (targetObject == null) yield break;
+
+            SpriteRenderer spriteRenderer = targetObject.GetComponent<SpriteRenderer>();
+            float elapsedTime = 0f;
+            Color color = spriteRenderer.color;
+        
+            while (elapsedTime < fadeDuration)
+            {
+                if (targetObject == null) yield break;
+                elapsedTime += Time.deltaTime;
+                color.a = Mathf.Clamp01(1 - (elapsedTime / fadeDuration));
+                spriteRenderer.color = color;
+                yield return null;
+            }
+            
+            foreach(Transform child in targetObject.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            Destroy(targetObject);
         }
 
         private void SetText(string dialogueText)

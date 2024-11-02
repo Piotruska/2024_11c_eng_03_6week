@@ -457,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2132001734087485806}
   - component: {fileID: 3629554878962609592}
+  - component: {fileID: 6994336800404435098}
   - component: {fileID: 810834297575143200}
   m_Layer: 5
   m_Name: Diamond3
@@ -492,6 +493,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623678527877706849}
   m_CullTransparentMesh: 1
+--- !u!114 &6994336800404435098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623678527877706849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61e05871347bbf46bb6a6a13505a900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &810834297575143200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,6 +1210,8 @@ GameObject:
   - component: {fileID: 6772712855183341768}
   - component: {fileID: 5645554445526050440}
   - component: {fileID: 7235851256168658652}
+  - component: {fileID: 4890411280644967759}
+  - component: {fileID: 2444127030921423045}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1292,6 +1307,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4890411280644967759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122604575623159733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50f7aaea476c294dade42bfdbedb3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneSwitchControler: {fileID: 0}
+  destroyOnExit: 0
+--- !u!114 &2444127030921423045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122604575623159733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50f7aaea476c294dade42bfdbedb3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneSwitchControler: {fileID: 0}
+  destroyOnExit: 0
 --- !u!1 &4654688963369070982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,6 +2104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417521604437623179}
   - component: {fileID: 8240109036582465050}
+  - component: {fileID: 7921423834781257210}
   - component: {fileID: 3514827590309694616}
   m_Layer: 5
   m_Name: Diamond2
@@ -2096,6 +2140,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7337279202794192652}
   m_CullTransparentMesh: 1
+--- !u!114 &7921423834781257210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337279202794192652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b3f3c17acb069419e7daa1cca73aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3514827590309694616
 MonoBehaviour:
   m_ObjectHideFlags: 0

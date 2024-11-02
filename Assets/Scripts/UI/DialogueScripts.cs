@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +17,7 @@ namespace UI
 
         private void Awake()
         {
-            List<string> newScript = new List<string>();
+            List<string> newScript;
             // Script 0 - Test
             newScript = new List<string>();
             newScript.Add("This is a Test Script");

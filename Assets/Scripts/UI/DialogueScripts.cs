@@ -30,11 +30,11 @@ namespace UI
             Scripts.Add(newScript);
             // Script 2 - Level End - Enough Diamonds
             newScript = new List<string>();
-            newScript.Add("Enough Diamonds");
+            newScript.Add("Nice job matey! I'll be takin' those now, but a deal be a deal, I'll take ye t' yer next destination when ye be ready.");
             Scripts.Add(newScript);
             // Script 3 - Level End - Not enough Diamonds
             newScript = new List<string>();
-            newScript.Add("Not enough Diamonds");
+            newScript.Add("Ahoy matey. Aren't ye missin' somethin'? The diamonds mate, ye know, the shiny things. Come back when ye 'ave all three 'n then we'll talk.");
             Scripts.Add(newScript);
         }
     }

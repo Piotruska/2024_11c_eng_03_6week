@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Player;
 using UI;
 using Unity.VisualScripting;
@@ -16,6 +17,8 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
     private PlayerController _controller;
     private Collider2D _collider;
     private HealthBarDisplay _healthBarDisplay;
+    private CinemachineVirtualCamera _vcam;
+    
     [Header("Configurations")]
     [SerializeField] private CheckPointConfig _checkPointConfig;
     [SerializeField] private PlayerConfig _playerConfig;
@@ -33,6 +36,8 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _healthBarDisplay = FindObjectOfType<HealthBarDisplay>();
+        _vcam = FindObjectOfType<CinemachineVirtualCamera>();
+        
         _maxHealth = _playerConfig.maxHealth;
         _currentHealth = _playerConfig.maxHealth;
     }
@@ -125,6 +130,7 @@ public class PlayerHealthScript : MonoBehaviour , IDamageable
         transform.position = _checkPointposition;
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         _rigidbody2D.velocity = Vector2.zero;
+        _vcam.PreviousStateIsValid = false;
         
         _collider.excludeLayers = 0;
     }

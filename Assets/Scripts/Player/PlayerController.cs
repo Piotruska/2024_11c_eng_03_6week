@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
+using Cinemachine;
 using Collectibles.Configurations;
 using Player;
 using Player.Interfaces;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private ICanInteract _canInteract;
     private PlayerHealthScript _playerHealth;
     private PlayerAudioController _playerAudioController;
+    private CinemachineVirtualCamera _vcam;
     
     private PauseDisplay _pauseDisplay;
     
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour
         _canInteract = GetComponent<InteractionMechanic>();
         _playerHealth = GetComponent<PlayerHealthScript>();
         _playerAudioController = GetComponent<PlayerAudioController>();
+        _vcam = FindObjectOfType<CinemachineVirtualCamera>();
         
         _pauseDisplay = FindObjectOfType<PauseDisplay>();
         

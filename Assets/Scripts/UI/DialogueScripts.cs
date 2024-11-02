@@ -24,7 +24,7 @@ namespace UI
             Scripts.Add(newScript);
             // Script 1 - Tutorial 1
             newScript = new List<string>();
-            newScript.Add("Ahoy, Matey! Haven't seen a livin' soul on dis island since forever. Anyway, the names Johnny!");
+            newScript.Add("Ahoy, matey! Haven't seen a livin' soul on dis island since forever. Anyway, the names Johnny!");
             newScript.Add("Well since I'm here already I might as well help ye out! Ye might 'ave figured it out already, but ye can use " + _movementKeys + " fer movement.");
             newScript.Add("Try it out 'n meet me a wee further away from here. Thar be much t' learn!");
             Scripts.Add(newScript);

@@ -111,12 +111,14 @@ namespace UI
         private void SetCamera(Transform followTransform)
         {
             _vcam.Follow = followTransform;
+            _vcam.m_Lens.OrthographicSize = 4;
             _vcam.PreviousStateIsValid = false;
         }
 
         private void ResetCamera()
         {
             _vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+            _vcam.m_Lens.OrthographicSize = 7;
             _vcam.PreviousStateIsValid = false;
         }
 

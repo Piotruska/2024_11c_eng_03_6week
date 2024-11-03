@@ -24,6 +24,10 @@ TagManager:
   - PatricStar
   - AudioManager
   - InteractionHitbox
+  - Totem2
+  - Totem3
+  - Totem2_H
+  - Totem3_H
   layers:
   - Default
   - TransparentFX

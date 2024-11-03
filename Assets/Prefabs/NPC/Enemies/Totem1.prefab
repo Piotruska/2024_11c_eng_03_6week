@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _woodSpike_Projectile: {fileID: 8044784573881409057, guid: e40759a13c91e88489cab98324520cde, type: 3}
   _spawnPoint: {fileID: 1462289943770389392}
-  _hitRange: {fileID: 0}
+  _hitRange: {fileID: 4114688149170669488, guid: 245fa17b12c9be24ca9d25781543a34c, type: 3}
   _cooldown: 2
 --- !u!60 &3359020597458806829
 PolygonCollider2D:

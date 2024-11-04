@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 811150815252061549}
   - component: {fileID: 583624773569372134}
   - component: {fileID: 8277128772129747473}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tent left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBuildingIndex: 0
+  levelComplete: 0
 --- !u!114 &583624773569372134
 MonoBehaviour:
   m_ObjectHideFlags: 0

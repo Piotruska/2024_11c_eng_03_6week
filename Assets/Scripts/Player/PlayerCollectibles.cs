@@ -16,22 +16,27 @@ namespace Player
         private static bool _hasDiamond1 = false;
         private static bool _hasDiamond2 = false;
         private static bool _hasDiamond3 = false;
+        
+        private static BlueDiamondDisplay _blueDiamondDisplay;
+        private static RedDiamondDisplay _redDiamondDisplay;
+        private static GreenDiamondDisplay _greenDiamondDisplay;
 
         private void Awake()
         {
             _audioManeger = GameObject.FindWithTag("AudioManager").GetComponent<AudioManeger>();
-
+            _blueDiamondDisplay = FindObjectOfType<BlueDiamondDisplay>();
+            _greenDiamondDisplay = FindObjectOfType<GreenDiamondDisplay>();
+            _redDiamondDisplay = FindObjectOfType<RedDiamondDisplay>();
         }
 
         public static void ResetDiamonds()
         {
-            FindObjectOfType<BlueDiamondDisplay>().Reset();
             _hasDiamond1 = false;
-            // FindObjectOfType<>().Reset();
-            // _hasDiamond2 = false;
-            // FindObjectOfType<>().Reset();
-            // _hasDiamond3 = false;
-            //TODO : Mark add this lines for the rest of the diamonds
+            _hasDiamond2 = false;
+            _hasDiamond3 = false;
+            _blueDiamondDisplay.Reset();
+            _redDiamondDisplay.Reset();
+            _greenDiamondDisplay.Reset();
         }
 
         public static bool HasAllDiamonds()

@@ -15,19 +15,12 @@ namespace NPC.Friendly.Johnny
         private DialogueMenuDisplay _dialogueMenu;
         private ShowKeyBind _showKeyBind;
         
-        private BlueDiamondDisplay _blueDiamondDisplay;
-        private RedDiamondDisplay _redDiamondDisplay;
-        private GreenDiamondDisplay _greenDiamondDisplay;
-        
         private bool _isPlayerInTrigger = false;
 
         private void Awake()
         {
             _dialogueMenu = FindObjectOfType<DialogueMenuDisplay>();
             _showKeyBind = GetComponent<ShowKeyBind>();
-            _blueDiamondDisplay = FindObjectOfType<BlueDiamondDisplay>();
-            _greenDiamondDisplay = FindObjectOfType<GreenDiamondDisplay>();
-            _redDiamondDisplay = FindObjectOfType<RedDiamondDisplay>();
         }
 
         private void NotEnoughDiamonds()
@@ -39,9 +32,6 @@ namespace NPC.Friendly.Johnny
         private void EnoughDiamonds()
         {
             PlayerCollectibles.ResetDiamonds();
-            _blueDiamondDisplay.Reset();
-            _redDiamondDisplay.Reset();
-            _greenDiamondDisplay.Reset();
             _sceneSwitchControler.levelComplete = true;
             //Debug.Log("You have enough Diamonds, go rest now");
             DialogueDisplay(2);

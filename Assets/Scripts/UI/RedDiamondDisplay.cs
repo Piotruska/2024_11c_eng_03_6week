@@ -14,14 +14,14 @@ namespace UI
         public void SetCollected()
         {
             var tempColor = _diamondImage.color;
-            tempColor.a = 255;
+            tempColor.a = 1f;
             _diamondImage.color = tempColor;
         }
         
         public void Reset()
         {
             var tempColor = _diamondImage.color;
-            tempColor.a = 75;
+            tempColor.a = 0.3f;
             _diamondImage.color = tempColor;
         }
     }

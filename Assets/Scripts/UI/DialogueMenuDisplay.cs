@@ -18,6 +18,8 @@ namespace UI
 
         private GameObject _target;
         private bool _destroyObjectOnExit;
+
+        private float _lensOriginal;
         
         private bool _confirmInput;
         
@@ -26,6 +28,7 @@ namespace UI
             _dialogueMenu = GameObject.Find("DialogueMenu").GetComponent<Canvas>();
             _text = GameObject.Find("Dialogue_Text").GetComponent<TMP_Text>();
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
+            _lensOriginal = _vcam.m_Lens.OrthographicSize;
             Hide();
         }
 
@@ -111,15 +114,36 @@ namespace UI
         private void SetCamera(Transform followTransform)
         {
             _vcam.Follow = followTransform;
-            _vcam.m_Lens.OrthographicSize = 4;
+            StartCoroutine(CameraZoomIn(4));
             _vcam.PreviousStateIsValid = false;
         }
 
         private void ResetCamera()
         {
             _vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
-            _vcam.m_Lens.OrthographicSize = 7;
+            _vcam.m_Lens.OrthographicSize = _lensOriginal;
+            //StartCoroutine(CameraZoomOut());
             _vcam.PreviousStateIsValid = false;
+        }
+        
+        IEnumerator CameraZoomIn(float target)
+        {
+            float currentLens = _lensOriginal;
+            for (float lens = currentLens; lens >= target; lens-=0.01f)
+            {
+                _vcam.m_Lens.OrthographicSize = lens;
+                yield return null;
+            }
+        }
+        
+        IEnumerator CameraZoomOut()
+        {
+            float currentLens = _vcam.m_Lens.OrthographicSize;
+            for (float lens = currentLens; lens <= _lensOriginal; lens+=0.01f)
+            {
+                _vcam.m_Lens.OrthographicSize = lens;
+                yield return null;
+            }
         }
 
         private void Hide() {

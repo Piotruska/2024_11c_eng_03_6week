@@ -24,7 +24,8 @@ namespace UI
             Scripts.Add(newScript);
             // Script 1 - Tutorial 1
             newScript = new List<string>();
-            newScript.Add("Ahoy, matey! Haven't seen a livin' soul on dis island since forever. Anyway, the names Johnny!");
+            newScript.Add("Ahoy, matey! Haven't seen a livin' soul on dis island since forever.");
+            newScript.Add("Anyway, the names Johnny! Pleasure t' be doin' business wit' ye!");
             newScript.Add("Well since I'm here already I might as well help ye out! Ye might 'ave figured it out already, but ye can use " + _movementKeys + " fer movement.");
             newScript.Add("Try it out 'n meet me a wee further away from here. Thar be much t' learn!");
             Scripts.Add(newScript);
@@ -35,6 +36,10 @@ namespace UI
             // Script 3 - Level End - Not enough Diamonds
             newScript = new List<string>();
             newScript.Add("Ahoy matey. Aren't ye missin' somethin'? The diamonds mate, ye know, the shiny things. Come back when ye 'ave all three 'n then we'll talk.");
+            Scripts.Add(newScript);
+            // Script 4 - Level End - Level already cleared
+            newScript = new List<string>();
+            newScript.Add("Go on then, mate. The next adventure awaits!");
             Scripts.Add(newScript);
         }
     }

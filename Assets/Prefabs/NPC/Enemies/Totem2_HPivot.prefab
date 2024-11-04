@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &254814855567316629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4010422304717502671}
+  m_Layer: 0
+  m_Name: Totem2_HPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4010422304717502671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254814855567316629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 142.491, y: -0.4395, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3568906551119462289}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1330546841545410120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4010422304717502671}
+    m_Modifications:
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.016998291
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.9651008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746813058279140209, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+      propertyPath: m_Name
+      value: Totem2_H
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+--- !u!4 &3568906551119462289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2589641069165492697, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+  m_PrefabInstance: {fileID: 1330546841545410120}
+  m_PrefabAsset: {fileID: 0}

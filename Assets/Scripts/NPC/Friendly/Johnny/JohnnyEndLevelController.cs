@@ -37,6 +37,11 @@ namespace NPC.Friendly.Johnny
             DialogueDisplay(2);
         }
 
+        public void LevelCleared()
+        {
+            DialogueDisplay(4);
+        }
+        
         private void DialogueDisplay(int scriptNumber)
         {
             _dialogueMenu.EnterDialogue(this.gameObject, DialogueScripts.GetScript(scriptNumber), destroyOnExit);
@@ -45,7 +50,11 @@ namespace NPC.Friendly.Johnny
 
         public void OnInteractAction()
         {
-            if (!PlayerCollectibles.HasAllDiamonds())
+            if (_sceneSwitchControler.levelComplete)
+            {
+                LevelCleared();
+            }
+            else if (!PlayerCollectibles.HasAllDiamonds())
             {
                 NotEnoughDiamonds();
             }

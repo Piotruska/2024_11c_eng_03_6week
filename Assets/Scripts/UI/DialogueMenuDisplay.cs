@@ -28,7 +28,7 @@ namespace UI
             _dialogueMenu = GameObject.Find("DialogueMenu").GetComponent<Canvas>();
             _text = GameObject.Find("Dialogue_Text").GetComponent<TMP_Text>();
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
-            _lensOriginal = _vcam.m_Lens.OrthographicSize;
+            _lensOriginal = 7;
             Hide();
         }
 
@@ -128,8 +128,7 @@ namespace UI
         
         IEnumerator CameraZoomIn(float target)
         {
-            float currentLens = _lensOriginal;
-            for (float lens = currentLens; lens >= target; lens-=0.01f)
+            for (float lens = _lensOriginal; lens >= target; lens-=0.01f)
             {
                 _vcam.m_Lens.OrthographicSize = lens;
                 yield return null;
@@ -138,8 +137,7 @@ namespace UI
         
         IEnumerator CameraZoomOut()
         {
-            float currentLens = _vcam.m_Lens.OrthographicSize;
-            for (float lens = currentLens; lens <= _lensOriginal; lens+=0.01f)
+            for (float lens = _vcam.m_Lens.OrthographicSize; lens <= _lensOriginal; lens+=0.01f)
             {
                 _vcam.m_Lens.OrthographicSize = lens;
                 yield return null;

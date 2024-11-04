@@ -34,4 +34,4 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  totem2_H_Prefab: {fileID: 7746813058279140209, guid: eddbe0cafc338414a8e29317a55f680b, type: 3}
+  totem2_H_Prefab: {fileID: 254814855567316629, guid: 8a8fc2d8b473e2c4794f8e0767232d47, type: 3}

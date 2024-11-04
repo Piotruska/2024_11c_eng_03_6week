@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6168260642965366106}
   - component: {fileID: 3337558852913448548}
   - component: {fileID: 8196595613687812319}
+  - component: {fileID: 6411069749796302347}
   m_Layer: 0
   m_Name: Tilemap - ObjectsBack
   m_TagString: Untagged
@@ -120,6 +121,18 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &6411069749796302347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023216084814701016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138c404dc9426d541aeabc5aaecb36bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1852033091802151614
 GameObject:
   m_ObjectHideFlags: 0
@@ -79448,6 +79461,7 @@ GameObject:
   - component: {fileID: 7344674410877408986}
   - component: {fileID: 8099249742106256607}
   - component: {fileID: 1746585982050341481}
+  - component: {fileID: 9156088081973784937}
   m_Layer: 0
   m_Name: Tilemap - ForeGround Palms
   m_TagString: Untagged
@@ -79557,6 +79571,18 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &9156088081973784937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209910102640600894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf26476eb24f2094394df31efa808c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3362297163513196696
 GameObject:
   m_ObjectHideFlags: 0

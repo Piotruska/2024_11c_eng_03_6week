@@ -56,13 +56,18 @@ namespace UI
             newScript = new List<string>();
             newScript.Add("See dis bottle? Dat's a health potion. Ye can press " + _item1Key + " to use it 'n trust me ye'll needs it soon!");
             newScript.Add("If ye continue fore ye'll encounter a quite devious creature, but do nah be afeared! Use everythin' ye know and ye should be able t' escape safely!");
-            newScript.Add("Oh, nigh-on forgot! Ye can dash by pressin' C, I be sure dat shall come handy in the comin' encounter.");
+            newScript.Add("Oh, nigh-on forgot! Ye can dash by pressin' " + _dashKey + ", I be sure dat shall come handy in the comin' encounter.");
             Scripts.Add(newScript);
             // Script 7 - Tutorial 4
             newScript = new List<string>();
             newScript.Add("Glad to you made it! Now, listen handsomely! See dis blue diamond right thar? I propose a deal.");
             newScript.Add("On each level, thar be three diamonds like dis one scattered around. Ye bring me all three 'n I'll take ye t' the next level. Pirates word!");
             newScript.Add("If ye agree, bring all three t' me near the tent 'n I'll take it from there! Well, see ye around!");
+            Scripts.Add(newScript);
+            // Script 8 - Tutorial 5
+            newScript = new List<string>();
+            newScript.Add("I see ye found a sword, now ye look like a true pirate! Use " + _attackKey + " t' swing it around 'n show yer enemies who's the boss!");
+            newScript.Add("Ye might also encounter some speed potions as ye explore! Ye can use it by pressin' " + _item2Key + ", use it t' blaze through the level!");
             Scripts.Add(newScript);
         }
     }

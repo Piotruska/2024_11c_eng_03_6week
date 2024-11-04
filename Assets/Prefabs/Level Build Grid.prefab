@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 6363124610327016026}
   - component: {fileID: 5231090780131547494}
   - component: {fileID: 5094836726255127895}
+  - component: {fileID: 7754063552549617137}
   m_Layer: 3
   m_Name: Tilemap - Ground
   m_TagString: Ground
@@ -79304,6 +79305,18 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 2459815881200390243}
+--- !u!114 &7754063552549617137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459815881200390243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eba9578d2517024e99f9526ad239b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2790211169762871105
 GameObject:
   m_ObjectHideFlags: 0
@@ -80170,6 +80183,7 @@ GameObject:
   - component: {fileID: 83630688165175145}
   - component: {fileID: 2305854394409149683}
   - component: {fileID: 1984529722699001867}
+  - component: {fileID: 3791739845547137730}
   m_Layer: 0
   m_Name: Tilemap - FallingPlatforms
   m_TagString: Untagged
@@ -80279,6 +80293,18 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &3791739845547137730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323194104071602086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eba9578d2517024e99f9526ad239b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8068560021982601268
 GameObject:
   m_ObjectHideFlags: 0

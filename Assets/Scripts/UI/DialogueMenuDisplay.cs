@@ -128,7 +128,7 @@ namespace UI
         
         IEnumerator CameraZoomIn(float target)
         {
-            for (float lens = _lensOriginal; lens >= target; lens-=0.01f)
+            for (float lens = _lensOriginal; lens >= target; lens-=0.04f)
             {
                 _vcam.m_Lens.OrthographicSize = lens;
                 yield return null;

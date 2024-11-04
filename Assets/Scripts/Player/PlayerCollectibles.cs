@@ -23,6 +23,7 @@ namespace Player
 
         private void Awake()
         {
+            Application.targetFrameRate = 60;
             _audioManeger = GameObject.FindWithTag("AudioManager").GetComponent<AudioManeger>();
             _blueDiamondDisplay = FindObjectOfType<BlueDiamondDisplay>();
             _greenDiamondDisplay = FindObjectOfType<GreenDiamondDisplay>();

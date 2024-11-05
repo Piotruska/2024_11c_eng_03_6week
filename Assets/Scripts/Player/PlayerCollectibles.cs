@@ -109,6 +109,7 @@ namespace Player
         
         public static int GetBluePotionCount()
         {
+            _audioManeger.PlayCollectableSFX(_audioManeger.potionUse);
             return _bluePotionCount;
         }
         

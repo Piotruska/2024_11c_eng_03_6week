@@ -100,13 +100,13 @@ namespace UI
             if (visible)
             {
                 var tempColor = image.color;
-                tempColor.a = 100;
+                tempColor.a = 0.6f;
                 image.color = tempColor;
             }
             else
             {
                 var tempColor = image.color;
-                tempColor.a = 0;
+                tempColor.a = 0.2f;
                 image.color = tempColor;
             }
         }

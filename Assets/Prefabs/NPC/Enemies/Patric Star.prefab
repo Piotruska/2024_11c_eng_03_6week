@@ -232,7 +232,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.643211, y: 4.4199853, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1929242395726537943}
@@ -324,8 +324,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0019226074, y: -0.021831393}
-  m_Size: {x: 0.5806961, y: 0.7862623}
+  m_Offset: {x: -0.03133011, y: -0.021831393}
+  m_Size: {x: 0.64720154, y: 0.7862623}
   m_Direction: 0
 --- !u!50 &4582033696487567370
 Rigidbody2D:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d0258a14984a0cb8e47e0e02b04836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 50
+  _Maxhealth: 20
   _stunnTime: 2
   _despawnTime: 3
   _fadeDuration: 2
@@ -405,7 +405,7 @@ MonoBehaviour:
     m_Bits: 512
   _canChase: 1
   _canPatroll: 1
-  _canJump: 1
+  _canJump: 0
   _switchDirectionIfenemyInFront: 0
   _groundDetectionBased: 1
   _timeBased: 0
@@ -451,13 +451,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canAttack: 1
   _centerPoint: {fileID: 6120825495333094182}
-  _boxSize: {x: 0.5, y: 0.83}
+  _boxSize: {x: 3.45, y: 3.69}
   _damage: 4
-  _yAxisKnockbackStrength: 4
-  _generalKnockbackForce: 4
+  _yAxisKnockbackStrength: 10
+  _generalKnockbackForce: 10
   _damageLayer:
   - serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 128
   _attackLayers:
   - serializedVersion: 2
     m_Bits: 128
@@ -747,7 +747,7 @@ Transform:
   m_GameObject: {fileID: 6473191941756353657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: -0.061, z: 0}
+  m_LocalPosition: {x: -0.675, y: -0.089, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -134,7 +134,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     {
         if (_enemyState == EnemyState.Die) return;
 
-    _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, _groundLayer);
+    _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.6f*gameObject.transform.localScale.y, _groundLayer);
         _enemyAnimator.IsGrounded(_isGrounded);
         _enemyAnimator.IsJumping(_isJumping);
         CheckIfOnSpikes();

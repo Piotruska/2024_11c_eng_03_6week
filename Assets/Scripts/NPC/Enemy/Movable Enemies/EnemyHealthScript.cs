@@ -13,20 +13,26 @@ namespace NPC.Enemy.Movable_Enemies
         private IEnemyController _enemyController;
         private IEnemyAnimator _enemyAnimator;
         private SpriteRenderer _spriteRenderer;
+        private EnemyHealthBar _healthBar;
+        private float _health;
 
-        [SerializeField] private float _health = 20f;
+        [SerializeField] private float _Maxhealth = 20f;
         [SerializeField] private float _stunnTime = 2f;
         [SerializeField] private float _despawnTime = 3f; 
         [SerializeField] private float _fadeDuration = 2f;
         [SerializeField] private LayerMask _groundLayer;
+        
 
         private void Awake()
         {
+            _health = _Maxhealth;
             _rb = GetComponent<Rigidbody2D>();
             _collider = GetComponent<Collider2D>(); 
             _enemyController = GetComponent<IEnemyController>();
             _enemyAnimator = GetComponent<IEnemyAnimator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _healthBar = GetComponentInChildren<EnemyHealthBar>();
+            if (_healthBar != null) _healthBar.UpdateHealthBar(_health,_Maxhealth);
         }
 
         private void Update()
@@ -41,6 +47,7 @@ namespace NPC.Enemy.Movable_Enemies
         {
             if(_enemyController.GetState() == EnemyState.Die) return;
             DecreaseHealth(damageAmount);
+            if (_healthBar != null) _healthBar.UpdateHealthBar(_health,_Maxhealth);
             if (_health <= 0) Die();
             else
             {

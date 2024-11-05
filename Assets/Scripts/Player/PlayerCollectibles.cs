@@ -109,7 +109,6 @@ namespace Player
         
         public static int GetBluePotionCount()
         {
-            _audioManeger.PlayCollectableSFX(_audioManeger.potionUse);
             return _bluePotionCount;
         }
         
@@ -120,6 +119,7 @@ namespace Player
         
         public static void DecreaseBluePotionCount(int amount)
         {
+            _audioManeger.PlayCollectableSFX(_audioManeger.potionUse);
             _bluePotionCount-=amount;
         }
 

@@ -16,6 +16,7 @@ namespace Player
         private static bool _hasDiamond1 = false;
         private static bool _hasDiamond2 = false;
         private static bool _hasDiamond3 = false;
+        private static bool _hasSword = false;
         
         private static BlueDiamondDisplay _blueDiamondDisplay;
         private static RedDiamondDisplay _redDiamondDisplay;
@@ -60,6 +61,15 @@ namespace Player
             _hasDiamond1 = false;
             _hasDiamond2 = false; 
             _hasDiamond3 = false;
+        }
+        
+        public bool GetHasSword()
+        {
+            return _hasSword;
+        }
+        public void SetHasSword(bool value)
+        {
+            _hasSword = value;
         }
 
         public static int GetCoinCount()

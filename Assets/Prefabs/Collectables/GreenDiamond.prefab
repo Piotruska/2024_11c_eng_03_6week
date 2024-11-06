@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1206593581098102443}
   m_Layer: 0
   m_Name: GreenDiamond
-  m_TagString: Untagged
+  m_TagString: GreenDiamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

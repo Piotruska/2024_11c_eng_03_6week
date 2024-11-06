@@ -28,6 +28,8 @@ TagManager:
   - Totem3
   - Totem2_H
   - Totem3_H
+  - GreenDiamond
+  - RedDiamond
   layers:
   - Default
   - TransparentFX

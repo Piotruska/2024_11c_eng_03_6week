@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private PlayerHealthScript _playerHealth;
     private PlayerAudioController _playerAudioController;
     private CinemachineVirtualCamera _vcam;
+    private PlayerCollectibles _playerCollectibles;
     
     private PauseDisplay _pauseDisplay;
     
@@ -90,9 +91,10 @@ public class PlayerController : MonoBehaviour
         _playerHealth = GetComponent<PlayerHealthScript>();
         _playerAudioController = GetComponent<PlayerAudioController>();
         _vcam = FindObjectOfType<CinemachineVirtualCamera>();
-        
+        _playerCollectibles = GetComponent<PlayerCollectibles>();
         _pauseDisplay = FindObjectOfType<PauseDisplay>();
-        
+        _hasSword = _playerCollectibles.GetHasSword();
+        _animator.HasSword(_hasSword);
         _extraJumpsValue = _config.extraJumpCount;
         SpeedSetDefault();
     }
@@ -186,6 +188,7 @@ public class PlayerController : MonoBehaviour
     }
     public void HasSword(bool hasSword)
     {
+        _playerCollectibles.SetHasSword(hasSword);
         _animator.HasSword(hasSword);
         _hasSword = hasSword;
     }

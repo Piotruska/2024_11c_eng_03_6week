@@ -16,12 +16,15 @@ namespace UI
         private bool _confirmInput;
 
         private int _currentSelection;
+
+        private LevelLoader _levelLoader;
         private void Awake()
         {
             _selectionPanel1 = GameObject.Find("SelectionPanel1").GetComponent<Image>();
             _selectionPanel2 = GameObject.Find("SelectionPanel2").GetComponent<Image>();
             _selectionPanel3 = GameObject.Find("SelectionPanel3").GetComponent<Image>();
             _selectionPanel4 = GameObject.Find("SelectionPanel4").GetComponent<Image>();
+            _levelLoader = FindObjectOfType<LevelLoader>();
         
             SetVisible(_selectionPanel1, true);
             SetVisible(_selectionPanel2, false);
@@ -70,7 +73,8 @@ namespace UI
                     SetVisible(_selectionPanel4, false);
                     if (_confirmInput)
                     {
-                        SceneManager.LoadScene("Tutorial");
+                        _levelLoader.LoadNextLevel(1);
+                        //SceneManager.LoadScene("Tutorial");
                         //Debug.Log("Starting Game");
                     }
                     break;

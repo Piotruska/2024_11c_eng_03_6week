@@ -13,10 +13,16 @@ public class AudioManeger : MonoBehaviour
     [SerializeField] private AudioSource _sfxMovementSource;
     [SerializeField] private AudioSource _sfxPlayerCombatSource;
     [SerializeField] private AudioSource _sfxEnemyCombatSource;
-
+    [SerializeField] private AudioSource _sfxMenuSource;
     
+    [Header("Menu")]
+    public AudioClip menuClick;
+
     [Header("Music")]
     public AudioClip adventureMusic;
+    // public AudioClip adventureMusic1;
+    // public AudioClip adventureMusic2;
+    // public AudioClip adventureMusic4;
     public AudioClip johnyEndPointMusic;
     [Header("Background")]
     public AudioClip background;
@@ -73,5 +79,10 @@ public class AudioManeger : MonoBehaviour
     public void PlayPlayerCombatSFX(AudioClip clip)
     {
         _sfxPlayerCombatSource.PlayOneShot(clip);
+    }
+    
+    public void PlayMenuSFX(AudioClip clip)
+    {
+        _sfxMenuSource.PlayOneShot(clip);
     }
 }

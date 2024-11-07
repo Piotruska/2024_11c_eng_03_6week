@@ -1,8 +1,7 @@
-using System;
-using Player;
+using Player.Interfaces;
 using UnityEngine;
 
-namespace Trainng_Dummy
+namespace NPC.Enemy.Trainng_Dummy
 {
     public class TrainingDummyController  : MonoBehaviour, IDamageable
     {

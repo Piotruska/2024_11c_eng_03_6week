@@ -1,20 +1,23 @@
+using Tiles.CheckPoint;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Tiles.CheckPoint;
 
-[RequireComponent(typeof(Tilemap))]
-public class CheckPointTileInitializer : MonoBehaviour
+namespace Tiles
 {
-    private void Start()
+    [RequireComponent(typeof(Tilemap))]
+    public class CheckPointTileInitializer : MonoBehaviour
     {
-        Tilemap tilemap = GetComponent<Tilemap>();
-
-        foreach (var position in tilemap.cellBounds.allPositionsWithin)
+        private void Start()
         {
-            TileBase tile = tilemap.GetTile(position);
-            if (tile is CheckPointTile checkPointTile)
+            Tilemap tilemap = GetComponent<Tilemap>();
+
+            foreach (var position in tilemap.cellBounds.allPositionsWithin)
             {
-                checkPointTile.StartUp(position, tilemap, null);
+                TileBase tile = tilemap.GetTile(position);
+                if (tile is CheckPointTile checkPointTile)
+                {
+                    checkPointTile.StartUp(position, tilemap, null);
+                }
             }
         }
     }

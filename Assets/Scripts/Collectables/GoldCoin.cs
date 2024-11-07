@@ -1,10 +1,10 @@
-using System;
-using Collectibles.Configurations;
+using Audio;
+using Collectables.Configurations;
+using Collectables.Interfaces;
 using Player;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Collectibles
+namespace Collectables
 {
     public class GoldCoin : ICollectible
     {

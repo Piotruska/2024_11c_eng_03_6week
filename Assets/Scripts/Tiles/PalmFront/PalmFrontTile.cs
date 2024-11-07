@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Tiles.Interactables
+namespace Tiles.PalmFront
 {
     [CreateAssetMenu(fileName = "PalmFront", menuName = "Tiles/Palm Front Tile")]
     public class PalmFrontTile : Tile

@@ -1,20 +1,24 @@
+using Tiles.Interactables;
+using Tiles.PalmFront;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Tiles.Interactables;
 
-[RequireComponent(typeof(Tilemap))]
-public class PalmFrontTileInitializer : MonoBehaviour
+namespace Tiles
 {
-    private void Start()
+    [RequireComponent(typeof(Tilemap))]
+    public class PalmFrontTileInitializer : MonoBehaviour
     {
-        Tilemap tilemap = GetComponent<Tilemap>();
-
-        foreach (var position in tilemap.cellBounds.allPositionsWithin)
+        private void Start()
         {
-            TileBase tile = tilemap.GetTile(position);
-            if (tile is PalmFrontTile palmFrontTile)
+            Tilemap tilemap = GetComponent<Tilemap>();
+
+            foreach (var position in tilemap.cellBounds.allPositionsWithin)
             {
-                palmFrontTile.StartUp(position, tilemap, null);
+                TileBase tile = tilemap.GetTile(position);
+                if (tile is PalmFrontTile palmFrontTile)
+                {
+                    palmFrontTile.StartUp(position, tilemap, null);
+                }
             }
         }
     }

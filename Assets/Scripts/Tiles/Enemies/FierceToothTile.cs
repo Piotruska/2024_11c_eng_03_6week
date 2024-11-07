@@ -1,9 +1,8 @@
-namespace Tiles.Collectibles
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Tilemaps;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
+namespace Tiles.Enemies
+{
     [CreateAssetMenu(fileName = "FierceToothTile", menuName = "Tiles/Fierce Tooth Tile")]
     public class FierceToothTile : Tile
     {

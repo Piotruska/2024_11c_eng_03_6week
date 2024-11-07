@@ -1,5 +1,7 @@
 using GameController;
 using Interactables;
+using Interactables.Interfaces;
+using Level_Control;
 using Player;
 using UI;
 using UnityEngine;

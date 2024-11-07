@@ -1,4 +1,6 @@
-using Collectibles;
+using Audio;
+using Collectables.Configurations;
+using Collectables.Interfaces;
 using Player;
 using UI;
 using UnityEngine;

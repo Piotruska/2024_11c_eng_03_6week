@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectsController : MonoBehaviour
+namespace Player.Effects
 {
-    public void DeleteEffect()
+    public class EffectsController : MonoBehaviour
     {
-        Destroy(gameObject);
+        public void DeleteEffect()
+        {
+            Destroy(gameObject);
         
+        }
     }
 }   

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Collectibles
+namespace Collectables.Interfaces
 {
     [RequireComponent(typeof(Collider2D))]
     public abstract class ICollectible : MonoBehaviour

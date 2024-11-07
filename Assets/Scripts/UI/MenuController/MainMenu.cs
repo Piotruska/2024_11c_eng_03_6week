@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
 namespace UI
 {
-    public class MainMenu : MonoBehaviour
+    public class MainMenu : MonoBehaviour, IMenuDisplay
     {
         private Image _selectionPanel1;
         private Image _selectionPanel2;
@@ -14,17 +16,21 @@ namespace UI
         private float _yAxisInput;
         private bool _yInput;
         private bool _confirmInput;
-
         private int _currentSelection;
-
         private LevelLoader _levelLoader;
+
+        private MenuController _menuController;
+        private bool _displayActive;
+        private CanvasGroup _canvasGroup;
         private void Awake()
         {
             _selectionPanel1 = GameObject.Find("SelectionPanel1").GetComponent<Image>();
             _selectionPanel2 = GameObject.Find("SelectionPanel2").GetComponent<Image>();
             _selectionPanel3 = GameObject.Find("SelectionPanel3").GetComponent<Image>();
             _selectionPanel4 = GameObject.Find("SelectionPanel4").GetComponent<Image>();
+            _menuController = FindObjectOfType<MenuController>();
             _levelLoader = FindObjectOfType<LevelLoader>();
+            _canvasGroup = gameObject.GetComponent<CanvasGroup>();
         
             SetVisible(_selectionPanel1, true);
             SetVisible(_selectionPanel2, false);
@@ -36,6 +42,7 @@ namespace UI
 
         private void Update()
         {
+            if(!_displayActive) return;
             _yAxisInput = Input.GetAxis("Vertical");
             _yInput = Input.GetButtonDown("Vertical");
             _confirmInput = Input.GetButtonDown("Confirm");
@@ -66,7 +73,7 @@ namespace UI
 
             switch (_currentSelection)
             {
-                case 0:
+                case 0: //new game
                     SetVisible(_selectionPanel1, true);
                     SetVisible(_selectionPanel2, false);
                     SetVisible(_selectionPanel3, false);
@@ -74,15 +81,18 @@ namespace UI
                     if (_confirmInput)
                     {
                         _levelLoader.LoadNextLevel(1);
-                        //SceneManager.LoadScene("Tutorial");
-                        //Debug.Log("Starting Game");
                     }
                     break;
-                case 1:
+                case 1: // settings
                     SetVisible(_selectionPanel1, false);
                     SetVisible(_selectionPanel2, true);
                     SetVisible(_selectionPanel3, false);
                     SetVisible(_selectionPanel4, false);
+                    if (_confirmInput)
+                    {
+                        HideDisplay();
+                        _menuController.ChangeMenu(_menuController.SoundSetting);
+                    }
                     break;
                 case 2:
                     SetVisible(_selectionPanel1, false);
@@ -95,6 +105,10 @@ namespace UI
                     SetVisible(_selectionPanel2, false);
                     SetVisible(_selectionPanel3, false);
                     SetVisible(_selectionPanel4, true);
+                    if (_confirmInput)
+                    {
+                        ExitGame();
+                    }
                     break;
             } 
         }
@@ -114,5 +128,30 @@ namespace UI
                 image.color = tempColor;
             }
         }
+
+        public void ShowDisplay()
+        {
+            _canvasGroup.alpha = 1;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+            _displayActive = true;
+        }
+
+        public void HideDisplay()
+        {
+            _canvasGroup.alpha = 0;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+            _displayActive = false;
+        }
+        
+        public void ExitGame()
+        {
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
+        }       
     }
 }

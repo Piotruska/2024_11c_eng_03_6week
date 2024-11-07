@@ -1494,7 +1494,8 @@ GameObject:
   - component: {fileID: 5564215462680862869}
   - component: {fileID: 7469473638637313701}
   - component: {fileID: 552091542668588221}
-  - component: {fileID: 2089618519701786612}
+  - component: {fileID: 5190049856716217407}
+  - component: {fileID: 4063541260395587816}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1588,7 +1589,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2089618519701786612
+--- !u!225 &5190049856716217407
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647371483902986971}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4063541260395587816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

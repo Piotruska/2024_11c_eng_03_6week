@@ -123,8 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58f3ee2de027324badb2b45198be754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLine: 0
-  destroyOnExit: 0
 --- !u!114 &-7582812575986310747
 MonoBehaviour:
   m_ObjectHideFlags: 0

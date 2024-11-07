@@ -16,6 +16,8 @@ namespace UI
 
         private List<string> _dialogueText;
         private int _dialogueIndex;
+        
+        private bool _dialogueActive = false;
 
         private GameObject _target;
         private bool _destroyObjectOnExit;
@@ -41,10 +43,13 @@ namespace UI
         private void Update()
         {
             _confirmInput = Input.GetButtonDown(InputManager.Confirm);
-            
-            if (_confirmInput)
+
+            if (_dialogueActive)
             {
-                Advance();
+                if (_confirmInput)
+                {
+                    Advance();
+                }
             }
         }
 
@@ -61,9 +66,10 @@ namespace UI
             }
         }
 
-        public void EnterDialogue(GameObject targetObject, List<string> dialogueText, bool destroyOnExit)
+        public void EnterEndingDialogue(GameObject targetObject, List<string> dialogueText, bool destroyOnExit)
         {
             // Set
+            _dialogueActive = true;
             _target = targetObject;
             _destroyObjectOnExit = destroyOnExit;
             _dialogueIndex = 0;
@@ -80,8 +86,8 @@ namespace UI
 
         private void ExitDialogue()
         {
+            _dialogueActive = false;
             Hide();
-            ResetCamera();
 
             if (_destroyObjectOnExit)
             {
@@ -122,14 +128,6 @@ namespace UI
             _vcam.Follow = followTransform;
             StartCoroutine(CameraZoomIn(4));
             _vcam.PreviousStateIsValid = false;
-        }
-
-        private void ResetCamera()
-        {
-            //_vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
-            //_vcam.m_Lens.OrthographicSize = _lensOriginal;
-            //StartCoroutine(CameraZoomOut());
-            //_vcam.PreviousStateIsValid = false;
         }
         
         IEnumerator CameraZoomIn(float target)

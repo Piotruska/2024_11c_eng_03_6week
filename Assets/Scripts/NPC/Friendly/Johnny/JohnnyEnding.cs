@@ -18,7 +18,7 @@ namespace NPC.Friendly.Johnny
 
         public void OnInteractAction()
         {
-            _dialogueMenu.EnterDialogue(this.gameObject, DialogueScripts.GetScript(9), true);
+            _dialogueMenu.EnterEndingDialogue(this.gameObject, DialogueScripts.GetScript(9), true);
             _showKeyBind.ForceDestroy();
         }
     }

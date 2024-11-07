@@ -13,6 +13,7 @@ namespace Cutscenes
         private BlackScreen _blackScreen;
         private GameObject _HUD;
         private CinemachineVirtualCamera _vcam;
+        private PlayerAnimationScript _playerAnim;
         
         private GameObject _player;
         
@@ -26,6 +27,7 @@ namespace Cutscenes
         {
             _dialogueMenu = FindObjectOfType<DialogueMenuDisplay>();
             _blackScreen = FindObjectOfType<BlackScreen>();
+            _playerAnim = FindObjectOfType<PlayerAnimationScript>();
             
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
             
@@ -40,11 +42,15 @@ namespace Cutscenes
 
         public void StartEndingScene()
         {
-            Debug.Log("GameEndingScene::Start");
             _HUD.SetActive(false);
             InputManager.PlayerDisable();
-            InputManager.MenuEnable();
+            InputManager.EndingEnable();
             StartCoroutine(EndingScene());
+        }
+
+        public void StartEndingScenePart2()
+        {
+            StartCoroutine(EndingScenePart2());
         }
 
         public IEnumerator EndingScene()
@@ -52,14 +58,27 @@ namespace Cutscenes
             // Screen Fade In animation
             StartCoroutine(_blackScreen.FadeIn(4));
             yield return new WaitForSeconds(4f);
-            // Transport Player
-            _player.transform.position = _playerTransform.position;
-            _vcam.PreviousStateIsValid = false;
             // Spawn Johnny
             Instantiate(_johnnyEnding, _johnnyTransform.position, _johnnyTransform.rotation);
+            // Transport Player
+            _player.transform.position = _playerTransform.position;
+            // Make sure player is facing right
+            if (!_playerAnim._facingRight)
+            {
+                _playerAnim.Flip();
+            }
+            // Camera reset
+            _vcam.PreviousStateIsValid = false;
             yield return new WaitForSeconds(2f);
             //Scree Fade Out animation
             StartCoroutine(_blackScreen.FadeOut(4));
+        }
+
+        // Ending Part 2: Electric Boogaloo
+        public IEnumerator EndingScenePart2()
+        {
+            Debug.Log("GameEndingScene::Start");
+            yield return new WaitForSeconds(2f);
         }
     }
 }

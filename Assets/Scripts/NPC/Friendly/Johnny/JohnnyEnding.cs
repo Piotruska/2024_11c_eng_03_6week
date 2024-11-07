@@ -5,23 +5,23 @@ using UnityEngine;
 
 namespace NPC.Friendly.Johnny
 {
-    public class JohnnyEnding : MonoBehaviour
+    public class JohnnyEnding : MonoBehaviour, IInteractable
     {
         [Header("Dialogue Line Number")]
         [SerializeField] private int dialogueLine;
         [Header("Destroy on exit?")]
         [SerializeField] private bool destroyOnExit;
         
-        private DialogueMenuDisplay _dialogueMenu;
+        private DialogueEndingDisplay _dialogueMenu;
         private ShowKeyBind _showKeyBind;
 
         private void Awake()
         {
-            _dialogueMenu = FindObjectOfType<DialogueMenuDisplay>();
+            _dialogueMenu = FindObjectOfType<DialogueEndingDisplay>();
             _showKeyBind = GetComponent<ShowKeyBind>();
         }
 
-        public void StartEndingDialogue()
+        public void OnInteractAction()
         {
             _dialogueMenu.EnterDialogue(this.gameObject, DialogueScripts.GetScript(dialogueLine), destroyOnExit);
             _showKeyBind.ForceDestroy();

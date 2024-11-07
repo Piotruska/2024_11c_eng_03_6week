@@ -34,7 +34,7 @@ public class PlayerAnimationScript : MonoBehaviour , IPlayerAnimator
     private string _fallDustEffectTrigger = "FallDustEffect";
     private string _dashDustEffectTrigger = "DashDustEffect";
     
-    private bool _facingRight = true;
+    public bool _facingRight = true;
     private bool _sword = false;
 
     void Awake()
@@ -77,7 +77,7 @@ public class PlayerAnimationScript : MonoBehaviour , IPlayerAnimator
         }
     }
     
-    private void Flip()
+    public void Flip()
     {
         _facingRight = !_facingRight;
         Vector3 scaler = transform.localScale;

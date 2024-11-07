@@ -18,6 +18,7 @@ public class AudioManeger : MonoBehaviour
     [Header("Music")]
     public AudioClip adventureMusic;
     public AudioClip johnyEndPointMusic;
+    public AudioClip endingMusic;
     [Header("Background")]
     public AudioClip background;
     [Header("SFX collectibles")]
@@ -53,6 +54,12 @@ public class AudioManeger : MonoBehaviour
         _backgroundSource.clip = background;
         _musicSource.Play();
         _backgroundSource.Play();
+    }
+
+    public void PlayEndingMusic()
+    {
+        _musicSource.clip = endingMusic;
+        _musicSource.Play();
     }
 
     public void PlayCollectableSFX(AudioClip clip)

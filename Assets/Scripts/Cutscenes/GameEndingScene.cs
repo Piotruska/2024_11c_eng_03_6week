@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Cutscenes
 {
@@ -15,6 +16,7 @@ namespace Cutscenes
         private GameObject _HUD;
         private CinemachineVirtualCamera _vcam;
         private PlayerAnimationScript _playerAnim;
+        private AudioManeger _audioManeger;
         
         private GameObject _player;
         
@@ -49,6 +51,7 @@ namespace Cutscenes
             _blackScreen = FindObjectOfType<BlackScreen>();
             _creditsDisplay = FindObjectOfType<CreditsDisplay>();
             _playerAnim = FindObjectOfType<PlayerAnimationScript>();
+            _audioManeger = FindObjectOfType<AudioManeger>();
             
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
             
@@ -98,7 +101,8 @@ namespace Cutscenes
         // Ending Part 2: Electric Boogaloo
         public IEnumerator EndingScenePart2()
         {
-            Debug.Log("GameEndingScene::Start");
+            // Music Start
+            _audioManeger.PlayEndingMusic();
             yield return new WaitForSeconds(2f);
             // Spawning EXPLOSIONS
             Instantiate(_explosion, _explosion1Position.position, _explosion1Position.rotation);
@@ -132,7 +136,7 @@ namespace Cutscenes
             StartCoroutine(_creditsDisplay.FadeOut(3));
             yield return new WaitForSeconds(4f);
             //Names display
-            _creditsDisplay.SetText("TREASURE HUNTERS");
+            _creditsDisplay.SetText("THE GLORY OF PIRATE KINGDOM");
             StartCoroutine(_creditsDisplay.FadeIn(3));
             yield return new WaitForSeconds(8f);
             StartCoroutine(_creditsDisplay.FadeOut(3));
@@ -143,6 +147,8 @@ namespace Cutscenes
             yield return new WaitForSeconds(6f);
             StartCoroutine(_creditsDisplay.FadeOut(3));
             yield return new WaitForSeconds(6f);
+            //Return to Main Menu
+            SceneManager.LoadScene(0);
         }
     }
 }

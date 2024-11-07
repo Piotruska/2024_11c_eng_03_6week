@@ -68,6 +68,7 @@ namespace Cutscenes
 
         public void StartEndingScene()
         {
+            _audioManeger = FindObjectOfType<AudioManeger>();
             _HUD.SetActive(false);
             InputManager.PlayerDisable();
             InputManager.EndingEnable();

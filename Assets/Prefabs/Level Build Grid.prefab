@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 7276921147666360265}
   - component: {fileID: 2732502289705891091}
   - component: {fileID: 7434068130154491536}
+  - component: {fileID: 1721783021051953491}
   m_Layer: 0
   m_Name: Tilemap - Enemies
   m_TagString: Untagged
@@ -253,6 +254,18 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &1721783021051953491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852033091802151614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370290f376ad46529cc16522e61599a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2041472982896684725
 GameObject:
   m_ObjectHideFlags: 0

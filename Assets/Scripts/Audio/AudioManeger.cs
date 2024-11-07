@@ -8,6 +8,7 @@ public class AudioManeger : MonoBehaviour
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _backgroundSource;
     
+    
     [Header("Audio Source  SFX")]
     [SerializeField] private AudioSource _sfxCollectiblesSource;
     [SerializeField] private AudioSource _sfxMovementSource;
@@ -24,6 +25,7 @@ public class AudioManeger : MonoBehaviour
     // public AudioClip adventureMusic2;
     // public AudioClip adventureMusic4;
     public AudioClip johnyEndPointMusic;
+    public AudioClip endingMusic;
     [Header("Background")]
     public AudioClip background;
     [Header("SFX collectibles")]
@@ -51,6 +53,13 @@ public class AudioManeger : MonoBehaviour
     public AudioClip walk2;
     public AudioClip jump;
     public AudioClip dash;
+    
+    public void PlayEndingMusic()
+    {
+        _musicSource.clip = endingMusic;
+        _musicSource.Play();
+    }
+
     void Start()
     {
         _musicSource.loop = true;

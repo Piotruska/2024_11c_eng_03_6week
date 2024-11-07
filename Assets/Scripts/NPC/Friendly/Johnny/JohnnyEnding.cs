@@ -7,11 +7,6 @@ namespace NPC.Friendly.Johnny
 {
     public class JohnnyEnding : MonoBehaviour, IInteractable
     {
-        [Header("Dialogue Line Number")]
-        [SerializeField] private int dialogueLine;
-        [Header("Destroy on exit?")]
-        [SerializeField] private bool destroyOnExit;
-        
         private DialogueEndingDisplay _dialogueMenu;
         private ShowKeyBind _showKeyBind;
 
@@ -23,7 +18,7 @@ namespace NPC.Friendly.Johnny
 
         public void OnInteractAction()
         {
-            _dialogueMenu.EnterDialogue(this.gameObject, DialogueScripts.GetScript(dialogueLine), destroyOnExit);
+            _dialogueMenu.EnterDialogue(this.gameObject, DialogueScripts.GetScript(9), true);
             _showKeyBind.ForceDestroy();
         }
     }

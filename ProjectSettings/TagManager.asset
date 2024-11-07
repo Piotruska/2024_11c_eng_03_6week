@@ -97,3 +97,6 @@ TagManager:
   - name: ForeGround
     uniqueID: 3808322537
     locked: 0
+  - name: FullscreenEffects
+    uniqueID: 3037193191
+    locked: 0

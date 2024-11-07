@@ -69,6 +69,13 @@ namespace UI
             newScript.Add("I see ye found a sword, now ye look like a true pirate! Use " + _attackKey + " t' swing it around 'n show yer enemies who's the boss!");
             newScript.Add("Ye might also encounter some speed potions as ye explore! Ye can use it by pressin' " + _item2Key + ", use it t' blaze through the level!");
             Scripts.Add(newScript);
+            // Script 9 - Ending
+            newScript = new List<string>();
+            newScript.Add("Congratulations! Ye've finally made it! With dis your journey is over...");
+            newScript.Add("Wha'? You are wonderin' where's the treasure?");
+            newScript.Add("Didn't ye realize it yet? The treasure was the friends we made along de way!");
+            newScript.Add("Ha-ha-ha-ha!");
+            Scripts.Add(newScript);
         }
     }
 }

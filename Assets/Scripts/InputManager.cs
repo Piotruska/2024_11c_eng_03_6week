@@ -63,4 +63,9 @@ public class InputManager : MonoBehaviour
         YMenuNavigation = "Empty";
         Confirm = "Empty";
     }
+
+    public static void EndingEnable()
+    {
+        InteractInput = "Interact";
+    }
 }

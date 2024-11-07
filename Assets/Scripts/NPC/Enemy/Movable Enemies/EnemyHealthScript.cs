@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Cutscenes;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using Player;
 using UnityEngine;
@@ -21,6 +22,9 @@ namespace NPC.Enemy.Movable_Enemies
         [SerializeField] private float _despawnTime = 3f; 
         [SerializeField] private float _fadeDuration = 2f;
         [SerializeField] private LayerMask _groundLayer;
+
+        [SerializeField] private bool _isFinalBoss;
+        private GameEndingScene _gameEndingScene;
         
 
         private void Awake()
@@ -32,6 +36,9 @@ namespace NPC.Enemy.Movable_Enemies
             _enemyAnimator = GetComponent<IEnemyAnimator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _healthBar = GetComponentInChildren<EnemyHealthBar>();
+            
+            _gameEndingScene = FindObjectOfType<GameEndingScene>();
+            
             if (_healthBar != null) _healthBar.UpdateHealthBar(_health,_Maxhealth);
         }
 
@@ -72,6 +79,12 @@ namespace NPC.Enemy.Movable_Enemies
             _enemyAnimator.DeadHitAnimation();
             _enemyController.ChangeState(EnemyState.Die);
             StartCoroutine(DespawnCoroutine());
+            
+            // Start the ending
+            if (_isFinalBoss)
+            {
+                _gameEndingScene.StartEndingScene();
+            }
         }
 
         private IEnumerator DespawnCoroutine()

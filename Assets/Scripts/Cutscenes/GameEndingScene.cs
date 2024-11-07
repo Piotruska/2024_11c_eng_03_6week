@@ -11,22 +11,43 @@ namespace Cutscenes
     {
         private DialogueMenuDisplay _dialogueMenu;
         private BlackScreen _blackScreen;
+        private CreditsDisplay _creditsDisplay;
         private GameObject _HUD;
         private CinemachineVirtualCamera _vcam;
         private PlayerAnimationScript _playerAnim;
         
         private GameObject _player;
         
+        [Header("Characters")]
         [SerializeField]
         private Transform _playerTransform;
         [SerializeField]
         private Transform _johnnyTransform;
         [SerializeField]
         private GameObject _johnnyEnding;
+        
+        [Header("Exploisons")]
+        [SerializeField]
+        private GameObject _explosion;
+        [SerializeField]
+        private Transform _explosion1Position;
+        [SerializeField]
+        private Transform _explosion2Position;
+        [SerializeField]
+        private Transform _explosion3Position;
+        [SerializeField]
+        private Transform _explosion4Position;
+        [SerializeField]
+        private Transform _explosion5Position;
+        [SerializeField]
+        private Transform _explosion6Position;
+        [SerializeField]
+        private Transform _explosion7Position;
         private void Awake()
         {
             _dialogueMenu = FindObjectOfType<DialogueMenuDisplay>();
             _blackScreen = FindObjectOfType<BlackScreen>();
+            _creditsDisplay = FindObjectOfType<CreditsDisplay>();
             _playerAnim = FindObjectOfType<PlayerAnimationScript>();
             
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
@@ -79,6 +100,49 @@ namespace Cutscenes
         {
             Debug.Log("GameEndingScene::Start");
             yield return new WaitForSeconds(2f);
+            // Spawning EXPLOSIONS
+            Instantiate(_explosion, _explosion1Position.position, _explosion1Position.rotation);
+            Instantiate(_explosion, _explosion2Position.position, _explosion2Position.rotation);
+            Instantiate(_explosion, _explosion3Position.position, _explosion3Position.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(_explosion, _explosion4Position.position, _explosion4Position.rotation);
+            Instantiate(_explosion, _explosion5Position.position, _explosion5Position.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(_explosion, _explosion6Position.position, _explosion6Position.rotation);
+            Instantiate(_explosion, _explosion7Position.position, _explosion7Position.rotation);
+            // Screen Fade In animation
+            StartCoroutine(_blackScreen.FadeIn(4));
+            yield return new WaitForSeconds(4f);
+            //Names display
+            _creditsDisplay.SetText("A game by: <br> Piotr Rutkowski <br> Mark Matveyenka <br> Ilya Provarau");
+            StartCoroutine(_creditsDisplay.FadeIn(3));
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(_creditsDisplay.FadeOut(3));
+            yield return new WaitForSeconds(4f);
+            //Names display
+            _creditsDisplay.SetText("Made in collaboration with PJATK");
+            StartCoroutine(_creditsDisplay.FadeIn(3));
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(_creditsDisplay.FadeOut(3));
+            yield return new WaitForSeconds(4f);
+            //Names display
+            _creditsDisplay.SetText("'A bunch of students' Studios presents:" );
+            StartCoroutine(_creditsDisplay.FadeIn(3));
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(_creditsDisplay.FadeOut(3));
+            yield return new WaitForSeconds(4f);
+            //Names display
+            _creditsDisplay.SetText("TREASURE HUNTERS");
+            StartCoroutine(_creditsDisplay.FadeIn(3));
+            yield return new WaitForSeconds(8f);
+            StartCoroutine(_creditsDisplay.FadeOut(3));
+            yield return new WaitForSeconds(4f);
+            //Message display
+            _creditsDisplay.SetText("Thank you for playing!");
+            StartCoroutine(_creditsDisplay.FadeIn(3));
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(_creditsDisplay.FadeOut(3));
+            yield return new WaitForSeconds(6f);
         }
     }
 }

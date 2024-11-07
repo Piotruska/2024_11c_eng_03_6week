@@ -12,11 +12,6 @@ namespace UI
         {
             _blackScreen = GetComponent<Image>();
         }
-
-        void Update()
-        {
-        
-        }
         
         public IEnumerator FadeIn(float duration)
         {

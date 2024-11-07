@@ -126,10 +126,10 @@ namespace UI
 
         private void ResetCamera()
         {
-            _vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
-            _vcam.m_Lens.OrthographicSize = _lensOriginal;
+            //_vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+            //_vcam.m_Lens.OrthographicSize = _lensOriginal;
             //StartCoroutine(CameraZoomOut());
-            _vcam.PreviousStateIsValid = false;
+            //_vcam.PreviousStateIsValid = false;
         }
         
         IEnumerator CameraZoomIn(float target)

@@ -1,27 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Interactables;
+using Interactables.Interfaces;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SceneSwitchControler : MonoBehaviour,IInteractable
+namespace Level_Control
 {
-    public int sceneBuildingIndex;
-    public bool levelComplete;
-    private LevelLoader _levelLoader;
-
-    private void Awake()
+    public class SceneSwitchControler : MonoBehaviour,IInteractable
     {
-        levelComplete = false;
-        _levelLoader = FindObjectOfType<LevelLoader>();
-    }
+        public int sceneBuildingIndex;
+        public bool levelComplete;
+        private LevelLoader _levelLoader;
 
-    public void OnInteractAction()
-    {
-        if (levelComplete)
+        private void Awake()
         {
-            _levelLoader.LoadNextLevel(sceneBuildingIndex);
+            levelComplete = false;
+            _levelLoader = FindObjectOfType<LevelLoader>();
+        }
+
+        public void OnInteractAction()
+        {
+            if (levelComplete)
+            {
+                _levelLoader.LoadNextLevel(sceneBuildingIndex);
+            }
         }
     }
 }

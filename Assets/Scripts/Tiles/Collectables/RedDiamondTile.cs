@@ -1,9 +1,8 @@
-namespace Tiles.Collectibles
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Tilemaps;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
+namespace Tiles.Collectables
+{
     [CreateAssetMenu(fileName = "RedDiamondTile", menuName = "Tiles/RedDiamondTile")]
     public class RedDiamondTile : Tile
     {

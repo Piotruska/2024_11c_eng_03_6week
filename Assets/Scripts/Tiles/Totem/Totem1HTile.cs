@@ -1,33 +1,35 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "Totem1HTile", menuName = "Tiles/Totem 1H Tile ")]
-public class Totem1HTile : Tile
+namespace Tiles.Totem
 {
-    public GameObject totwm1HPrefab;
-
-    public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
+    [CreateAssetMenu(fileName = "Totem1HTile", menuName = "Tiles/Totem 1H Tile ")]
+    public class Totem1HTile : Tile
     {
-        if (Application.isPlaying && totwm1HPrefab != null)
+        public GameObject totem1HPrefab;
+
+        public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
         {
-            Tilemap tilemapComponent = tilemap.GetComponent<Tilemap>();
-            Vector3 worldPos = tilemapComponent.CellToWorld(position) + new Vector3(0.5f, 0.5f, 0);
-            
-            if (!PlatformExistsAtPosition(worldPos))
+            if (Application.isPlaying && totem1HPrefab != null)
             {
-                GameObject platformInstance = Instantiate(totwm1HPrefab, worldPos, Quaternion.identity);
-                platformInstance.transform.parent = tilemapComponent.transform;
-            }
+                Tilemap tilemapComponent = tilemap.GetComponent<Tilemap>();
+                Vector3 worldPos = tilemapComponent.CellToWorld(position) + new Vector3(0.5f, 0.5f, 0);
             
-            tilemapComponent.SetTile(position, null);
+                if (!PlatformExistsAtPosition(worldPos))
+                {
+                    GameObject platformInstance = Instantiate(totem1HPrefab, worldPos, Quaternion.identity);
+                    platformInstance.transform.parent = tilemapComponent.transform;
+                }
+            
+                tilemapComponent.SetTile(position, null);
+            }
+            return base.StartUp(position, tilemap, go);
         }
-        return base.StartUp(position, tilemap, go);
-    }
 
-    private bool PlatformExistsAtPosition(Vector3 position)
-    {
-        Collider2D collider = Physics2D.OverlapPoint(position);
-        return collider != null && collider.gameObject.CompareTag("Totem1H");
+        private bool PlatformExistsAtPosition(Vector3 position)
+        {
+            Collider2D collider = Physics2D.OverlapPoint(position);
+            return collider != null && collider.gameObject.CompareTag("Totem1H");
+        }
     }
 }

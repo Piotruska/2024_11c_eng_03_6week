@@ -1,6 +1,4 @@
-using System.Collections;
-
-namespace Player
+namespace Player.Interfaces
 {
     public interface ICanAttack
     {

@@ -1,7 +1,9 @@
+using Audio;
+using Collectables.Interfaces;
 using Player;
 using UnityEngine;
 
-namespace Collectibles
+namespace Collectables
 {
     public class RedPotion : ICollectible
     {

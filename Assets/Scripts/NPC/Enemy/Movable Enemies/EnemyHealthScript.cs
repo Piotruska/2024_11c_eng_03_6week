@@ -3,6 +3,7 @@ using System.Collections;
 using Cutscenes;
 using NPC.Enemy.Movable_Enemies.Interfaces;
 using Player;
+using Player.Interfaces;
 using UnityEngine;
 
 namespace NPC.Enemy.Movable_Enemies

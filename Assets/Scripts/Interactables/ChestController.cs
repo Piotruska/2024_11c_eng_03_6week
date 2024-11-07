@@ -1,3 +1,4 @@
+using Interactables.Interfaces;
 using Player;
 using UnityEngine;
 

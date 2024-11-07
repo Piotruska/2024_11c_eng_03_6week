@@ -1,9 +1,8 @@
-namespace Tiles.Collectibles
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Tilemaps;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
+namespace Tiles.Enemies
+{
     [CreateAssetMenu(fileName = "TrainingDummyTile", menuName = "Tiles/TrainingDummy ")]
     public class TrainingDummyTile : Tile
     {

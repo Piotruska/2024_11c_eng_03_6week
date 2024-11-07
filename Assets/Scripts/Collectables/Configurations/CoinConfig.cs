@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Collectibles.Configurations
+namespace Collectables.Configurations
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/CoinConfig",fileName = "CoinConfig")]
     public class CoinConfig : ScriptableObject

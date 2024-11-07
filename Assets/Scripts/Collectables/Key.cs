@@ -1,7 +1,8 @@
+using Collectables.Interfaces;
 using Player;
 using UnityEngine;
 
-namespace Collectibles
+namespace Collectables
 {
     public class Key : ICollectible
     {

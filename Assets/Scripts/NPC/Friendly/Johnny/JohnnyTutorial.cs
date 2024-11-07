@@ -1,5 +1,6 @@
 using GameController;
 using Interactables;
+using Interactables.Interfaces;
 using UI;
 using UnityEngine;
 

@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using Tiles.FallingTiles;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class FallingPlatformTileInitializer : MonoBehaviour
+namespace Tiles
 {
-    void Start()
+    public class FallingPlatformTileInitializer : MonoBehaviour
     {
-        Tilemap tilemap = GetComponent<Tilemap>();
-        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
+        void Start()
         {
-            if (tilemap.GetTile(pos) is FallingPlatformTile platformTile)
+            Tilemap tilemap = GetComponent<Tilemap>();
+            foreach (var pos in tilemap.cellBounds.allPositionsWithin)
             {
-                platformTile.StartUp(pos, tilemap, null);
+                if (tilemap.GetTile(pos) is FallingPlatformTile platformTile)
+                {
+                    platformTile.StartUp(pos, tilemap, null);
+                }
             }
         }
-    }
     
+    }
 }

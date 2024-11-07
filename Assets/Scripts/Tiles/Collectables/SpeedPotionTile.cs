@@ -1,9 +1,8 @@
-namespace Tiles.Collectibles
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Tilemaps;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
+namespace Tiles.Collectables
+{
     [CreateAssetMenu(fileName = "SpeedPotionTile", menuName = "Tiles/SpeedPotionTile ")]
     public class SpeedPotionTile : Tile
     {

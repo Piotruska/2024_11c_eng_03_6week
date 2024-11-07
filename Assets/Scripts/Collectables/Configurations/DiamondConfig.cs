@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Collectibles
+namespace Collectables.Configurations
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/DiamondConfig",fileName = "DiamondConfig")]
     public class DiamondConfig : ScriptableObject

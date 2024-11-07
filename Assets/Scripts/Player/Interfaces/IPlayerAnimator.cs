@@ -1,4 +1,4 @@
-namespace Player
+namespace Player.Interfaces
 {
     public interface IPlayerAnimator
     {

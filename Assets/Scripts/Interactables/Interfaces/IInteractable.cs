@@ -1,4 +1,4 @@
-namespace Interactables
+namespace Interactables.Interfaces
 {
     public interface IInteractable
     {

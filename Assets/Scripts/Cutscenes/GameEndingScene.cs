@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using Cinemachine;
+using Player;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;

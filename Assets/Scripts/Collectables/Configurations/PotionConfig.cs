@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Collectibles.Configurations
+namespace Collectables.Configurations
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/PotionConfig",fileName = "PotionConfig")]
     public class PotionConfig : ScriptableObject

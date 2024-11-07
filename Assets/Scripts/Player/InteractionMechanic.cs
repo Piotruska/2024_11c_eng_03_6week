@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Interactables;
+using Interactables.Interfaces;
 using Player.Interfaces;
 using UnityEngine;
 

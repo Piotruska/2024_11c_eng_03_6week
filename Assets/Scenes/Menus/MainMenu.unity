@@ -267,6 +267,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1022882753056859071, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
   m_PrefabInstance: {fileID: 1704111672}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1353086237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7076027641721028242, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+  m_PrefabInstance: {fileID: 1704111672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1619286190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,6 +347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 1704566812111658724, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: graphic
+      value: 
+      objectReference: {fileID: 1353086237}
     - target: {fileID: 3175613534390744787, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -456,6 +471,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7076027641721028242, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 877e78d6e12fc0142956ed4efcb7dd80, type: 3}
+    - target: {fileID: 7076027641721028242, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Color.b
+      value: 0.45917407
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076027641721028242, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45917407
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076027641721028242, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Color.r
+      value: 0.93962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096874280308355021, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7574709395687268816, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -476,6 +511,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9080683959451682482, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080683959451682482, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 986f4cd007f70c14eac778b43fb7efff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -570,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 3647371483902986971, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190049856716217407, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9016228616294123213, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
       propertyPath: m_Pivot.x

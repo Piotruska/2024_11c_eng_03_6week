@@ -11,6 +11,13 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private Slider _masterSlider;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
+    [SerializeField] private Toggle _tickToggle;
+    private AudioManeger _audioManeger;
+
+    private void Awake()
+    {
+        _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();
+    }
 
     private void Start()
     {
@@ -52,5 +59,21 @@ public class VolumeSettings : MonoBehaviour
         _masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
         _musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         _sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+        var menuVolume = PlayerPrefs.GetFloat("menuVolume");
+        if (menuVolume < 0) _tickToggle.isOn = false; else _tickToggle.isOn = true;
+        _audioMixer.SetFloat("Menu", menuVolume);
+        
+    }
+    
+    public void PressToggle()
+    {
+        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
+        float volume = -80f;
+        if (_tickToggle.isOn)
+        {
+            volume = 0;
+        }
+        _audioMixer.SetFloat("Menu", volume);
+        PlayerPrefs.SetFloat("menuVolume",volume);
     }
 }

@@ -9,11 +9,13 @@ public class SoundMenu : MonoBehaviour, IMenuDisplay
     private bool _exitInput;
     private CanvasGroup _canvasGroup;
     private MenuController _menuController;
-
+    private AudioManeger _audioManeger;
     private void Awake()
     {
         _canvasGroup = gameObject.GetComponent<CanvasGroup>();
         _menuController = FindObjectOfType<MenuController>();
+        _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();
+
     }
 
     private void Update()
@@ -22,6 +24,7 @@ public class SoundMenu : MonoBehaviour, IMenuDisplay
         _exitInput = Input.GetButtonDown("Cancel");
         if (_exitInput)
         {
+            _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
             HideDisplay();
             _menuController.ChangeMenu(_menuController.MainMenu);
         }

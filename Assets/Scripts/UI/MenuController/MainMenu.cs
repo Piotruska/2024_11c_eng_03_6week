@@ -23,6 +23,7 @@ namespace UI
         private MenuController _menuController;
         private bool _displayActive;
         private CanvasGroup _canvasGroup;
+        private AudioManeger _audioManeger;
         private void Awake()
         {
             _selectionPanel1 = GameObject.Find("SelectionPanel1").GetComponent<Image>();
@@ -32,6 +33,7 @@ namespace UI
             _menuController = FindObjectOfType<MenuController>();
             _levelLoader = FindObjectOfType<LevelLoader>();
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();
+            _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();
         
             SetVisible(_selectionPanel1, true);
             SetVisible(_selectionPanel2, false);
@@ -50,6 +52,7 @@ namespace UI
 
             if (_yInput && _yAxisInput > 0)
             {
+                _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
                 if (_currentSelection == 0)
                 {
                     _currentSelection = 3;
@@ -62,6 +65,7 @@ namespace UI
         
             if (_yInput && _yAxisInput < 0)
             {
+                _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
                 if (_currentSelection == 3)
                 {
                     _currentSelection = 0;
@@ -81,6 +85,7 @@ namespace UI
                     SetVisible(_selectionPanel4, false);
                     if (_confirmInput)
                     {
+                        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
                         _levelLoader.LoadNextLevel(1);
                     }
                     break;
@@ -91,6 +96,7 @@ namespace UI
                     SetVisible(_selectionPanel4, false);
                     if (_confirmInput)
                     {
+                        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
                         HideDisplay();
                         _menuController.ChangeMenu(_menuController.SoundSetting);
                     }
@@ -108,6 +114,7 @@ namespace UI
                     SetVisible(_selectionPanel4, true);
                     if (_confirmInput)
                     {
+                        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
                         ExitGame();
                     }
                     break;

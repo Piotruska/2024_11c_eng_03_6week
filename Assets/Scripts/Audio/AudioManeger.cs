@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManeger : MonoBehaviour
 {
+    public static AudioManeger Instance;
+
     [Header("Audio Source  Music")]
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _backgroundSource;
@@ -54,20 +56,39 @@ public class AudioManeger : MonoBehaviour
     public AudioClip jump;
     public AudioClip dash;
     
-    public void PlayEndingMusic()
+    private void Awake()
     {
-        _musicSource.clip = endingMusic;
-        _musicSource.Play();
+        // Implement singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Prevent destruction on scene load
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicates if they exist
+        }
     }
-
-    void Start()
+    
+    private void Start()
     {
         _musicSource.loop = true;
         _backgroundSource.loop = true;
         _musicSource.clip = adventureMusic;
         _backgroundSource.clip = background;
-        _musicSource.Play();
+        
+        if (!_musicSource.isPlaying)
+        {
+            _musicSource.Play();
+        }
+        
         _backgroundSource.Play();
+    }
+
+    public void PlayEndingMusic()
+    {
+        _musicSource.clip = endingMusic;
+        _musicSource.Play();
     }
 
     public void PlayCollectableSFX(AudioClip clip)
@@ -75,7 +96,7 @@ public class AudioManeger : MonoBehaviour
         _sfxCollectiblesSource.PlayOneShot(clip);
     }
     
-    public void PlayMovmementSFX(AudioClip clip)
+    public void PlayMovementSFX(AudioClip clip)
     {
         _sfxMovementSource.PlayOneShot(clip);
     }

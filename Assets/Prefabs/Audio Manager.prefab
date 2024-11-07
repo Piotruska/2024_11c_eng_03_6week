@@ -571,7 +571,7 @@ MonoBehaviour:
   _sfxEnemyCombatSource: {fileID: 357067554082022298}
   _sfxMenuSource: {fileID: 7306776357953987574}
   menuClick: {fileID: 8300000, guid: 4c9b29a3e877bcd43b7de486a2ff265f, type: 3}
-  adventureMusic: {fileID: 8300000, guid: 5a83df122d575a948a5c3b84b0c5f567, type: 3}
+  adventureMusic: {fileID: 8300000, guid: afb2e2b4d4f24b342b4ebe1de8d3f171, type: 3}
   johnyEndPointMusic: {fileID: 8300000, guid: 014a4216ac5ad9b4b831db628b96a111, type: 3}
   endingMusic: {fileID: 8300000, guid: aa750ae9589dd3742849af765e69c5fc, type: 3}
   background: {fileID: 8300000, guid: 5b002456629c69f409dbbccc76e3badc, type: 3}

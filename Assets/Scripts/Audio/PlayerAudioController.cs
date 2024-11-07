@@ -14,57 +14,57 @@ namespace Audio
 
         public void Walk1SFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.walk1);
+            _audioManeger.PlayMovementSFX(_audioManeger.walk1);
         }
          
         public void Walk2SFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.walk2);
+            _audioManeger.PlayMovementSFX(_audioManeger.walk2);
         }
         
         public void DashSFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.dash);
+            _audioManeger.PlayMovementSFX(_audioManeger.dash);
         }
         
         public void JumpSFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.jump);
+            _audioManeger.PlayMovementSFX(_audioManeger.jump);
         }
         
         public void swing1SFX()
         {
-            _audioManeger.PlayEnemyCombatSFX(_audioManeger.swing1);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.swing1);
         }
         
         public void swing2SFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.swing2);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.swing2);
         }
         
         public void swing3SFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.swing3);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.swing3);
         }
         
         public void hit1SFX()
         {
-            _audioManeger.PlayEnemyCombatSFX(_audioManeger.hit1);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.hit1);
         }
         
         public void hit2SFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.hit2);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.hit2);
         }
         
         public void hit3SFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.hit3);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.hit3);
         }
         
         public void deathSFX()
         {
-            _audioManeger.PlayMovmementSFX(_audioManeger.death);
+            _audioManeger.PlayPlayerCombatSFX(_audioManeger.death);
         }
     }
 }

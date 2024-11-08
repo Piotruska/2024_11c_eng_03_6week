@@ -13,6 +13,7 @@ public class AudioManeger : MonoBehaviour
     
     [Header("Audio Source  SFX")]
     [SerializeField] private AudioSource _sfxCollectiblesSource;
+    [SerializeField] private AudioSource _sfxInteractableSource;
     [SerializeField] private AudioSource _sfxMovementSource;
     [SerializeField] private AudioSource _sfxPlayerCombatSource;
     [SerializeField] private AudioSource _sfxEnemyCombatSource;
@@ -37,6 +38,9 @@ public class AudioManeger : MonoBehaviour
     public AudioClip potionPickup;
     public AudioClip potionUse;
     public AudioClip keyGet;
+    
+    [Header("SFX interactible")]
+    public AudioClip chestOpen;
     
     [Header("SFX Combat")]
     public AudioClip FierceToothAttack;
@@ -115,6 +119,12 @@ public class AudioManeger : MonoBehaviour
     {
         _sfxPlayerCombatSource.PlayOneShot(clip);
     }
+    
+    public void PlayInteractableSFX(AudioClip clip)
+    {
+        _sfxInteractableSource.PlayOneShot(clip);
+    }
+
     
     public void PlayMenuSFX(AudioClip clip)
     {

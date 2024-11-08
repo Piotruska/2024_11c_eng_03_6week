@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &682236991211277644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933971707520471741}
+  - component: {fileID: 6556529389444401787}
+  m_Layer: 0
+  m_Name: SFX Interactable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1933971707520471741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682236991211277644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5012077272296332526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6556529389444401787
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682236991211277644}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8535756240319853541, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.837
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1636354957445297432
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +172,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8192063880071576475, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.505
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -172,7 +300,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7844372527611158964, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.562
+  m_Volume: 0.108
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -428,7 +556,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -687388425737521818, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.763
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -549,6 +677,7 @@ Transform:
   - {fileID: 406317647837352252}
   - {fileID: 2407737524250007964}
   - {fileID: 2343431410822240179}
+  - {fileID: 1933971707520471741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &626943844237104486
@@ -566,6 +695,7 @@ MonoBehaviour:
   _musicSource: {fileID: 7466562417132202962}
   _backgroundSource: {fileID: 7900451591306794909}
   _sfxCollectiblesSource: {fileID: 7369502491551258325}
+  _sfxInteractableSource: {fileID: 6556529389444401787}
   _sfxMovementSource: {fileID: 1317685718210482586}
   _sfxPlayerCombatSource: {fileID: 7923877008421476829}
   _sfxEnemyCombatSource: {fileID: 357067554082022298}
@@ -578,9 +708,10 @@ MonoBehaviour:
   coidPickup: {fileID: 8300000, guid: feeb27f7ef346f54baa0a3a13cd9002a, type: 3}
   diamondPickup: {fileID: 8300000, guid: 3f0753a9c84d6024ca4dbbcc17156ab0, type: 3}
   swordPickup: {fileID: 8300000, guid: ceea78ef3b9251640aae61a50d381ec5, type: 3}
-  potionPickup: {fileID: 8300000, guid: 25bbf74189b978a47a8b3c096436ac3e, type: 3}
+  potionPickup: {fileID: 8300000, guid: 325e0ed0f11dcca479df23dfbd34e1d8, type: 3}
   potionUse: {fileID: 8300000, guid: 27821bedacbf4f34886e9d60e66c23f1, type: 3}
-  keyGet: {fileID: 0}
+  keyGet: {fileID: 8300000, guid: 6facbfd9865e34641bcb72e168536b71, type: 3}
+  chestOpen: {fileID: 8300000, guid: 449fa4530587c6b4884d68b323245f30, type: 3}
   FierceToothAttack: {fileID: 8300000, guid: f6df30964a614694eb29f063d2076da8, type: 3}
   PatrickAttack: {fileID: 8300000, guid: db17aa8aa4beacd4a907a12aa69a43d4, type: 3}
   TotemAttack: {fileID: 8300000, guid: 0a0434b10344b4e4881f04e24d418da4, type: 3}
@@ -639,7 +770,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -7689853663621196044, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.711
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -734,7 +865,7 @@ GameObject:
   - component: {fileID: 6899762111482064306}
   - component: {fileID: 7369502491551258325}
   m_Layer: 0
-  m_Name: SFX Interactables
+  m_Name: SFX Collectables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +898,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8535756240319853541, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.778
+  m_Volume: 0.913
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -895,7 +1026,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -7689853663621196044, guid: 149feee5603d5ec41aa8a4346b9c466f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.701
   m_Pitch: 1
   Loop: 0
   Mute: 0

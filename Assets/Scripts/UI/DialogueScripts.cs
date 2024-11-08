@@ -62,6 +62,7 @@ namespace UI
             newScript = new List<string>();
             newScript.Add("Glad to you made it! Now, listen handsomely! See dis blue diamond right thar? I propose a deal.");
             newScript.Add("On each level, thar be three diamonds like dis one scattered around. Ye bring me all three 'n I'll take ye t' the next level. Pirates word!");
+            newScript.Add("Some times thar can be hidden in chests, so look out fer keys.");
             newScript.Add("If ye agree, bring all three t' me near the tent 'n I'll take it from there! Well, see ye around!");
             Scripts.Add(newScript);
             // Script 8 - Tutorial 5

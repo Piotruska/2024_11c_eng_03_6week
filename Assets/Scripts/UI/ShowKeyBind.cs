@@ -9,12 +9,13 @@ namespace GameController
         [SerializeField] private Transform position; 
         [SerializeField] private float fadeDuration = 0.5f; 
 
-        private GameObject _currentKeyBind;
+        public GameObject _currentKeyBind;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("InteractionHitbox") && _currentKeyBind == null)
             {
+                Debug.Log("E");
                 _currentKeyBind = Instantiate(keyBindPrefab, position.position, Quaternion.identity);
                 StartCoroutine(FadeIn(_currentKeyBind));
             }

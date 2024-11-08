@@ -151,6 +151,8 @@ namespace Cutscenes
             StartCoroutine(_creditsDisplay.FadeOut(3));
             yield return new WaitForSeconds(6f);
             //Return to Main Menu
+            _player.GetComponent<PlayerController>().FullGameReset();
+            _audioManeger.PlaySoundtrackMusic();
             SceneManager.LoadScene(0);
         }
     }

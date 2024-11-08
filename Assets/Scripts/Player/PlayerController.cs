@@ -174,6 +174,13 @@ namespace Player
             if (_jumpbool) Jump();
         }
 
+        public void FullGameReset()
+        {
+            _playerCollectibles.Reset();
+            _animator.HasSword(false);
+            _hasSword = false;
+        }
+
         void SpeedSetDefault()
         {
             _playerSpeed = _config.movementSpeed;

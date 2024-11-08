@@ -62,6 +62,7 @@ namespace Player
             _hasDiamond1 = false;
             _hasDiamond2 = false; 
             _hasDiamond3 = false;
+            _hasSword = false;
         }
         
         public bool GetHasSword()

@@ -85,6 +85,11 @@ public class AudioManeger : MonoBehaviour
         _backgroundSource.Play();
     }
 
+    public void PlaySoundtrackMusic()
+    {
+        _musicSource.clip = adventureMusic;
+        _musicSource.Play();
+    }
     public void PlayEndingMusic()
     {
         _musicSource.clip = endingMusic;

@@ -11,6 +11,7 @@ namespace Tiles.CheckPoint
         [SerializeField] private Transform _flag;
         private Collider2D _collider2D;
         [SerializeField] private float _flagRaiseSpeed = 4.0f;
+        private bool _flagRaised;
 
         private void Awake()
         {
@@ -23,13 +24,14 @@ namespace Tiles.CheckPoint
             if (other.CompareTag("Player"))
             {
                 _playerHealthScript.UpdateCheckpointPosition(_respawnPoint.position);
-                _collider2D.enabled = false; 
-                StartCoroutine(RaiseFlag());
+                //_collider2D.enabled = false; 
+                if(!_flagRaised) StartCoroutine(RaiseFlag());
             }
         }
 
         private IEnumerator RaiseFlag()
         {
+            _flagRaised = true;
             Vector3 startPosition = _flag.position;
             Vector3 endPosition = new Vector3(startPosition.x, startPosition.y + 1.03f);
 

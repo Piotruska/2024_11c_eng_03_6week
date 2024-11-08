@@ -81,7 +81,7 @@ namespace Player
             get => _isGrounded;
         }
 
-        void Awake()
+        void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<PlayerAnimationScript>();

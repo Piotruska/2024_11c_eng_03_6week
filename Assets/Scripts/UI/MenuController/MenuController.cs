@@ -13,10 +13,17 @@ public class MenuController : MonoBehaviour
     public IMenuDisplay SoundSetting => soundSetting.GetComponent<IMenuDisplay>();
     
 
-    private void Awake()
+    // private void Awake()
+    // {
+    //     MainMenu.ShowDisplay();
+    //     SoundSetting.HideDisplay();
+    // }
+
+    private void Start()
     {
         MainMenu.ShowDisplay();
         SoundSetting.HideDisplay();
+        
     }
 
     public void ChangeMenu(IMenuDisplay display)

@@ -55,6 +55,7 @@ public class InputManager : MonoBehaviour
         XMenuNavigation = "Horizontal";
         YMenuNavigation = "Vertical";
         Confirm = "Confirm";
+        PauseInput = "Cancel";
     }
 
     public static void MenuDisable()

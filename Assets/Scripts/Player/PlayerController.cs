@@ -151,15 +151,15 @@ namespace Player
             {
                 if (_isPaused)
                 {
-                    _pauseDisplay.Hide();
+                    _pauseDisplay.Disable();
                     _isPaused = false;
-                    Time.timeScale = 1;
+                    //Time.timeScale = 1;
                 }
                 else
                 {
-                    _pauseDisplay.Show();
+                    _pauseDisplay.Enable();
                     _isPaused = true;
-                    Time.timeScale = 0;
+                    //Time.timeScale = 0;
                 }
             }
         }

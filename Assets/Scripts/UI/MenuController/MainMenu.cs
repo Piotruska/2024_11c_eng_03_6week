@@ -17,6 +17,7 @@ namespace UI
         private float _yAxisInput;
         private bool _yInput;
         private bool _confirmInput;
+        
         private int _currentSelection;
         private LevelLoader _levelLoader;
 

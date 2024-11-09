@@ -151,13 +151,17 @@ namespace Player
             {
                 if (_isPaused)
                 {
-                    _pauseDisplay.Disable();
+                    InputManager.MenuDisable();
+                    InputManager.PlayerEnable();
+                    _pauseDisplay.HideDisplay();
                     _isPaused = false;
                     //Time.timeScale = 1;
                 }
                 else
                 {
-                    _pauseDisplay.Enable();
+                    InputManager.PlayerDisable();
+                    InputManager.MenuEnable();
+                    _pauseDisplay.ShowDisplay();
                     _isPaused = true;
                     //Time.timeScale = 0;
                 }

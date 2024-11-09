@@ -1,11 +1,12 @@
+using UI.MenuController;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class PauseDisplay : MonoBehaviour
+    public class PauseDisplay : MonoBehaviour, IMenuDisplay
     {
-        private CanvasGroup _canvasGroup;
+        //private CanvasGroup _canvasGroup;
         private Canvas _pauseMenu;
         
         private Image _selectionPanel1;
@@ -20,14 +21,17 @@ namespace UI
         private int _currentSelection;
         
         private AudioManeger _audioManeger;
+        
+        private PauseMenuController _pauseMenuController;
         void Awake()
         {
-            _canvasGroup = gameObject.GetComponent<CanvasGroup>();
+            //_canvasGroup = gameObject.GetComponent<CanvasGroup>();
             _pauseMenu = GameObject.Find("PauseMenu").GetComponent<Canvas>();
             _selectionPanel1 = GameObject.Find("SelectionPanel1").GetComponent<Image>();
             _selectionPanel2 = GameObject.Find("SelectionPanel2").GetComponent<Image>();
             
             _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();
+            _pauseMenuController = gameObject.GetComponent<PauseMenuController>();
             
             SetVisible(_selectionPanel1, true);
             SetVisible(_selectionPanel2, false);
@@ -35,6 +39,7 @@ namespace UI
             _currentSelection = 0;
             
             _pauseMenu.enabled = false;
+            _pauseMenuController.SoundSetting.HideDisplay();
         }
 
         private void Update()
@@ -77,8 +82,8 @@ namespace UI
                     if (_confirmInput)
                     {
                         _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
-                        //HideDisplay();
-                        //_menuController.ChangeMenu(_menuController.SoundSetting);
+                        HideDisplay();
+                        _pauseMenuController.ChangeMenu(_pauseMenuController.SoundSetting);
                     }
                     break;
                 case 1: // Controls
@@ -87,23 +92,9 @@ namespace UI
                     if (_confirmInput)
                     {
                         _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
-                        //HideDisplay();
-                        //_menuController.ChangeMenu(_menuController.SoundSetting);
                     }
                     break;
             }
-        }
-
-        public void Enable() {
-            InputManager.PlayerDisable();
-            InputManager.MenuEnable();
-            _pauseMenu.enabled = true;
-        }
-        
-        public void Disable() {
-            InputManager.MenuDisable();
-            InputManager.PlayerEnable();
-            _pauseMenu.enabled = false;
         }
         
         private void SetVisible(Image image, bool visible)
@@ -124,18 +115,20 @@ namespace UI
         
         public void ShowDisplay()
         {
-            _canvasGroup.alpha = 1;
+            _pauseMenu.enabled = true;
+            /*_canvas.alpha = 1;
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
-            _displayActive = true;
+            _displayActive = true;*/
         }
 
         public void HideDisplay()
         {
-            _canvasGroup.alpha = 0;
+            _pauseMenu.enabled = false;
+            /*_canvasGroup.alpha = 0;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
-            _displayActive = false;
+            _displayActive = false;*/
         }
     }
 }

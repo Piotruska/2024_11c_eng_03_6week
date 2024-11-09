@@ -21,7 +21,7 @@ namespace UI
         private int _currentSelection;
         private LevelLoader _levelLoader;
 
-        private MenuController _menuController;
+        private MenuController.MenuController _menuController;
         private bool _displayActive;
         private CanvasGroup _canvasGroup;
         private AudioManeger _audioManeger;
@@ -31,7 +31,7 @@ namespace UI
             _selectionPanel2 = GameObject.Find("SelectionPanel2").GetComponent<Image>();
             _selectionPanel3 = GameObject.Find("SelectionPanel3").GetComponent<Image>();
             _selectionPanel4 = GameObject.Find("SelectionPanel4").GetComponent<Image>();
-            _menuController = FindObjectOfType<MenuController>();
+            _menuController = FindObjectOfType<MenuController.MenuController>();
             _levelLoader = FindObjectOfType<LevelLoader>();
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();
             _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();

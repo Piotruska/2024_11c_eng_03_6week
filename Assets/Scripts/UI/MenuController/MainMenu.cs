@@ -102,11 +102,17 @@ namespace UI
                         _menuController.ChangeMenu(_menuController.SoundSetting);
                     }
                     break;
-                case 2:
+                case 2: // Controls
                     SetVisible(_selectionPanel1, false);
                     SetVisible(_selectionPanel2, false);
                     SetVisible(_selectionPanel3, true);
                     SetVisible(_selectionPanel4, false);
+                    if (_confirmInput)
+                    {
+                        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
+                        HideDisplay();
+                        _menuController.ChangeMenu(_menuController.PlayerControls);
+                    }
                     break;
                 case 3:
                     SetVisible(_selectionPanel1, false);

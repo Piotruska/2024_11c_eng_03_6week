@@ -6,7 +6,6 @@ namespace UI
 {
     public class PauseDisplay : MonoBehaviour, IMenuDisplay
     {
-        //private CanvasGroup _canvasGroup;
         private Canvas _pauseMenu;
         
         private Image _selectionPanel1;
@@ -25,7 +24,6 @@ namespace UI
         private PauseMenuController _pauseMenuController;
         void Awake()
         {
-            //_canvasGroup = gameObject.GetComponent<CanvasGroup>();
             _pauseMenu = GameObject.Find("PauseMenu").GetComponent<Canvas>();
             _selectionPanel1 = GameObject.Find("SelectionPanel1").GetComponent<Image>();
             _selectionPanel2 = GameObject.Find("SelectionPanel2").GetComponent<Image>();
@@ -39,7 +37,6 @@ namespace UI
             _currentSelection = 0;
             
             _pauseMenu.enabled = false;
-            _pauseMenuController.SoundSetting.HideDisplay();
         }
 
         private void Update()
@@ -92,6 +89,8 @@ namespace UI
                     if (_confirmInput)
                     {
                         _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
+                        HideDisplay();
+                        _pauseMenuController.ChangeMenu(_pauseMenuController.PlayerControls);
                     }
                     break;
             }

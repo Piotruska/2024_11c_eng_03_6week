@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1165333962232544864}
   soundSetting: {fileID: 0}
+  playerControls: {fileID: 0}
 --- !u!114 &1074301191880053767
 MonoBehaviour:
   m_ObjectHideFlags: 0

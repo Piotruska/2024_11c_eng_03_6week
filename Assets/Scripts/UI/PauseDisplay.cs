@@ -1,3 +1,4 @@
+using System.Collections;
 using UI.MenuController;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,128 +7,128 @@ namespace UI
 {
     public class PauseDisplay : MonoBehaviour, IMenuDisplay
     {
-        private Canvas _pauseMenu;
-        
+        private CanvasGroup _canvasGroup;
         private Image _selectionPanel1;
         private Image _selectionPanel2;
-        // Inputs
-        private float _yAxisInput;
-        private bool _yInput;
-        private bool _confirmInput;
-        
+
         private bool _displayActive;
-        
+        private bool _canExitPause;  
         private int _currentSelection;
-        
+
         private AudioManeger _audioManeger;
-        
         private PauseMenuController _pauseMenuController;
-        void Awake()
+
+        private void Awake()
         {
-            _pauseMenu = GameObject.Find("PauseMenu").GetComponent<Canvas>();
+            _canvasGroup = GetComponent<CanvasGroup>();
             _selectionPanel1 = GameObject.Find("SelectionPanel1").GetComponent<Image>();
             _selectionPanel2 = GameObject.Find("SelectionPanel2").GetComponent<Image>();
-            
+
             _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();
-            _pauseMenuController = gameObject.GetComponent<PauseMenuController>();
-            
+            _pauseMenuController = FindObjectOfType<PauseMenuController>();
+
             SetVisible(_selectionPanel1, true);
             SetVisible(_selectionPanel2, false);
-            
             _currentSelection = 0;
-            
-            _pauseMenu.enabled = false;
         }
 
         private void Update()
         {
-            _yAxisInput = Input.GetAxis(InputManager.YMenuNavigation);
-            _yInput = Input.GetButtonDown(InputManager.YMenuNavigation);
-            _confirmInput = Input.GetButtonDown(InputManager.Confirm);
-            
-            if (_yInput && _yAxisInput > 0)
+            if (!_displayActive) return;
+
+            if (_canExitPause && Input.GetButtonDown(InputManager.PauseInput))
             {
                 _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
+                _pauseMenuController.DeactivatePause();
+                return;
+            }
+
+            if (Input.GetButtonDown(InputManager.YMenuNavigation))
+            {
+                float yAxisInput = Input.GetAxisRaw(InputManager.YMenuNavigation);
+
+                if (yAxisInput > 0)
+                {
+                    _currentSelection = Mathf.Max(0, _currentSelection - 1); 
+                }
+                else if (yAxisInput < 0)
+                {
+                    _currentSelection = Mathf.Min(1, _currentSelection + 1); 
+                }
+
+                _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
+                UpdateSelectionPanels();
+            }
+
+            if (Input.GetButtonDown(InputManager.Confirm))
+            {
+                _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
+                HideDisplay();
+
                 if (_currentSelection == 0)
                 {
-                    _currentSelection = 1;
+                    _pauseMenuController.ChangeMenu(_pauseMenuController.SoundSetting);
                 }
-                else
+                else if (_currentSelection == 1)
                 {
-                    _currentSelection--;
+                    _pauseMenuController.ChangeMenu(_pauseMenuController.PlayerControls);
                 }
-            }
-            
-            if (_yInput && _yAxisInput < 0)
-            {
-                _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
-                if (_currentSelection == 1)
-                {
-                    _currentSelection = 0;
-                }
-                else
-                {
-                    _currentSelection++;
-                }
-            }
-            
-            switch (_currentSelection)
-            {
-                case 0: // Settings
-                    SetVisible(_selectionPanel1, true);
-                    SetVisible(_selectionPanel2, false);
-                    if (_confirmInput)
-                    {
-                        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
-                        HideDisplay();
-                        _pauseMenuController.ChangeMenu(_pauseMenuController.SoundSetting);
-                    }
-                    break;
-                case 1: // Controls
-                    SetVisible(_selectionPanel1, false);
-                    SetVisible(_selectionPanel2, true);
-                    if (_confirmInput)
-                    {
-                        _audioManeger.PlayMenuSFX(_audioManeger.menuClick);
-                        HideDisplay();
-                        _pauseMenuController.ChangeMenu(_pauseMenuController.PlayerControls);
-                    }
-                    break;
             }
         }
-        
+
+        private void UpdateSelectionPanels()
+        {
+            SetVisible(_selectionPanel1, _currentSelection == 0);
+            SetVisible(_selectionPanel2, _currentSelection == 1);
+        }
+
         private void SetVisible(Image image, bool visible)
         {
-            if (visible)
-            {
-                var tempColor = image.color;
-                tempColor.a = 0.6f;
-                image.color = tempColor;
-            }
-            else
-            {
-                var tempColor = image.color;
-                tempColor.a = 0.2f;
-                image.color = tempColor;
-            }
+            var tempColor = image.color;
+            tempColor.a = visible ? 0.6f : 0.2f;
+            image.color = tempColor;
         }
-        
+
         public void ShowDisplay()
         {
-            _pauseMenu.enabled = true;
-            /*_canvas.alpha = 1;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-            _displayActive = true;*/
+            StartCoroutine(FadeCanvasGroup(_canvasGroup, 1f, true));
+            StartCoroutine(EnableExitAfterDelay()); 
         }
 
         public void HideDisplay()
         {
-            _pauseMenu.enabled = false;
-            /*_canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-            _displayActive = false;*/
+            _canExitPause = false;
+            StartCoroutine(FadeCanvasGroup(_canvasGroup, 0f, false));
+        }
+
+        private IEnumerator EnableExitAfterDelay()
+        {
+            yield return new WaitForSecondsRealtime(0.2f);
+            _canExitPause = true;
+        }
+
+        private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float endValue, bool setActive)
+        {
+            float startValue = canvasGroup.alpha;
+            float elapsed = 0f;
+            const float duration = 0.2f;
+
+            while (elapsed < duration)
+            {
+                canvasGroup.alpha = Mathf.Lerp(startValue, endValue, elapsed / duration);
+                elapsed += Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            canvasGroup.alpha = endValue;
+            _displayActive = setActive;
+            canvasGroup.interactable = setActive;
+            canvasGroup.blocksRaycasts = setActive;
+
+            if (setActive)
+            {
+                UpdateSelectionPanels();
+            }
         }
     }
 }

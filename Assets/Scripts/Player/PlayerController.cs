@@ -18,9 +18,7 @@ namespace Player
         private PlayerAudioController _playerAudioController;
         private CinemachineVirtualCamera _vcam;
         private PlayerCollectibles _playerCollectibles;
-    
-        private PauseDisplay _pauseDisplay;
-    
+        
         //Inputs
         private float _xInput;
         private float _yInput;
@@ -30,7 +28,6 @@ namespace Player
         private bool _interactInput;
         private bool _item1Input;
         private bool _item2Input;
-        private bool _pauseInput;
     
         public bool _fallThrough;
     
@@ -58,9 +55,6 @@ namespace Player
     
         //Parameters
         private float _playerSpeed;
-    
-        // Pause
-        private bool _isPaused = false;
     
 
         [Header("Configurations")] 
@@ -91,7 +85,6 @@ namespace Player
             _playerAudioController = GetComponent<PlayerAudioController>();
             _vcam = FindObjectOfType<CinemachineVirtualCamera>();
             _playerCollectibles = GetComponent<PlayerCollectibles>();
-            _pauseDisplay = FindObjectOfType<PauseDisplay>();
             _hasSword = _playerCollectibles.GetHasSword();
             _animator.HasSword(_hasSword);
             _extraJumpsValue = _config.extraJumpCount;
@@ -110,7 +103,6 @@ namespace Player
             _interactInput = Input.GetButtonDown(InputManager.InteractInput);
             _item1Input = Input.GetButtonDown(InputManager.Item1Input);
             _item2Input = Input.GetButtonDown(InputManager.Item2Input);
-            _pauseInput = Input.GetButtonDown(InputManager.PauseInput);
 
             if (_yInput < -0.01f) _fallThrough = true;
             else _fallThrough = false;
@@ -147,25 +139,7 @@ namespace Player
                 StartCoroutine(SpeedIncrease(_potionConfig.speedBoostEffect, _potionConfig.speedBoostDuration));
             }
 
-            if (_pauseInput)
-            {
-                if (_isPaused)
-                {
-                    InputManager.MenuDisable();
-                    InputManager.PlayerEnable();
-                    _pauseDisplay.HideDisplay();
-                    _isPaused = false;
-                    //Time.timeScale = 1;
-                }
-                else
-                {
-                    InputManager.PlayerDisable();
-                    InputManager.MenuEnable();
-                    _pauseDisplay.ShowDisplay();
-                    _isPaused = true;
-                    //Time.timeScale = 0;
-                }
-            }
+            
         }
 
         void FixedUpdate()

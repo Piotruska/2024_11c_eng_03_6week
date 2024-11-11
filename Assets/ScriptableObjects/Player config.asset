@@ -20,7 +20,7 @@ MonoBehaviour:
   dashDuration: 0.1
   dashCooldown: 0.5
   amountOfAirDash: 1
-  attackInterval: 0.15
+  attackInterval: 1
   resetTime: 3
   dammageAmount: 1
   generalKnockbackStrength: 2

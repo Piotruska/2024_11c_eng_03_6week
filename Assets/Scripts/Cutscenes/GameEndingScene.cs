@@ -14,6 +14,7 @@ namespace Cutscenes
     {
         private DialogueMenuDisplay _dialogueMenu;
         private BlackScreen _blackScreen;
+        private GameTitleDispaly _gameTitle;
         private CreditsDisplay _creditsDisplay;
         private GameObject _HUD;
         private CinemachineVirtualCamera _vcam;
@@ -51,6 +52,7 @@ namespace Cutscenes
         {
             _dialogueMenu = FindObjectOfType<DialogueMenuDisplay>();
             _blackScreen = FindObjectOfType<BlackScreen>();
+            _gameTitle = FindObjectOfType<GameTitleDispaly>();
             _creditsDisplay = FindObjectOfType<CreditsDisplay>();
             _playerAnim = FindObjectOfType<PlayerAnimationScript>();
             _audioManeger = FindObjectOfType<AudioManeger>();
@@ -139,10 +141,9 @@ namespace Cutscenes
             StartCoroutine(_creditsDisplay.FadeOut(3));
             yield return new WaitForSeconds(4f);
             //Names display
-            _creditsDisplay.SetText("THE GLORY OF PIRATE KINGDOM");
-            StartCoroutine(_creditsDisplay.FadeIn(3));
+            StartCoroutine(_gameTitle.FadeIn(3));
             yield return new WaitForSeconds(8f);
-            StartCoroutine(_creditsDisplay.FadeOut(3));
+            StartCoroutine(_gameTitle.FadeOut(3));
             yield return new WaitForSeconds(4f);
             //Message display
             _creditsDisplay.SetText("Thank you for playing!");

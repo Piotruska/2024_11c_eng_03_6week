@@ -15,7 +15,6 @@ namespace GameController
         {
             if (other.CompareTag("InteractionHitbox") && _currentKeyBind == null)
             {
-                Debug.Log("E");
                 _currentKeyBind = Instantiate(keyBindPrefab, position.position, Quaternion.identity);
                 StartCoroutine(FadeIn(_currentKeyBind));
             }

@@ -58,6 +58,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2136779695010706986}
     m_Modifications:
+    - target: {fileID: 566928057563032858, guid: 8245f22776cc7f547b5519fbfe01bd9a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566928057563032858, guid: 8245f22776cc7f547b5519fbfe01bd9a, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 566928057563032858, guid: 8245f22776cc7f547b5519fbfe01bd9a, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1165333962232544864, guid: 8245f22776cc7f547b5519fbfe01bd9a, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -188,6 +200,18 @@ PrefabInstance:
     - target: {fileID: 348569764348424005, guid: edae4d09efded764f947b67c1303494f, type: 3}
       propertyPath: m_Name
       value: Pause Player Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722240420804978292, guid: edae4d09efded764f947b67c1303494f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722240420804978292, guid: edae4d09efded764f947b67c1303494f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722240420804978292, guid: edae4d09efded764f947b67c1303494f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7343445297138249535, guid: edae4d09efded764f947b67c1303494f, type: 3}
       propertyPath: m_Pivot.x
@@ -435,6 +459,18 @@ PrefabInstance:
     - target: {fileID: 8542630821353638778, guid: f4c89010383ef5948bb1dd4eecaca01f, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857870343730059704, guid: f4c89010383ef5948bb1dd4eecaca01f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857870343730059704, guid: f4c89010383ef5948bb1dd4eecaca01f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857870343730059704, guid: f4c89010383ef5948bb1dd4eecaca01f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

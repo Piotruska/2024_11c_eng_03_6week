@@ -97,6 +97,7 @@ public class AudioManeger : MonoBehaviour
     public void PlayEndingMusic()
     {
         _musicSource.clip = endingMusic;
+        _musicSource.volume = 1;
         _musicSource.Play();
     }
 

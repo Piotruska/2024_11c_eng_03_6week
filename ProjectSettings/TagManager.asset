@@ -76,6 +76,9 @@ TagManager:
   - name: BackGround
     uniqueID: 3460569859
     locked: 0
+  - name: BackgroundEffects
+    uniqueID: 2292889889
+    locked: 0
   - name: ObjectsBack
     uniqueID: 2888472801
     locked: 0

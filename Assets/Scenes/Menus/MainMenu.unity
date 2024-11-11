@@ -446,6 +446,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5625903906654203956, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625903906654203956, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625903906654203956, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7034723791804146547, guid: dd9027c11b6c1e24791fd8d6cfd86f63, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -574,6 +586,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 166873158}
     m_Modifications:
+    - target: {fileID: 88329008572332528, guid: ec1476284bb2e4a47ad3ca3a796031c4, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 88329008572332528, guid: ec1476284bb2e4a47ad3ca3a796031c4, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 88329008572332528, guid: ec1476284bb2e4a47ad3ca3a796031c4, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 2926840303067982905, guid: ec1476284bb2e4a47ad3ca3a796031c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -674,6 +698,18 @@ PrefabInstance:
     - target: {fileID: 3647371483902986971, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469473638637313701, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469473638637313701, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469473638637313701, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 9016228616294123213, guid: 7c63e3c36236f124f9186e8af96fa453, type: 3}
       propertyPath: m_Pivot.x

@@ -128,14 +128,14 @@ namespace UI
         private void ResetCamera()
         {
             _vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
-            _vcam.m_Lens.OrthographicSize = _lensOriginal;
-            //StartCoroutine(CameraZoomOut());
+            //_vcam.m_Lens.OrthographicSize = _lensOriginal;
+            StartCoroutine(CameraZoomOut());
             _vcam.PreviousStateIsValid = false;
         }
         
         IEnumerator CameraZoomIn(float target)
         {
-            for (float lens = _lensOriginal; lens >= target; lens-=0.04f)
+            for (float lens = _lensOriginal; lens >= target; lens -= 0.04f)
             {
                 _vcam.m_Lens.OrthographicSize = lens;
                 yield return null;
@@ -144,7 +144,7 @@ namespace UI
         
         IEnumerator CameraZoomOut()
         {
-            for (float lens = _vcam.m_Lens.OrthographicSize; lens <= _lensOriginal; lens+=0.01f)
+            for (float lens = _vcam.m_Lens.OrthographicSize; lens <= _lensOriginal; lens += 0.04f)
             {
                 _vcam.m_Lens.OrthographicSize = lens;
                 yield return null;

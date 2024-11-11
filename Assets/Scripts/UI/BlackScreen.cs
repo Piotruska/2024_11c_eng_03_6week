@@ -7,7 +7,6 @@ namespace UI
     public class BlackScreen : MonoBehaviour
     {
         private Image _blackScreen;
-        public bool _isBeingAnimated = false;
         private void Awake()
         {
             _blackScreen = GetComponent<Image>();

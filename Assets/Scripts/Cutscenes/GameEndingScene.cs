@@ -140,7 +140,7 @@ namespace Cutscenes
             yield return new WaitForSeconds(6f);
             StartCoroutine(_creditsDisplay.FadeOut(3));
             yield return new WaitForSeconds(4f);
-            //Names display
+            //Game Title display
             StartCoroutine(_gameTitle.FadeIn(3));
             yield return new WaitForSeconds(8f);
             StartCoroutine(_gameTitle.FadeOut(3));

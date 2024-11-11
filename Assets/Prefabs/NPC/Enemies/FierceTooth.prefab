@@ -463,7 +463,7 @@ MonoBehaviour:
   _attackLayers:
   - serializedVersion: 2
     m_Bits: 128
-  attackCooldown: 0.7
+  attackCooldown: 1.5
   _showMovementGizmos: 1
 --- !u!114 &5791414665452585524
 MonoBehaviour:

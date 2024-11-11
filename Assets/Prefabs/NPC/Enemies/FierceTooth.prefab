@@ -367,13 +367,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d0258a14984a0cb8e47e0e02b04836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Maxhealth: 20
+  _Maxhealth: 6
   _stunnTime: 2
   _despawnTime: 3
   _fadeDuration: 2
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8216
+  _isFinalBoss: 0
 --- !u!114 &97595288554019044
 MonoBehaviour:
   m_ObjectHideFlags: 0

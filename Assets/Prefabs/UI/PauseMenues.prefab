@@ -51,7 +51,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1539007274549458978}
   soundSetting: {fileID: 7752878250696707237}
   playerControls: {fileID: 968495570925784936}
-  darkPannel: {fileID: 0}
+  darkPannel: {fileID: 2004564516725633955}
 --- !u!1 &2004564516725633955
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6586222141575060865}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -276,7 +276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3330335965542736504

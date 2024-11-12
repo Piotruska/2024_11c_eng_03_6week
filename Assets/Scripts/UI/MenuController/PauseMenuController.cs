@@ -9,10 +9,13 @@ namespace UI.MenuController
         [SerializeField] private GameObject pauseMenu;
         [SerializeField] private GameObject soundSetting;
         [SerializeField] private GameObject playerControls;
+        [SerializeField] private GameObject darkPannel;
 
         public IMenuDisplay PauseMenu => pauseMenu.GetComponent<IMenuDisplay>();
         public IMenuDisplay SoundSetting => soundSetting.GetComponent<IMenuDisplay>();
-        public IMenuDisplay PlayerControls => playerControls.GetComponent<IMenuDisplay>();
+        public IMenuDisplay PlayerControls => playerControls.GetComponent<IMenuDisplay>();  
+        public CanvasGroup DarkPannel => darkPannel.GetComponent<CanvasGroup>();
+
         private AudioManeger _audioManeger;
 
         
@@ -24,6 +27,7 @@ namespace UI.MenuController
             PauseMenu.HideDisplay();
             SoundSetting.HideDisplay();
             PlayerControls.HideDisplay();
+            DarkPannel.alpha = 0;
             _audioManeger = GameObject.FindWithTag("AudioManager")?.GetComponent<AudioManeger>();
 
         }
@@ -46,6 +50,7 @@ namespace UI.MenuController
                 InputManager.PlayerDisable();
                 InputManager.MenuEnable();
                 PauseMenu.ShowDisplay();
+                DarkPannel.alpha = 1;
                 _isPaused = true;
                 Time.timeScale = 0f;
             }
@@ -56,6 +61,7 @@ namespace UI.MenuController
                 InputManager.MenuDisable();
                 InputManager.PlayerEnable();
                 PauseMenu.HideDisplay();
+                DarkPannel.alpha = 0;
                 _isPaused = false;
             }
         }

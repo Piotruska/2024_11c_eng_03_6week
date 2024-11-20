@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a583258bb95940948f1d37d45dd4a, type: 3}
   m_Name: Player config
   m_EditorClassIdentifier: 
-  movementSpeed: 10
-  jumpForce: 2
-  maxJumpCount: 2
+  maxHealth: 20
+  movementSpeed: 3.5
+  jumpForce: 5
+  extraJumpCount: 1
+  dashSpeed: 15
+  dashDuration: 0.1
+  dashCooldown: 0.5
+  amountOfAirDash: 1
+  attackInterval: 1
+  resetTime: 3
+  dammageAmount: 1
+  generalKnockbackStrength: 2
+  yAxisKnockbackStrength: 2
+  stunTime: 0.5

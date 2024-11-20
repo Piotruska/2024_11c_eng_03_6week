@@ -5,24 +5,49 @@ TagManager:
   serializedVersion: 2
   tags:
   - InstantDeath
+  - Ground
+  - Projectile
+  - CheckPoint
+  - Totem1
+  - Totem1H
+  - GoldCoin
+  - HealthPotion
+  - SpeedPotion
+  - BlueDiamond
+  - Key
+  - Sword
+  - FierceTooth
+  - TrainingDummy
+  - PalmFront
+  - Chest
+  - FallingPlatform
+  - PatricStar
+  - AudioManager
+  - InteractionHitbox
+  - Totem2
+  - Totem3
+  - Totem2_H
+  - Totem3_H
+  - GreenDiamond
+  - RedDiamond
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Collectible
+  - Enemy
+  - Sword
+  - Interactable
+  - Hitbox
+  - Danger
+  - FallingObjects
+  - AttackBox
+  - Friendly
   - 
   - 
   - 
@@ -39,18 +64,42 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: ForeGround
-    uniqueID: 3808322537
+  - name: LandScape
+    uniqueID: 3338211345
     locked: 0
-  - name: Player
-    uniqueID: 1603692327
+  - name: LandScape Effects
+    uniqueID: 3221801483
     locked: 0
-  - name: Ground
-    uniqueID: 3480771253
+  - name: Clouds
+    uniqueID: 3258046147
+    locked: 0
+  - name: BackGround
+    uniqueID: 3460569859
+    locked: 0
+  - name: BackgroundEffects
+    uniqueID: 2292889889
+    locked: 0
+  - name: ObjectsBack
+    uniqueID: 2888472801
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
-    uniqueID: 3460569859
+  - name: Ground
+    uniqueID: 3480771253
+    locked: 0
+  - name: Projectile
+    uniqueID: 188800405
+    locked: 0
+  - name: Enemy
+    uniqueID: 4279487809
+    locked: 0
+  - name: Player
+    uniqueID: 1603692327
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3808322537
+    locked: 0
+  - name: FullscreenEffects
+    uniqueID: 3037193191
     locked: 0
